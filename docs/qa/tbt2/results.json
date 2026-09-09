@@ -1,0 +1,44 @@
+[
+  {
+    "label": "flow",
+    "run": 1,
+    "perfScore": 0.96,
+    "tbtMs": 202.99800000000005,
+    "lcpMs": 1553.484
+  },
+  {
+    "label": "flow",
+    "run": 2,
+    "perfScore": 0.85,
+    "tbtMs": 594.312,
+    "lcpMs": 489.177
+  },
+  {
+    "label": "flow",
+    "run": 3,
+    "perfScore": 0.97,
+    "tbtMs": 200.50900000000001,
+    "lcpMs": 278.698
+  },
+  {
+    "label": "explore",
+    "run": 1,
+    "perfScore": 0.86,
+    "tbtMs": 522.7559999999995,
+    "lcpMs": 1868.624
+  },
+  {
+    "label": "explore",
+    "run": 2,
+    "perfScore": 0.73,
+    "tbtMs": 1602.3150000000007,
+    "lcpMs": 1910.744
+  },
+  {
+    "label": "explore",
+    "run": 3,
+    "perfScore": 0.93,
+    "tbtMs": 326.48500000000007,
+    "lcpMs": 1111.147
+  }
+]

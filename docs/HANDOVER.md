@@ -32,10 +32,10 @@ senaryoları (gerçek Supabase karşı, `E2E_SUPABASE=1`) yeşil.
 **Ne açık:** son QA raporu (`docs/qa/full2/REPORT.md`, 7/10) 4 P1 ve 5 P2
 bulgu bırakmıştı — 2026-09-09'da bir sonraki oturumda hepsinin **zaten
 `fixQA2` dalgasıyla çözüldüğü** doğrulandı (bu doküman fixQA2'den sonra
-yazılmış ama listesi güncellenmemiş kalmıştı); tek istisna Flow/Explore TBT
-— düzeltme kodda var ama kendi ölçüm raporu (`docs/qa/fixQA2/TBT.md`) bunu
-kesin kanıtlanmış saymıyor, sessiz bir host'ta yeniden ölçüm gerekiyor (bkz.
-bölüm (j)). Ayrıca gerçek cihazda mikrofonla Flow/Duet dinleme testi ve
+yazılmış ama listesi güncellenmemiş kalmıştı); Flow/Explore TBT de aynı
+oturumda sessiz bir host'ta yeniden ölçülüp doğrulandı — Flow çözülmüş
+sayılır, Explore büyük oranda iyileşmiş ama tam kararlı değil
+(`docs/qa/tbt2/TBT.md`, bkz. bölüm (j)). Ayrıca gerçek cihazda mikrofonla Flow/Duet dinleme testi ve
 iyzico/Paddle sandbox ödeme testi hâlâ yapılmadı, `akinti.app` alan adı
 bağlanmadı. **Anahtar rotasyonu 2026-09-09'da tamamlandı** (bkz. bölüm (i)) —
 `SUPABASE_SERVICE_ROLE_KEY`/`NEXT_PUBLIC_SUPABASE_ANON_KEY` artık Supabase'in
@@ -698,17 +698,27 @@ hash'leriyle). Kalanlar, öncelik sırasıyla:
    `designTokens.test.ts`, 27/27) yeniden doğrulandı — bu madde
    düzeltilirken bu doküman güncellenmemiş, bir sonraki tarama bunu tekrar
    açık sanmasın diye burada not edildi.
-2. **Pro/TRY checkout sırası** — iyzico tarafında Paddle'daki gibi bir
-   "ödeme kurulu değil mi" ön kontrolü yok; kullanıcıdan TC kimlik numarası
-   isteniyor, sonra İngilizce, çevrilmemiş bir hatayla başarısız oluyor
-   (`src/lib/billing/index.ts:85`, `src/components/pro/StartProControls.tsx`).
-3. **Challenges içeriği çevrilmemiş** — "atisma-call" challenge'ının başlığı/
-   brief'i İngilizce, em dash içeriyor, tek bir Türkçe cümle karışmış
-   (`scripts/seed-challenges.ts`), `challenges` tablosunda locale kolonu yok.
-4. **Flow/Explore performansı** — Total Blocking Time Flow'da 2100ms,
-   Explore'da 1330ms (Lighthouse, devtools throttling) — LCP artık iyi
-   (1.2-2.6s) ama TBT çok yüksek, muhtemel sebep Flow'un AnalyserNode/canvas
-   kurulumu + hydration sonrası main thread yükü.
+2. ~~**Pro/TRY checkout sırası**~~ **ZATEN ÇÖZÜLDÜ** — `79a8025`
+   (`fix(billing): gate TRY checkout on plan + provider readiness`), da
+   `7f05131`'den önce. `isIyzicoConfigured()` + TRY plan var mı kontrolü artık
+   buyer-details Sheet'i açmadan önce çalışıyor; hatalar `SettingsProActions.*`
+   üzerinden tam Türkçe. 2026-09-09'da kod okunarak doğrulandı.
+3. ~~**Challenges içeriği çevrilmemiş**~~ **ZATEN ÇÖZÜLDÜ** — `60e2e67`
+   (`feat(challenges): bilingual title/brief...`), migration
+   `20260906220100_challenge_locale.sql` (`title_tr`/`brief_tr`) canlıda,
+   `scripts/seed-challenges.ts` hand-written TR içerik yazıyor. 2026-09-09'da
+   şema + seed script okunarak doğrulandı.
+4. **Flow/Explore performansı** — full2'nin bulduğu Flow 2100ms/Explore
+   1330ms TBT için `f9d03a4` (`ShareSheet` `next/dynamic`) zaten uygulanmıştı
+   (yine `7f05131`'den önce) ama kendi raporu (`docs/qa/fixQA2/TBT.md`)
+   host gürültüsü yüzünden sonucu kanıtlanmış saymıyordu. **2026-09-09'da
+   sessiz bir host'ta (bu makinede, tek aktif ajan) yeniden ölçüldü**
+   (`docs/qa/tbt2/TBT.md`): Flow medyan TBT 203ms (10x iyileşme, 3/3 run
+   tutarlı), Explore medyan TBT 523ms (2.5x iyileşme) ama 1 run'da 1602ms'e
+   sıçradı — fixQA2'nin zaten işaret ettiği chunk-split/host-gürültüsü
+   deseniyle uyumlu, kod değişmeden. **Sonuç: Flow tamamen çözülmüş sayılabilir,
+   Explore büyük oranda iyileşmiş ama tam kararlı değil** — devam edilecekse
+   `docs/qa/tbt2/TBT.md`'nin "Reading this" bölümündeki öneriyle başla.
 
 ### P2 (öncelik sırasıyla, launch sonrası ilk tur)
 
