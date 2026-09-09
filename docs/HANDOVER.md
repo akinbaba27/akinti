@@ -30,14 +30,17 @@ ve bağımsız QA turlarından geçti; ~900 birim testi, uçtan uca Playwright
 senaryoları (gerçek Supabase karşı, `E2E_SUPABASE=1`) yeşil.
 
 **Ne açık:** son QA raporu (`docs/qa/full2/REPORT.md`, 7/10) 4 P1 ve 5 P2
-bulgu bıraktı (Ayarlar > Görünüm ekranında mor/gradient presetleri hâlâ
-canlı ve hiçbir yere bağlı değil; Pro/TRY akışı ödeme sağlayıcısı hazır
-olduğunu kontrol etmeden TC kimlik numarası istiyor; bir Challenge'ın
-içeriği çevrilmemiş İngilizce; Flow/Explore'da Total Blocking Time bütçenin
-çok üstünde; Wave rotası JS bütçesini 4 KB aşıyor — bkz. bölüm (j)). Ayrıca
-gerçek cihazda mikrofonla Flow/Duet dinleme testi ve iyzico/Paddle sandbox
-ödeme testi hâlâ yapılmadı, `akinti.app` alan adı bağlanmadı, anahtar
-rotasyonu (service_role + DB şifresi) yayından önce **şart**.
+bulgu bırakmıştı — 2026-09-09'da bir sonraki oturumda hepsinin **zaten
+`fixQA2` dalgasıyla çözüldüğü** doğrulandı (bu doküman fixQA2'den sonra
+yazılmış ama listesi güncellenmemiş kalmıştı); tek istisna Flow/Explore TBT
+— düzeltme kodda var ama kendi ölçüm raporu (`docs/qa/fixQA2/TBT.md`) bunu
+kesin kanıtlanmış saymıyor, sessiz bir host'ta yeniden ölçüm gerekiyor (bkz.
+bölüm (j)). Ayrıca gerçek cihazda mikrofonla Flow/Duet dinleme testi ve
+iyzico/Paddle sandbox ödeme testi hâlâ yapılmadı, `akinti.app` alan adı
+bağlanmadı. **Anahtar rotasyonu 2026-09-09'da tamamlandı** (bkz. bölüm (i)) —
+`SUPABASE_SERVICE_ROLE_KEY`/`NEXT_PUBLIC_SUPABASE_ANON_KEY` artık Supabase'in
+yeni `sb_secret_`/`sb_publishable_` anahtar formatında, DB şifresi yenilendi,
+eski (sızmış) legacy JWT anahtarları panelden kalıcı devre dışı.
 
 ---
 
@@ -238,9 +241,12 @@ erişimi yeterli.
 
 ### Migration'ları uygulama
 
-Zaten canlı projede uygulanmış (bu handover anında `docs/qa/review3/REVIEW.md`
-"Launch-readiness" bölümü uyarınca `npm run db:migrate:dry` ile bekleyen
-migration olmadığı teyit edilmeli — ekleneni kontrol etmeden varsayma):
+Zaten canlı projede uygulanmış ve **2026-09-09'da gerçek bağlantıyla teyit
+edildi**: `npm run db:migrate:dry` DB'ye hiç bağlanmadığı için (tasarım
+gereği, sadece migration klasöründeki dosyaları listeler) pending olup
+olmadığını göstermez — asıl kanıt `npm run db:migrate`'in gerçek
+`DATABASE_URL` ile çalıştırılıp her 57 migration için `skipped` (zaten
+uygulanmış) dönmesiydi. Yeni bir migration eklersen aynı komutla kontrol et:
 
 ```bash
 npm run db:migrate:dry   # bekleyen migration'ları listeler — DB bağlantısı gerektirmez
@@ -593,22 +599,38 @@ Bölüm (d)'deki her şey + Realtime zaten migration'larla açık
 isteğe bağlı (worker'ın kendi bakım döngüsü zaten yeterli, sadece worker
 sürekli çalışmıyorsa gerekli, bkz. `docs/DEPLOYMENT.md`).
 
-### Anahtar rotasyonu — YAYINDAN ÖNCE ŞART
+### Anahtar rotasyonu — TAMAMLANDI (2026-09-09)
 
 `docs/HANDOFF.md`'ye göre **`SUPABASE_SERVICE_ROLE_KEY` ve veritabanı şifresi
-(`DATABASE_URL`'in parçası) daha önce sohbete/transcript'e yapıştırıldı.**
-Bu ikisi lansmandan önce **mutlaka** yenilenmeli:
+(`DATABASE_URL`'in parçası) daha önce sohbete/transcript'e yapıştırılmıştı.**
+2026-09-09'da founder tarafından rotasyon yapıldı, aynı oturumda canlıya
+karşı doğrulandı:
 
-1. Supabase → Project Settings → API → yeni `service_role` anahtarı üret
-   (eskisi anında geçersiz olur, geri dönüş yok).
-2. Aynı işlemi Database → **Reset database password** ile yap.
-3. Her iki yeni değeri de her yerde güncelle: Vercel env (Production +
-   Preview), worker/sidecar host'un secret store'u, kendi `.env.local`'ın.
-4. Web app'i yeniden deploy et, worker container'ı yeniden başlat — hiçbiri
-   env değişikliğini hot-reload etmiyor.
+1. Supabase → Project Settings → API → yeni anahtarlar üretildi — bu sırada
+   Supabase'in **yeni anahtar sistemine** geçildi: `SUPABASE_SERVICE_ROLE_KEY`
+   artık `sb_secret_...`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` artık
+   `sb_publishable_...` formatında (eski `eyJ...` JWT formatı değil).
+2. Database → **Reset database password** yapıldı, `DATABASE_URL` güncel.
+3. Eski (sızmış) legacy JWT tabanlı anon/service_role anahtarları panelden
+   **"Disable JWT-based API keys"** ile kalıcı olarak devre dışı bırakıldı —
+   geri dönüşü yok.
+4. Doğrulama (aynı oturumda, değerler hiç sohbete yazdırılmadan): yeni
+   `service_role` ile `npx tsx scripts/verify-live.ts` → 9/9; yeni anon
+   (`sb_publishable_`) ile gerçek bir istemci isteği (RLS altında `waves`
+   sorgusu + `avatars` bucket listesi) → başarılı; yeni `DATABASE_URL` ile
+   `npm run db:migrate` → gerçek bağlantı kuruldu, **57/57 migration zaten
+   uygulanmış** (bu, bölüm (d)'deki "teyit edilmeli" notunu da kapatır).
+   `@supabase/supabase-js@2.114.0` yeni
+   anahtar formatıyla sorunsuz çalışıyor.
+5. **Henüz yapılmadı çünkü henüz gerekmiyor**: adım 3/4'teki "Vercel env +
+   worker/sidecar host'u güncelle, yeniden deploy et" — proje henüz Vercel'e
+   veya bir worker/sidecar sunucusuna deploy edilmedi (bkz. bölüm (j)), tek
+   canlı yer bu makinenin `.env.local`'ı. İlk gerçek deploy'da bu adım
+   hatırlanmalı.
 
-Tam adımlar: `docs/OPERATIONS.md` "Rotating keys / secrets",
-`docs/DEPLOYMENT.md` bölüm 4b.
+Tam adımlar (ileride tekrar rotasyon gerekirse): `docs/OPERATIONS.md`
+"Rotating keys / secrets", `docs/DEPLOYMENT.md` bölüm 4b — yeni anahtar
+formatına göre güncellenmedi, biri güncellemeli.
 
 **Ek bulgu (bu handover sırasında):** `docs/qa/full2/lighthouse/*.json`
 dosyalarının 4'ünde de gerçek, canlı bir Supabase oturum çerezi
