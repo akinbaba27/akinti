@@ -665,13 +665,17 @@ hash'leriyle). Kalanlar, öncelik sırasıyla:
 
 ### P1 (full2, launch öncesi düzeltilmeli)
 
-1. **`/settings/appearance`** — mor/violet ve plum preset'leri + 5 gradient
-   preset'i hâlâ canlı ve seçilebilir; hiçbiri gerçek profil sayfasında
-   (`ProfileHeader.tsx`) render edilmiyor (kaydet butonu hiçbir şey
-   yapmayan bir ayarı kaydediyor). COLOR_V2 ve DESIGN.md §12'nin doğrudan
-   ihlali. İlgili dosyalar: `src/lib/ui/profileTheme.ts`
-   (`ACCENT_PRESETS.violet`, `BACKGROUND_PRESETS.plum`, `GRADIENT_PRESETS`),
-   `src/components/profile/AppearanceForm.tsx`.
+1. ~~**`/settings/appearance`** — mor/violet ve plum preset'leri...~~ **ZATEN
+   ÇÖZÜLDÜ, bu doküman güncellenmeden önce** — `0ead4c4`
+   (`feat(appearance): replace inert theme presets with theme mode +
+   signature hue`), bu HANDOVER.md'nin yazıldığı `7f05131`'den önceki bir
+   commit. Preset sistemi (`ACCENT_PRESETS`/`BACKGROUND_PRESETS`/
+   `GRADIENT_PRESETS`) tamamen kaldırıldı; `AppearanceForm.tsx` artık sadece
+   tema modu + COLOR_V2'nin 4 sabit imza tonundan biri sunuyor, kart/gradient
+   yok. 2026-09-09 oturumunda kod + testler (`profileTheme.test.ts`,
+   `designTokens.test.ts`, 27/27) yeniden doğrulandı — bu madde
+   düzeltilirken bu doküman güncellenmemiş, bir sonraki tarama bunu tekrar
+   açık sanmasın diye burada not edildi.
 2. **Pro/TRY checkout sırası** — iyzico tarafında Paddle'daki gibi bir
    "ödeme kurulu değil mi" ön kontrolü yok; kullanıcıdan TC kimlik numarası
    isteniyor, sonra İngilizce, çevrilmemiş bir hatayla başarısız oluyor
