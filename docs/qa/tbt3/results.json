@@ -1,0 +1,23 @@
+[
+  {
+    "label": "explore",
+    "run": 1,
+    "perfScore": 0.83,
+    "tbtMs": 681.9389999999992,
+    "lcpMs": 1606.834
+  },
+  {
+    "label": "explore",
+    "run": 2,
+    "perfScore": 0.87,
+    "tbtMs": 524.4830000000001,
+    "lcpMs": 1707.179
+  },
+  {
+    "label": "explore",
+    "run": 3,
+    "perfScore": 0.88,
+    "tbtMs": 476.0119999389649,
+    "lcpMs": 1415.416
+  }
+]

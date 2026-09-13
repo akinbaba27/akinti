@@ -224,3 +224,34 @@ Founder (proje sahibi) artık kendi makinesinde tek başına devam ediyor, alt a
 - Kullanıcı "P1 #1 üzerinde kaldığın yerden devam et" dedi, P1 #1'in zaten çözülmüş olduğunu hatırlattım, tek gerçek açık P1 (Flow/Explore TBT) için karar sordum → kullanıcı "sessiz host'ta yeniden ölç" dedi.
 - TAMAM: **TBT yeniden ölçümü** (`528b9a3`; `docs/qa/tbt2/TBT.md` + `docs/qa/tbt2/lighthouse/*.json`). Metodoloji fixQA2 ile aynı (izole chromium + Lighthouse CDP + gerçek onboarding), tek fark: bu makinede başka ajan/dev server çalışmıyordu. **Önemli tuzak bulundu ve düzeltildi**: `.next` build'i anahtar rotasyonundan önce alınmıştı — `NEXT_PUBLIC_*` build-time'da bundle'a gömülüyor (server-side kod dahil), o yüzden ilk denemede login "something went wrong" ile patladı (eski, artık devre dışı anon key gömülüydü); `npm run build` yeniden çalıştırılıp düzeldi. Sonuç: Flow medyan TBT 203ms (baseline 2100ms, 3/3 run tutarlı) → **çözülmüş sayılır**. Explore medyan 523ms (baseline 1330ms) ama 1/3 run 1602ms'e sıçradı → **büyük oranda iyileşmiş, tam kararlı değil**, sonraki adım `docs/qa/tbt2/TBT.md`'de. `docs/HANDOVER.md` §(a)/(j) güncellendi (aynı commit). İki tek kullanımlık test hesabı (`e2e+tbt2-*@akinti.test`) oluşturuldu, ikisi de temizlendi (biri script'in kendi sonunda, biri — ilk başarısız denemeden kalan yetim — elle silindi).
 - SIRADA: kullanıcıya sonucu raporlayıp yön soracağım — Explore'un kalan varyansı için daha fazla araştırma mı, yoksa review3-kalanlar'daki (çoğu kullanıcının kendisinin yapması gereken) maddelerden biri mi.
+
+## İkinci oturum (2026-09-13) — Explore TBT kapanışı + review3-kalanlar checklist'i
+Kullanıcı doğrudan yön verdi: Explore için 2-3 run daha koş, 500-600ms'e
+kararsa kapat, 2+ run >1000ms görürsen kök nedeni bul; sonra review3-kalanlar'ı
+kullanıcının kendisinin işleyeceği somut bir checklist'e çevir.
+
+- TAMAM: **Explore TBT — 3 run daha** (`docs/qa/tbt3/TBT.md` +
+  `docs/qa/tbt3/lighthouse/*.json`). Mevcut `.next` build'i (2026-09-09,
+  hem son `src/` commit'inden hem anahtar rotasyonundan sonra) yeniden
+  kullanılabilir durumdaydı, rebuild gerekmedi. Aynı metodoloji: izole
+  `chromium.launch()`, `next start -p 3910`, admin API ile tek kullanımlık
+  hesap (`e2e+tbt3-*@akinti.test`) + gerçek onboarding, Lighthouse CDP,
+  390×844 mobil, `throttlingMethod: devtools`. Sonuç: 682/524/476ms —
+  1602ms'lik sıçrama hiç tekrarlanmadı, tbt2+tbt3 toplam 6 run'ın 5'i
+  <1000ms. Kapatma eşiği (2+ run >1000ms) karşılanmadı → **Explore de Flow
+  gibi çözülmüş sayıldı**, medyan ~500-600ms "needs improvement" bandında
+  kalıcı kabul edildi, ek TBT işi planlanmadı. `docs/HANDOVER.md` §(a) ve
+  §(j) P1 #4 güncellendi. Test hesabı script sonunda temizlendi.
+- TAMAM: **review3-kalanlar → founder checklist'i**. `docs/HANDOVER.md`
+  §(j)'deki "review3'ten kalan, henüz teyit edilmemiş maddeler" listesi
+  (iyzico/Paddle sandbox ödeme, gerçek cihaz mikrofon testi, `akinti.app`
+  domain, Vercel deploy) kullanıcının kendisinin dışarıda (hesap açma, kart
+  girme, domain satın alma, panel tıklama) yapması gereken adımlara
+  ayrıldı; her madde için Claude Code'un devreye gireceği net eşik
+  belirtildi. Kod değişikliği yok, sadece checklist — kullanıcıya iletilen
+  cevapta doğrudan verildi, ayrı bir dosya olarak yayınlanmadı.
+- **Yan bulgu**: tbt3 hesabını temizlerken canlı projede unutulmuş bir yetim
+  test hesabı bulundu (`e2e+dbg-1788960672252@akinti.test`, 2026-09-09
+  13:31 oluşturulmuş — tbt2 oturumundan önceki bir debug denemesinden
+  kalma, HANDOVER.md §(j)'nin zaten "temizle" dediği türden). Silindi.
+  tbt3'ün kendi hesabı script sonunda zaten temizlenmişti.

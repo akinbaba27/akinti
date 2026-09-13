@@ -34,8 +34,10 @@ bulgu bırakmıştı — 2026-09-09'da bir sonraki oturumda hepsinin **zaten
 `fixQA2` dalgasıyla çözüldüğü** doğrulandı (bu doküman fixQA2'den sonra
 yazılmış ama listesi güncellenmemiş kalmıştı); Flow/Explore TBT de aynı
 oturumda sessiz bir host'ta yeniden ölçülüp doğrulandı — Flow çözülmüş
-sayılır, Explore büyük oranda iyileşmiş ama tam kararlı değil
-(`docs/qa/tbt2/TBT.md`, bkz. bölüm (j)). Ayrıca gerçek cihazda mikrofonla Flow/Duet dinleme testi ve
+sayılır. Explore'un 2026-09-09 turunda 3 run'dan 1'i 1,602ms'e sıçramıştı;
+2026-09-13'te 3 run daha (`docs/qa/tbt3/TBT.md`) hiçbiri tekrarlamadı (682/
+524/476ms), 6 run'ın 5'i <1000ms — **artık tamamen çözülmüş sayılıyor**
+(bkz. bölüm (j) P1 #4). Ayrıca gerçek cihazda mikrofonla Flow/Duet dinleme testi ve
 iyzico/Paddle sandbox ödeme testi hâlâ yapılmadı, `akinti.app` alan adı
 bağlanmadı. **Anahtar rotasyonu 2026-09-09'da tamamlandı** (bkz. bölüm (i)) —
 `SUPABASE_SERVICE_ROLE_KEY`/`NEXT_PUBLIC_SUPABASE_ANON_KEY` artık Supabase'in
@@ -708,17 +710,21 @@ hash'leriyle). Kalanlar, öncelik sırasıyla:
    `20260906220100_challenge_locale.sql` (`title_tr`/`brief_tr`) canlıda,
    `scripts/seed-challenges.ts` hand-written TR içerik yazıyor. 2026-09-09'da
    şema + seed script okunarak doğrulandı.
-4. **Flow/Explore performansı** — full2'nin bulduğu Flow 2100ms/Explore
-   1330ms TBT için `f9d03a4` (`ShareSheet` `next/dynamic`) zaten uygulanmıştı
-   (yine `7f05131`'den önce) ama kendi raporu (`docs/qa/fixQA2/TBT.md`)
-   host gürültüsü yüzünden sonucu kanıtlanmış saymıyordu. **2026-09-09'da
-   sessiz bir host'ta (bu makinede, tek aktif ajan) yeniden ölçüldü**
+4. ~~**Flow/Explore performansı**~~ **ÇÖZÜLDÜ.** full2'nin bulduğu Flow
+   2100ms/Explore 1330ms TBT için `f9d03a4` (`ShareSheet` `next/dynamic`)
+   zaten uygulanmıştı (yine `7f05131`'den önce) ama kendi raporu
+   (`docs/qa/fixQA2/TBT.md`) host gürültüsü yüzünden sonucu kanıtlanmış
+   saymıyordu. 2026-09-09'da sessiz bir host'ta yeniden ölçüldü
    (`docs/qa/tbt2/TBT.md`): Flow medyan TBT 203ms (10x iyileşme, 3/3 run
-   tutarlı), Explore medyan TBT 523ms (2.5x iyileşme) ama 1 run'da 1602ms'e
-   sıçradı — fixQA2'nin zaten işaret ettiği chunk-split/host-gürültüsü
-   deseniyle uyumlu, kod değişmeden. **Sonuç: Flow tamamen çözülmüş sayılabilir,
-   Explore büyük oranda iyileşmiş ama tam kararlı değil** — devam edilecekse
-   `docs/qa/tbt2/TBT.md`'nin "Reading this" bölümündeki öneriyle başla.
+   tutarlı) → çözülmüş sayıldı. Explore medyan TBT 523ms (2.5x iyileşme) ama
+   1 run'da 1602ms'e sıçradı, kararsız sayılmıştı. **2026-09-13'te Explore
+   için 3 run daha koşuldu** (`docs/qa/tbt3/TBT.md`, kod değişmeden): 682/
+   524/476ms — hiçbiri 1602ms'i tekrarlamadı, toplam 6 run'ın 5'i <1000ms.
+   Tek bir sıçrama host/scheduler gürültüsüne uyuyor, tekrarlayan bir
+   regresyon değil (kapatma eşiği: 2+ run >1000ms — karşılanmadı). **Sonuç:
+   Flow ve Explore ikisi de çözülmüş sayılıyor**, medyan ~500-600ms
+   ("needs improvement" bandı, "poor" değil) — daha fazla TBT işi
+   planlanmıyor.
 
 ### P2 (öncelik sırasıyla, launch sonrası ilk tur)
 
