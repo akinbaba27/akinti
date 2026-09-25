@@ -17,6 +17,7 @@ export interface ConversationRowProps {
 /** One row in the `/messages` inbox: other member, last-message preview by kind, timestamp, unread count. */
 export function ConversationRow({ summary, viewerId, active = false }: ConversationRowProps) {
   const t = useTranslations("ConversationRow");
+  const tFormat = useTranslations("MessageFormat");
   const other = summary.members.find((m) => m.id !== viewerId) ?? summary.members[0] ?? null;
   const name = other?.displayName ?? (other ? `@${other.username}` : t("unknownMember"));
   const unread = summary.unreadCount > 0;
@@ -51,7 +52,7 @@ export function ConversationRow({ summary, viewerId, active = false }: Conversat
         </div>
         <div className="mt-0.5 flex items-center gap-2">
           <p className={`truncate text-sm ${unread ? "font-medium text-fg" : "text-fg-muted"}`}>
-            {formatMessagePreview(summary.lastMessage, viewerId)}
+            {formatMessagePreview(summary.lastMessage, viewerId, tFormat)}
           </p>
         </div>
       </div>

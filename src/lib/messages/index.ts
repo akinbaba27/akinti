@@ -6,6 +6,7 @@ export {
   shouldGroupWithPrevious,
   GROUP_GAP_MS,
   type DayGroup,
+  type MessageTranslator,
 } from "./format";
 export { unreadMessagesReducer, type UnreadMessagesAction } from "./unreadReducer";
 export { subscribeUnreadMessages, refreshUnreadMessages } from "./unreadStore";

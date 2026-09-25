@@ -573,6 +573,16 @@
     "unknownMember": "Bilinmiyor",
     "unreadSr": "{count} okunmadı"
   },
+  "MessageFormat": {
+    "noMessagesYet": "Henüz mesaj yok",
+    "youPrefix": "Sen: ",
+    "messageFallback": "Mesaj",
+    "audioMessage": "🎤 Sesli mesaj",
+    "waveShared": "Wave paylaşıldı",
+    "duetRequest": "Duet isteği",
+    "dayToday": "Bugün",
+    "dayYesterday": "Dün"
+  },
   "MessageBubble": {
     "them": "onlar",
     "readReceipt": "Okundu",

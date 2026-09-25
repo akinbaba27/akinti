@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { MoreHorizontal } from "@/components/ui/icons";
 
 import { formatAbsoluteTime } from "@/lib/ui";
@@ -34,6 +34,7 @@ export function MessageBubble({
   onReport,
 }: MessageBubbleProps) {
   const t = useTranslations("MessageBubble");
+  const locale = useLocale();
   const isCard = message.kind === "wave_share" || message.kind === "duet_request" || message.kind === "audio";
   const otherName = otherProfile ? (otherProfile.displayName ?? `@${otherProfile.username}`) : t("them");
 
@@ -67,7 +68,7 @@ export function MessageBubble({
 
         <div className="flex items-center gap-1.5 px-1 text-[0.6875rem] text-fg-subtle">
           <time dateTime={message.createdAt} title={formatAbsoluteTime(message.createdAt)}>
-            {formatMessageTime(message.createdAt)}
+            {formatMessageTime(message.createdAt, locale)}
           </time>
           {showReadReceipt ? <span>· {t("readReceipt")}</span> : null}
         </div>

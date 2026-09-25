@@ -573,6 +573,16 @@
     "unknownMember": "Unknown",
     "unreadSr": "{count} unread"
   },
+  "MessageFormat": {
+    "noMessagesYet": "No messages yet",
+    "youPrefix": "You: ",
+    "messageFallback": "Message",
+    "audioMessage": "🎤 Audio message",
+    "waveShared": "Wave shared",
+    "duetRequest": "Duet Request",
+    "dayToday": "Today",
+    "dayYesterday": "Yesterday"
+  },
   "MessageBubble": {
     "them": "them",
     "readReceipt": "Read",

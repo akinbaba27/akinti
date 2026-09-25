@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
 import { markConversationRead } from "@/app/(app)/messages/actions";
@@ -46,6 +46,8 @@ export function ThreadView({
   const { refresh: refreshUnread } = useUnreadMessages(viewerId);
   const t = useTranslations("ThreadView");
   const tBlocked = useTranslations("BlockedNotice");
+  const tFormat = useTranslations("MessageFormat");
+  const locale = useLocale();
   const [reportingMessageId, setReportingMessageId] = useState<string | null>(null);
   const markedReadRef = useRef(false);
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -65,7 +67,7 @@ export function ThreadView({
     bottomRef.current?.scrollIntoView({ behavior: "auto" });
   }, [messages.length]);
 
-  const dayGroups = groupMessagesByDay(messages);
+  const dayGroups = groupMessagesByDay(messages, tFormat, locale);
   const lastMessage = messages[messages.length - 1] ?? null;
 
   return (
