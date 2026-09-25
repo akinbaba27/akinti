@@ -342,6 +342,42 @@
     --akinti-shadow-bar: 0 -1px 0 0 var(--akinti-hairline), 0 -24px 48px -24px rgb(0 0 0 / 0.6);
 
     --akinti-radius-card: 18px;
+
+    /* The rest of the dark palette. This block grounds and inks the page
+       dark at >= 1024px regardless of `prefers-color-scheme`, which is the
+       founder's deliberate desktop default — but it is NOT inside the
+       `@media (prefers-color-scheme: dark)` block above, so on a desktop
+       whose OS is set to light (and with no explicit in-app light choice)
+       none of that block's dark values applied. Every token below kept its
+       LIGHT value on a dark ground.
+
+       That is what made `text-danger` #9a2e1e on elevation-1 #10171A —
+       2.4:1, an axe serious `color-contrast` violation on the Settings
+       "Log out" control, which is how the 2026-09-25 audit found this. The
+       others were wrong in the same direction and just quieter: a pale mint
+       `foam` as the unplayed trace, near-black Atisma green and Cypher blue
+       marks, a near-white `signal-wash`, a light scrim behind sheets, light
+       shadows carrying a light hairline, and grain compositing with
+       `multiply` (which darkens) instead of `screen`.
+
+       Values are copied from the `@media (prefers-color-scheme: dark)`
+       block verbatim, so desktop-dark and mobile-dark stay one palette
+       ("its dark theme adopts the same palette so the product feels like
+       one thing", DESIGN_V3_DESKTOP.md). `--akinti-signal-deep` and
+       `--akinti-wave-rest` are deliberately not repeated: both are
+       `var()` aliases onto tokens this block already sets, so they follow
+       automatically. */
+    --akinti-foam: #3e7972;
+    --akinti-danger: #f07a62;
+    --akinti-atisma: #6dbf7e;
+    --akinti-cypher-blue: #8aa6e6;
+    --akinti-signal-wash: #2a140e;
+    --akinti-wave-dormant: var(--akinti-foam);
+    --akinti-overlay: rgb(5 8 7 / 0.62);
+    --akinti-shadow-sheet: 0 -1px 0 0 #243330, 0 24px 48px -12px rgb(5 8 7 / 0.55);
+    --akinti-shadow-lifted: 0 8px 24px -8px rgb(5 8 7 / 0.5);
+    --akinti-grain-opacity: 0.045;
+    --akinti-grain-blend: screen;
   }
 
   /* An explicit light choice on desktop: the same four-step structure,
