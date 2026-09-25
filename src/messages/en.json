@@ -732,6 +732,20 @@
     "loadMore": "Load more",
     "allCaughtUpFull": "You're all caught up."
   },
+  "NotificationsForm": {
+    "labelMessage": "Messages",
+    "labelDuet": "Duets",
+    "labelComment": "Comments",
+    "labelFollower": "Followers",
+    "labelSystem": "AKINTI updates",
+    "descriptionMessage": "New messages sent to you.",
+    "descriptionDuet": "Duet Requests, accepted/declined Duets, Duets published from your Waves, and collaborator invites.",
+    "descriptionComment": "Comments on your Waves and replies to your comments.",
+    "descriptionFollower": "New followers and follow requests.",
+    "descriptionSystem": "Account and moderation notices from AKINTI, e.g. a warning on a report.",
+    "saveErrorDefault": "Could not save your notification preferences.",
+    "saved": "Saved."
+  },
   "NotificationsSettingsPage": {
     "metaTitle": "Notifications · {settings}",
     "title": "Notifications",

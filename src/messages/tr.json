@@ -732,6 +732,20 @@
     "loadMore": "Daha fazla yükle",
     "allCaughtUpFull": "Hepsini okudun."
   },
+  "NotificationsForm": {
+    "labelMessage": "Mesajlar",
+    "labelDuet": "Duet'ler",
+    "labelComment": "Yorumlar",
+    "labelFollower": "Takipçiler",
+    "labelSystem": "AKINTI duyuruları",
+    "descriptionMessage": "Sana gönderilen yeni mesajlar.",
+    "descriptionDuet": "Duet istekleri, kabul edilen veya reddedilen Duet'ler, Wave'lerinden yayımlanan Duet'ler ve katılımcı davetleri.",
+    "descriptionComment": "Wave'lerine gelen yorumlar ve yorumlarına gelen yanıtlar.",
+    "descriptionFollower": "Yeni takipçiler ve takip istekleri.",
+    "descriptionSystem": "AKINTI'den gelen hesap ve moderasyon bildirimleri, örneğin bir şikâyet üzerine gelen uyarı.",
+    "saveErrorDefault": "Bildirim tercihlerin kaydedilemedi.",
+    "saved": "Kaydedildi."
+  },
   "NotificationsSettingsPage": {
     "metaTitle": "Bildirimler · {settings}",
     "title": "Bildirimler",

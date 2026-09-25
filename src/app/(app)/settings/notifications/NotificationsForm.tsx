@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
 
 import { updateNotificationPreferences } from "@/app/(app)/settings/actions";
@@ -10,25 +11,34 @@ export interface NotificationsFormProps {
   initialPreferences: NotificationPreferences;
 }
 
-const CATEGORY_LABELS: Record<NotificationCategory, string> = {
-  message: "Messages",
-  duet: "Duets",
-  comment: "Comments",
-  follower: "Followers",
-  system: "AKINTI updates",
-};
+/**
+ * Message keys per category, not the copy itself. These five labels and five
+ * descriptions used to be English string literals in this file, which meant a
+ * Turkish session rendered the whole screen in English — and
+ * `scripts/i18n-check.ts` could not see it, because its `.tsx` scanner reads
+ * JSX text and attributes, not copy parked in a module-level `Record`.
+ * Caught by the 2026-09-25 audit's Turkish sweep.
+ */
+const CATEGORY_LABEL_KEY = {
+  message: "labelMessage",
+  duet: "labelDuet",
+  comment: "labelComment",
+  follower: "labelFollower",
+  system: "labelSystem",
+} as const satisfies Record<NotificationCategory, string>;
 
-const CATEGORY_DESCRIPTIONS: Record<NotificationCategory, string> = {
-  message: "New messages sent to you.",
-  duet: "Duet Requests, accepted/declined Duets, Duets published from your Waves, and collaborator invites.",
-  comment: "Comments on your Waves and replies to your comments.",
-  follower: "New followers and follow requests.",
-  system: "Account and moderation notices from AKINTI, e.g. a warning on a report.",
-};
+const CATEGORY_DESCRIPTION_KEY = {
+  message: "descriptionMessage",
+  duet: "descriptionDuet",
+  comment: "descriptionComment",
+  follower: "descriptionFollower",
+  system: "descriptionSystem",
+} as const satisfies Record<NotificationCategory, string>;
 
 /** Settings → Notifications (spec §23, §25): one toggle per category, saved as soon as it changes. */
 export function NotificationsForm({ initialPreferences }: NotificationsFormProps) {
   const { toast } = useToast();
+  const t = useTranslations("NotificationsForm");
   const [preferences, setPreferences] = useState<NotificationPreferences>(initialPreferences);
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
@@ -41,10 +51,10 @@ export function NotificationsForm({ initialPreferences }: NotificationsFormProps
       const result = await updateNotificationPreferences(next);
       if (!result.ok) {
         setPreferences(preferences);
-        setError(result.formError ?? "Could not save your notification preferences.");
+        setError(result.formError ?? t("saveErrorDefault"));
         return;
       }
-      toast({ title: result.message ?? "Saved.", tone: "success" });
+      toast({ title: result.message ?? t("saved"), tone: "success" });
     });
   }
 
@@ -53,8 +63,8 @@ export function NotificationsForm({ initialPreferences }: NotificationsFormProps
       {NOTIFICATION_CATEGORIES.map((category, index) => (
         <div key={category}>
           <Switch
-            label={CATEGORY_LABELS[category]}
-            description={CATEGORY_DESCRIPTIONS[category]}
+            label={t(CATEGORY_LABEL_KEY[category])}
+            description={t(CATEGORY_DESCRIPTION_KEY[category])}
             checked={preferences[category] ?? true}
             onCheckedChange={(checked) => toggle(category, checked)}
             disabled={isPending}

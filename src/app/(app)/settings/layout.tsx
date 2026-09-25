@@ -41,6 +41,7 @@ const SETTINGS_MESSAGE_NAMESPACES = [
   "FollowRequestsPage",
   "FollowRequestsList",
   "NotificationsSettingsPage",
+  "NotificationsForm",
   "PushToggle",
   "PrivacySettingsPage",
   "PrivacyForm",
