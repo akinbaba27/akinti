@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server";
+
 import { routes } from "@/config/routes";
 import { TERMS } from "@/config/terminology";
 import { requireUser } from "@/lib/auth/server";
@@ -12,6 +14,14 @@ export const metadata = { title: TERMS.notifications };
 
 /** Notifications: follows, comments, saves, shares and Duet activity (spec 23). */
 export default async function NotificationsPage() {
+  // Page title via the translated `Terms` namespace, not the English-only
+  // `TERMS` constant: `docs/I18N.md` §4 leaves each `TERMS.x` call site for
+  // "whichever stage next touches that screen", and this <h1> was still
+  // rendering in English inside a Turkish session (2026-09-25 audit sweep).
+  // This file's `export const metadata` keeps `TERMS.x`: a static metadata
+  // object is evaluated before any per-request locale exists, so moving it
+  // needs the `generateMetadata` conversion §4 describes, not a swap.
+  const tTerms = await getTranslations("Terms");
   const user = await requireUser(routes.notifications());
   const supabase = await createServerSupabaseClient();
 
@@ -30,7 +40,7 @@ export default async function NotificationsPage() {
   return (
     <>
       <PageHeader
-        title={TERMS.notifications}
+        title={tTerms("notifications")}
       />
       {loadError || !initial ? (
         <ErrorState description={loadError ?? "We could not load your notifications right now."} />

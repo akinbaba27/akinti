@@ -32,11 +32,19 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const { q } = await searchParams;
   const query = (q ?? "").trim();
   const t = await getTranslations("SearchPage");
+  // Page title via the translated `Terms` namespace, not the English-only
+  // `TERMS` constant: `docs/I18N.md` §4 leaves each `TERMS.x` call site for
+  // "whichever stage next touches that screen", and this <h1> was still
+  // rendering in English inside a Turkish session (2026-09-25 audit sweep).
+  // This file's `export const metadata` keeps `TERMS.x`: a static metadata
+  // object is evaluated before any per-request locale exists, so moving it
+  // needs the `generateMetadata` conversion §4 describes, not a swap.
+  const tTerms = await getTranslations("Terms");
 
   if (!isSupabaseConfigured()) {
     return (
       <>
-        <PageHeader title={TERMS.search} />
+        <PageHeader title={tTerms("search")} />
         <p className="akinti-page type-body measure text-ink-muted">{t("notReachable")}</p>
       </>
     );
@@ -65,7 +73,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   return (
     <>
-      <PageHeader title={TERMS.search} />
+      <PageHeader title={tTerms("search")} />
       <SearchView
         initialQuery={query}
         initialProfiles={profiles}
