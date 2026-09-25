@@ -31,7 +31,8 @@ type ResolutionState = "pending" | "accepted" | "declined";
  */
 export function NotificationItem({ notification, onRead, className }: NotificationItemProps) {
   const t = useTranslations("NotificationItem");
-  const formatted = formatNotification(notification);
+  const tFormat = useTranslations("NotificationFormat");
+  const formatted = formatNotification(notification, tFormat);
   const Icon = formatted.icon;
   const isUnread = notification.readAt === null;
   const [isMarking, startMarking] = useTransition();

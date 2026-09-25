@@ -6,8 +6,19 @@
  *
  * Grouping itself (the "3 people saved your Wave" collapse) already happened
  * server-side in `push_notification` (migration 08) — `count` is how many
- * events collapsed into this row, and `actor` is the most recent actor. This
- * module only turns that into English.
+ * events collapsed into this row, and `actor` is the most recent actor.
+ *
+ * Copy is resolved through a translator the caller passes in, not built from
+ * `TERMS`. It used to be the latter, which made the whole notification list
+ * render in English inside a Turkish session while the surrounding shell was
+ * translated (found by the 2026-09-25 audit's Turkish sweep). The function
+ * stays pure — it takes `t` rather than calling `useTranslations` itself — so
+ * it is still just as testable, and its single consumer
+ * (`NotificationItem.tsx`) is the one place a React hook belongs.
+ *
+ * Verb phrases are written to follow the actor name ("{actor} started
+ * following you"). Turkish is SOV and takes the same shape ("{actor} seni
+ * takip etmeye başladı"), so one concatenation works for both locales.
  */
 import type { IconComponent } from "@/components/ui/icons";
 import {
@@ -27,7 +38,7 @@ import {
 } from "@/components/ui/icons";
 
 import { routes } from "@/config/routes";
-import { BRAND, TERMS } from "@/config/terminology";
+import { BRAND } from "@/config/terminology";
 import type { NotificationType, NotificationWithActor } from "@/types/domain";
 
 export interface FormattedNotification {
@@ -59,49 +70,74 @@ const ICONS: Record<NotificationType, IconComponent> = {
 };
 
 /** "Ada", or "Ada and 2 others" once a group has collapsed more than one event. */
-function actorLabel(actor: NotificationWithActor["actor"], count: number): string {
-  const name = actor ? (actor.displayName ?? `@${actor.username}`) : "Someone";
+function actorLabel(actor: NotificationWithActor["actor"], count: number, t: NotificationTranslator): string {
+  const name = actor ? (actor.displayName ?? `@${actor.username}`) : t("actorSomeone");
   if (count <= 1) {
     return name;
   }
-  const others = count - 1;
-  return `${name} and ${others} other${others === 1 ? "" : "s"}`;
+  return t("actorWithOthers", { name, others: count - 1 });
 }
 
-const VERB: Record<Exclude<NotificationType, "system">, string> = {
-  follow: "started following you",
-  follow_request: "asked to follow you",
-  comment: `commented on your ${TERMS.wave}`,
-  comment_reply: `replied to your ${TERMS.comment.toLowerCase()}`,
-  save: `saved your ${TERMS.wave}`,
-  share: `shared your ${TERMS.wave}`,
-  duet_request: `requested a ${TERMS.duet} with your ${TERMS.wave}`,
-  duet_accepted: `accepted your ${TERMS.duetRequest}`,
-  duet_declined: `declined your ${TERMS.duetRequest}`,
-  duet_published: `published a ${TERMS.duet} using your ${TERMS.wave}`,
-  open_call_answered: `answered your open ${TERMS.duet} call`,
-  collaborator_invite: `invited you to collaborate on a ${TERMS.wave}`,
-  collaborator_accepted: `accepted your ${TERMS.collaborator.toLowerCase()} invite`,
-  message: "sent you a message",
-};
+/**
+ * Message keys, not copy. `as const satisfies Record<...>` rather than a plain
+ * type annotation, per `docs/I18N.md` §8.4: the annotation alone widens every
+ * value to `string`, which next-intl's key checking rejects.
+ */
+const VERB_KEY = {
+  follow: "verbFollow",
+  follow_request: "verbFollowRequest",
+  comment: "verbComment",
+  comment_reply: "verbCommentReply",
+  save: "verbSave",
+  share: "verbShare",
+  duet_request: "verbDuetRequest",
+  duet_accepted: "verbDuetAccepted",
+  duet_declined: "verbDuetDeclined",
+  duet_published: "verbDuetPublished",
+  open_call_answered: "verbOpenCallAnswered",
+  collaborator_invite: "verbCollaboratorInvite",
+  collaborator_accepted: "verbCollaboratorAccepted",
+  message: "verbMessage",
+} as const satisfies Record<Exclude<NotificationType, "system">, string>;
 
-const BODY: Record<NotificationType, string> = {
-  follow: "Now following you.",
-  follow_request: "Accept or decline from here.",
-  comment: `Left a ${TERMS.comment.toLowerCase()} on your ${TERMS.wave}.`,
-  comment_reply: `Replied to your ${TERMS.comment.toLowerCase()}.`,
-  save: `Added your ${TERMS.wave} to their ${TERMS.saves.toLowerCase()}.`,
-  share: `Shared your ${TERMS.wave} with others.`,
-  duet_request: `Wants to create a ${TERMS.duet} using your ${TERMS.wave}.`,
-  duet_accepted: `Your ${TERMS.duetRequest.toLowerCase()} was accepted.`,
-  duet_declined: `Your ${TERMS.duetRequest.toLowerCase()} was declined.`,
-  duet_published: `A new ${TERMS.duet.toLowerCase()} of your ${TERMS.wave} is live.`,
-  open_call_answered: `Someone recorded against your open ${TERMS.duet.toLowerCase()} call.`,
-  collaborator_invite: `Invited you to join a ${TERMS.wave} as a ${TERMS.collaborator.toLowerCase()}.`,
-  collaborator_accepted: `Accepted your ${TERMS.collaborator.toLowerCase()} invite.`,
-  message: "Sent you a message.",
-  system: `An update from ${BRAND}.`,
-};
+const BODY_KEY = {
+  follow: "bodyFollow",
+  follow_request: "bodyFollowRequest",
+  comment: "bodyComment",
+  comment_reply: "bodyCommentReply",
+  save: "bodySave",
+  share: "bodyShare",
+  duet_request: "bodyDuetRequest",
+  duet_accepted: "bodyDuetAccepted",
+  duet_declined: "bodyDuetDeclined",
+  duet_published: "bodyDuetPublished",
+  open_call_answered: "bodyOpenCallAnswered",
+  collaborator_invite: "bodyCollaboratorInvite",
+  collaborator_accepted: "bodyCollaboratorAccepted",
+  message: "bodyMessage",
+  system: "bodySystem",
+} as const satisfies Record<NotificationType, string>;
+
+/** Exactly the `NotificationFormat` keys this module looks up. */
+type NotificationMessageKey =
+  | "actorSomeone"
+  | "actorWithOthers"
+  | (typeof VERB_KEY)[keyof typeof VERB_KEY]
+  | (typeof BODY_KEY)[keyof typeof BODY_KEY];
+
+/**
+ * The translator shape this module needs. Deliberately keyed by the narrow
+ * union above rather than `string`: a `useTranslations("NotificationFormat")`
+ * result only accepts keys that exist in that namespace, and a parameter type
+ * is contravariant — a translator typed to real keys is not assignable to one
+ * declared as `(key: string) => string`. Narrowing here means both next-intl's
+ * translator and a test stub satisfy it, without importing next-intl into this
+ * pure module.
+ */
+export type NotificationTranslator = (
+  key: NotificationMessageKey,
+  values?: Record<string, string | number>,
+) => string;
 
 function hrefFor(n: NotificationWithActor): string {
   switch (n.type) {
@@ -129,14 +165,18 @@ function hrefFor(n: NotificationWithActor): string {
   }
 }
 
-export function formatNotification(n: NotificationWithActor): FormattedNotification {
+export function formatNotification(
+  n: NotificationWithActor,
+  t: NotificationTranslator,
+): FormattedNotification {
   const icon = ICONS[n.type];
   const href = hrefFor(n);
 
   if (n.type === "system") {
-    return { title: BRAND, body: BODY.system, href, icon };
+    // The brand name is the title here, not a translated string.
+    return { title: BRAND, body: t(BODY_KEY.system, { brand: BRAND }), href, icon };
   }
 
-  const title = `${actorLabel(n.actor, n.count)} ${VERB[n.type]}`;
-  return { title, body: BODY[n.type], href, icon };
+  const title = `${actorLabel(n.actor, n.count, t)} ${t(VERB_KEY[n.type])}`;
+  return { title, body: t(BODY_KEY[n.type]), href, icon };
 }

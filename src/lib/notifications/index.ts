@@ -1,4 +1,4 @@
-export { formatNotification, type FormattedNotification } from "./format";
+export { formatNotification, type FormattedNotification, type NotificationTranslator } from "./format";
 export { unreadReducer, type UnreadAction } from "./unreadReducer";
 export {
   useUnreadNotifications,
