@@ -149,10 +149,22 @@ export function isPublicRoute(pathname: string): boolean {
   return PUBLIC_ROUTE_PREFIXES.some((prefix) => pathname.startsWith(prefix));
 }
 
-/** Settings sub-navigation, in display order. */
+/**
+ * Settings sub-navigation, in display order.
+ *
+ * `label` and `description` are English-only module-level constants, for the
+ * same reason `TERMS` is (`src/config/terminology.ts`'s header): evaluated at
+ * import time, before any per-request locale exists. Neither is rendered —
+ * both `settings/page.tsx` and `SettingsNavPane.tsx` read the localized
+ * `SettingsSections` namespace, keyed by `key`, and nothing reads
+ * `description` at all. They are kept as the in-code index of what each
+ * section covers, so they have to stay accurate even though no user sees
+ * them.
+ */
 export interface SettingsSection {
   readonly key: string;
   readonly label: string;
+  /** Not rendered anywhere; see the note above. Keep it true to the screen. */
   readonly description: string;
   readonly href: Href;
 }
@@ -173,7 +185,7 @@ export const SETTINGS_SECTIONS: readonly SettingsSection[] = [
   {
     key: "appearance",
     label: "Appearance",
-    description: "Profile background, pattern and accent color.",
+    description: "Theme mode (system, light, dark) and the profile signature hue.",
     href: routes.settingsAppearance(),
   },
   {
