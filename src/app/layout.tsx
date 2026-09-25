@@ -19,12 +19,29 @@ import "./globals.css";
  * that is NOT `(app)` or `(auth)` (both provide their own, larger,
  * self-sufficient sets below their own `NextIntlClientProvider`, since
  * nesting one does not merge with an ancestor's): `/onboarding`,
- * `/~offline`, and the zero-`useTranslations` `error.tsx`/`not-found.tsx`
- * boundaries, which only need a safe fallback (review3 finding 12 — see
- * `pickMessages`'s doc comment for why a nested provider must be
- * self-sufficient rather than additive).
+ * `/~offline`, and the `error.tsx`/`not-found.tsx` boundaries (review3
+ * finding 12 — see `pickMessages`'s doc comment for why a nested provider
+ * must be self-sufficient rather than additive).
+ *
+ * `NotFoundPage`/`ErrorPage` are load-bearing, not a "safe fallback" as an
+ * earlier version of this comment described them: both boundaries call
+ * `useTranslations` for every string they render. While they were missing
+ * here, any 404 or unhandled error outside the five segments that list
+ * `NotFoundPage` in their own layout (`(app)/create`, `explore`, `flow`,
+ * `settings`, `w/[id]`) fell through to these root boundaries and rendered
+ * the raw key paths — "NotFoundPage.title NotFoundPage.description
+ * NotFoundPage.goHome NotFoundPage.browseExplore" — straight at the user,
+ * plus a MISSING_MESSAGE console error. Caught by the 2026-09-25 audit
+ * sweep on a mistyped URL.
  */
-const ROOT_MESSAGE_NAMESPACES = ["Terms", "Offline", "OnboardingPage", "OnboardingFlow"] as const;
+const ROOT_MESSAGE_NAMESPACES = [
+  "Terms",
+  "Offline",
+  "OnboardingPage",
+  "OnboardingFlow",
+  "NotFoundPage",
+  "ErrorPage",
+] as const;
 
 /**
  * Archivo Variable carries display, UI and body: the width axis, not a second
