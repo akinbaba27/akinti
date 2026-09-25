@@ -88,6 +88,9 @@
     "saves": "Kaydedilme",
     "saved": "Kaydedildi",
     "unsave": "Kaydı kaldır",
+    "echo": "Yankıla",
+    "unecho": "Yankıyı kaldır",
+    "echoed": "Yankılandı",
     "share": "Paylaş",
     "shares": "Paylaşımlar",
     "duet": "Duet",
@@ -689,6 +692,8 @@
     "ownWaveDescription": "Kendi Wave'inde Duet isteği göndermezsin, bunun yerine doğrudan üzerinden bir tane kaydet.",
     "notAllowedTitle": "Bu Wave'de Duet isteyemezsin",
     "notAllowedDescription": "Yaratıcı senin için Duet'i kapatmış olabilir, engellenmiş olabilirsin, Wave gizli olabilir veya zaten bekleyen bir isteğin olabilir.",
+    "explainer": "@{creator} kabul ederse, kaydını onunkiyle nasıl birleştireceğini seçeceğin bir kayıt ekranına geçersin: birlikte, sırayla veya çağrı-cevap (atışma). Sonra yeni bir Wave olarak yayınlarsın. Kabul etsin ya da reddetsin, iki durumda da bildirim alırsın.",
+    "trackRequests": "Duet isteklerini takip et",
     "unavailableTitle": "Bu {wave} kullanılamıyor",
     "unavailableDescription": "Silinmiş, gizli yapılmış ya da bağlantı yanlış olabilir."
   },
@@ -764,6 +769,7 @@
   },
   "WaveDetail": {
     "saveError": "Kaydetme işlemi tutmadı. Tekrar dene.",
+    "echoUpdateError": "Yankılama işlemi tutmadı. Tekrar dene.",
     "with": "Birlikte",
     "metricPlays": "oynanma",
     "metricReplays": "tekrar",
@@ -1493,7 +1499,8 @@
   "WaveCardContainer": {
     "duetDisabledTitle": "Bu yaratıcı şu anda Duet isteği kabul etmiyor.",
     "audioLoadError": "Bu Wave'in sesi yüklenemedi. Tekrar dene.",
-    "saveUpdateError": "Bu kaydetme işlemi güncellenemedi. Tekrar dene."
+    "saveUpdateError": "Bu kaydetme işlemi güncellenemedi. Tekrar dene.",
+    "echoUpdateError": "Bu yankı güncellenemedi. Tekrar dene."
   },
   "validation": {
     "emailInvalid": "Geçerli bir e-posta adresi girin",

@@ -88,6 +88,9 @@
     "saves": "Saves",
     "saved": "Saved",
     "unsave": "Unsave",
+    "echo": "Echo",
+    "unecho": "Remove Echo",
+    "echoed": "Echoed",
     "share": "Share",
     "shares": "Shares",
     "duet": "Duet",
@@ -689,6 +692,8 @@
     "ownWaveDescription": "You don't request a Duet on your own Wave. Record one directly from it instead.",
     "notAllowedTitle": "You can't request a Duet on this Wave",
     "notAllowedDescription": "The creator may have Duets turned off for you, you may be blocked, the Wave may be private, or you already have a pending request for it.",
+    "explainer": "If @{creator} accepts, you'll get a record screen where you choose how to combine your take with theirs: together, in turn, or call-and-response. Then you publish it as a new Wave. You'll get a notification either way, whether they accept or decline.",
+    "trackRequests": "Track your Duet Requests",
     "unavailableTitle": "This {wave} isn't available",
     "unavailableDescription": "It may have been deleted, made private, or the link is wrong."
   },
@@ -764,6 +769,7 @@
   },
   "WaveDetail": {
     "saveError": "That Save didn't stick. Try again.",
+    "echoUpdateError": "That Echo didn't stick. Try again.",
     "with": "With",
     "metricPlays": "{count, plural, one {play} other {plays}}",
     "metricReplays": "{count, plural, one {replay} other {replays}}",
@@ -1493,7 +1499,8 @@
   "WaveCardContainer": {
     "duetDisabledTitle": "This creator isn't accepting Duet Requests right now.",
     "audioLoadError": "This Wave's audio could not be loaded. Try again.",
-    "saveUpdateError": "Could not update this Save. Try again."
+    "saveUpdateError": "Could not update this Save. Try again.",
+    "echoUpdateError": "Could not update this Echo. Try again."
   },
   "validation": {
     "emailInvalid": "Enter a valid email address",
