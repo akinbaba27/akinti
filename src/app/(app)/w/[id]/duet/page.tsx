@@ -1,4 +1,5 @@
 
+import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 
 import { PageHeader } from "@/components/layout";
@@ -127,7 +128,20 @@ export default async function DuetRequestPage({ params }: DuetRequestPageProps) 
 
       <div className="mx-auto flex w-full max-w-2xl flex-col gap-5 px-4 pb-16 sm:px-5">
         <WaveCardContainer wave={cardWave} />
+        {/* Plain-language explainer (product feedback, 2026-09-18: "didn't
+            understand what to do as a user") — this page previously had no
+            copy at all beyond the form itself. Nothing here changes the
+            actual flow; it only says out loud what already happens:
+            `creator.username` must accept before recording can start, and
+            the mode (together / in turn / call-and-response) is chosen
+            afterwards, on the record screen, not here. */}
+        <p className="type-body-sm measure text-ink-muted">
+          {t("explainer", { creator: creator.username })}
+        </p>
         <DuetRequestForm waveId={wave.id} />
+        <Link href={routes.duets()} className="type-body-sm text-ink underline">
+          {t("trackRequests")}
+        </Link>
       </div>
     </>
   );
