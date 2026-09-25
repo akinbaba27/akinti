@@ -12,7 +12,16 @@ import { buildPage, clampLimit, decodeCursor, encodeCursor, keysetFilter, unwrap
 export async function saveWave(db: Db, profileId: string, waveId: string): Promise<void> {
   const result = await db
     .from("saves")
-    .upsert({ profile_id: profileId, wave_id: waveId }, { onConflict: "profile_id,wave_id" });
+    .upsert(
+      { profile_id: profileId, wave_id: waveId },
+      // `ignoreDuplicates` makes this ON CONFLICT DO NOTHING rather than DO
+      // UPDATE. Saving an already-saved Wave has to be a no-op, and the DO
+      // UPDATE form cannot be: `saves` has SELECT/INSERT/DELETE policies but no
+      // UPDATE one, so the conflict path failed with 42501 "new row violates
+      // row-level security policy". Reachable from a double tap, a second tab,
+      // or server-rendered state that was already stale.
+      { onConflict: "profile_id,wave_id", ignoreDuplicates: true },
+    );
   if (result.error) {
     throw result.error;
   }

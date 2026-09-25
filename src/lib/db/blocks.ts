@@ -21,7 +21,14 @@ function toBlock(row: { blocker_id: string; blocked_id: string; created_at: stri
 export async function blockProfile(db: Db, blockerId: string, blockedId: string): Promise<void> {
   const result = await db
     .from("blocks")
-    .upsert({ blocker_id: blockerId, blocked_id: blockedId }, { onConflict: "blocker_id,blocked_id" });
+    .upsert(
+      { blocker_id: blockerId, blocked_id: blockedId },
+      // ON CONFLICT DO NOTHING, not DO UPDATE: blocking someone already
+      // blocked has to be a no-op, and `blocks` has SELECT/INSERT/DELETE
+      // policies but no UPDATE one, so the DO UPDATE form failed with 42501
+      // "new row violates row-level security policy".
+      { onConflict: "blocker_id,blocked_id", ignoreDuplicates: true },
+    );
   if (result.error) {
     throw result.error;
   }
