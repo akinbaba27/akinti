@@ -2,7 +2,7 @@
 
 # AKINTI — working rules for every agent (v2, Sept 2026)
 
-AKINTI is an audio-first social app: people record or upload their voice, songs and compositions ("Waves"); others Play, Replay, Save, Comment, Share and request collaborative **Duets**. No Likes. No image or video posts. Mobile-first responsive web app (Next.js 16.3 App Router, React 19, TypeScript, Tailwind 4, Supabase Postgres/Auth/Storage/Realtime, Node worker with ffmpeg 9 + Python DSP sidecar). Brand: **AKINTI**. UI language: English now, Turkish first-class next (all strings must survive `latin-ext`, see design §3.2).
+AKINTI is an audio-first social app: people record or upload their voice, songs and compositions ("Waves"); others Play, Replay, Save, Comment, Share, Echo ("Yankı" — `docs/ECHOES.md`, a deliberate, conscious override of the original "No Likes" decision, added 2026-09-18) and request collaborative **Duets**. No image or video posts. Mobile-first responsive web app (Next.js 16.3 App Router, React 19, TypeScript, Tailwind 4, Supabase Postgres/Auth/Storage/Realtime, Node worker with ffmpeg 9 + Python DSP sidecar). Brand: **AKINTI**. UI language: English now, Turkish first-class next (all strings must survive `latin-ext`, see design §3.2).
 
 The founder's standard: **sellable, premium, human, error-free**. "Works on paper" is failure.
 
@@ -12,7 +12,7 @@ The founder's standard: **sellable, premium, human, error-free**. "Works on pape
 - Mobile rules: `docs/research/mobile-guidelines.md` (60-rule checklist; every screen must pass).
 - Library decisions: `docs/research/libraries.md` (what to adopt, what never to add).
 - Evidence: `docs/research/2026-09-market-research.md`, `docs/research/teardown/TEARDOWN.md`, `docs/research/ux-audit/REPORT.md`.
-- Engineering: `docs/ARCHITECTURE.md`, `docs/DATABASE.md`, `docs/AUDIO_ARCHITECTURE.md`, `docs/DUET_SPEC.md`, `docs/SECURITY.md`, `docs/TESTING.md`, `docs/DEPLOYMENT.md`.
+- Engineering: `docs/ARCHITECTURE.md`, `docs/DATABASE.md`, `docs/AUDIO_ARCHITECTURE.md`, `docs/DUET_SPEC.md`, `docs/CHALLENGES.md`, `docs/ECHOES.md`, `docs/SECURITY.md`, `docs/TESTING.md`, `docs/DEPLOYMENT.md`.
 
 When documents conflict: DESIGN.md wins on anything visual; PRODUCT_V2.md wins on scope; SECURITY.md wins on authorization.
 

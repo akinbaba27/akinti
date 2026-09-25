@@ -418,6 +418,25 @@ export async function listSavedWaveIds(db: Db, viewerId: string, waveIds: string
   return new Set(rows.map((r) => r.wave_id));
 }
 
+/**
+ * Which of `waveIds` the viewer has Echoed, in one query — same shape and
+ * reasoning as `listSavedWaveIds` immediately above (Wave E, `docs/ECHOES.md`).
+ * `echoes` has no dedicated domain file this stage owns for batch reads
+ * either, for the same reason `listSavedWaveIds` gives.
+ */
+export async function listEchoedWaveIds(db: Db, viewerId: string, waveIds: string[]): Promise<Set<string>> {
+  if (waveIds.length === 0) {
+    return new Set();
+  }
+  const result = await db
+    .from("echoes")
+    .select("wave_id")
+    .eq("profile_id", viewerId)
+    .in("wave_id", waveIds);
+  const rows = unwrap("listEchoedWaveIds", { data: result.data ?? [], error: result.error });
+  return new Set(rows.map((r) => r.wave_id));
+}
+
 /* ------------------------------------------------------------------------ */
 /* Writes                                                                    */
 /* ------------------------------------------------------------------------ */

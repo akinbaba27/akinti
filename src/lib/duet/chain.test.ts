@@ -18,7 +18,7 @@ function stubWave(id: string, overrides: Partial<Wave> = {}): Wave {
     backingTrackId: null,
     contentOrigin: "original",
     tags: [],
-    counts: { plays: 0, replays: 0, comments: 0, saves: 0, shares: 0, duets: 0 },
+    counts: { plays: 0, replays: 0, comments: 0, saves: 0, shares: 0, duets: 0, echoes: 0 },
     publishedAt: "2026-01-01T00:00:00.000Z",
     updatedAt: "2026-01-01T00:00:00.000Z",
     hiddenAt: null,

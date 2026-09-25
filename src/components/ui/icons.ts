@@ -83,6 +83,7 @@ export { Square } from "@phosphor-icons/react/dist/ssr/Square";
 export { Trash as Trash2 } from "@phosphor-icons/react/dist/ssr/Trash";
 export { Trophy } from "@phosphor-icons/react/dist/ssr/Trophy";
 export { UploadSimple as Upload } from "@phosphor-icons/react/dist/ssr/UploadSimple";
+export { Waves } from "@phosphor-icons/react/dist/ssr/Waves";
 export { User } from "@phosphor-icons/react/dist/ssr/User";
 export { UserCheck } from "@phosphor-icons/react/dist/ssr/UserCheck";
 export { UserCircle as UserRound } from "@phosphor-icons/react/dist/ssr/UserCircle";

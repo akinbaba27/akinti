@@ -14,6 +14,7 @@ import { getFollowEdgesForViewer } from "@/lib/db/discovery";
 import { getDuetTree } from "@/lib/db/duets";
 import { getOpenCallByWaveId } from "@/lib/db/openCalls";
 import { getProfileById, getProfilesByIds } from "@/lib/db/profiles";
+import { isWaveEchoed } from "@/lib/db/echoes";
 import { isWaveSaved } from "@/lib/db/saves";
 import { getWaveById, listDirectDuets, listWaveCollaborators } from "@/lib/db/waves";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
@@ -93,6 +94,7 @@ export default async function WavePage({ params }: WavePageProps) {
     allCollaborators,
     directDuets,
     hasSaved,
+    hasEchoed,
     canRequestDuetResult,
     commentsResult,
     commentPermission,
@@ -103,6 +105,7 @@ export default async function WavePage({ params }: WavePageProps) {
     listWaveCollaborators(db, wave.id),
     listDirectDuets(db, wave.id, { limit: 12 }),
     viewer ? isWaveSaved(db, viewer.id, wave.id) : Promise.resolve(false),
+    viewer ? isWaveEchoed(db, viewer.id, wave.id) : Promise.resolve(false),
     db.rpc("can_request_duet", { p_wave_id: wave.id }),
     loadComments(wave.id, null),
     getCommentPermissionState(wave.id),
@@ -193,6 +196,8 @@ export default async function WavePage({ params }: WavePageProps) {
       duets: wave.counts.duets,
     },
     isSaved: hasSaved,
+    echoCount: wave.counts.echoes,
+    isEchoed: hasEchoed,
     canRequestDuet,
   };
 

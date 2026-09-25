@@ -15,11 +15,11 @@ Verdict: keep the backend (schema, RLS, auth, storage, worker, metrics — all v
 
 ## 2. Positioning
 
-**AKINTI is where your voice meets other voices.** Record or upload a Wave, hear it sound great instantly, and turn it into a Duet with someone else. No likes; Plays, Replays, Saves, Comments, Shares and Duets are the signals.
+**AKINTI is where your voice meets other voices.** Record or upload a Wave, hear it sound great instantly, and turn it into a Duet with someone else. Plays, Replays, Saves, Comments, Shares, Echoes (`docs/ECHOES.md`, added 2026-09-18) and Duets are the signals — deliberately not a generic reaction system, and still no streaks, badges or leaderboards.
 
 Primary users (launch): amateur and semi-pro singers, rappers, songwriters in Turkey, 16–30, already posting covers/freestyles on TikTok/Instagram. Secondary: listeners who follow them.
 
-Wedge vs. Smule/StarMaker/TikTok: (1) audio-first, no camera pressure; (2) async Duets and Duet chains as the core object; (3) Turkish-native modes (Atışma, Cypher, Türkü Düeti); (4) instant studio-quality polish on every recording; (5) real feedback instead of likes.
+Wedge vs. Smule/StarMaker/TikTok: (1) audio-first, no camera pressure; (2) async Duets and Duet chains as the core object; (3) Turkish-native modes (Atışma, Cypher, Türkü Düeti); (4) instant studio-quality polish on every recording; (5) real feedback (structured comments) alongside a single honest appreciation signal (Echo) rather than a vanity-metric wall of reaction types.
 
 ## 3. The core loop (must work flawlessly on a phone)
 

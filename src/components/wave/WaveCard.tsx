@@ -7,7 +7,7 @@ import type { ReactNode } from "react";
 import { WavePlayer, type TraceHue } from "@/components/audio";
 import { ProMark } from "@/components/pro/ProMark";
 import { Avatar, Badge, Button, IconButton, Skeleton } from "@/components/ui";
-import { Bookmark, MessageSquare, Share2 } from "@/components/ui/icons";
+import { Bookmark, MessageSquare, Share2, Waves } from "@/components/ui/icons";
 import {
   CREATION_TYPES,
   METRICS,
@@ -28,7 +28,14 @@ export interface WaveCardPerson {
   readonly isPro?: boolean;
 }
 
-/** Social signals shown on a Wave. There is no Like signal. */
+/**
+ * Social signals shown on a Wave. `saves`/`shares`/etc. here are the generic,
+ * pluralized metrics row (`METRICS`/`MetricKey`, `@/config/terminology`) —
+ * Echo (Wave E, `docs/ECHOES.md`) is deliberately NOT one of them: it is a
+ * single, distinctive appreciation gesture with its own button and its own
+ * count (`WaveCardWave.echoCount`/`isEchoed`), not folded into this
+ * "312 plays · 41 replays · ..." sentence.
+ */
 export type WaveCardMetrics = Readonly<Record<MetricKey, number>>;
 
 export interface WaveCardWave {
@@ -44,6 +51,9 @@ export interface WaveCardWave {
   readonly duration?: number;
   readonly metrics: WaveCardMetrics;
   readonly isSaved?: boolean;
+  /** Echoes (Wave E) — a lightweight, visible appreciation count. Omitted (or 0) prints nothing, matching every other count in this product (§12.6, §12.23: never a printed zero). */
+  readonly echoCount?: number;
+  readonly isEchoed?: boolean;
   /** False when the creator does not accept Duet Requests. */
   readonly canRequestDuet?: boolean;
   /**
@@ -72,6 +82,7 @@ export type WaveCardVariant = "stream" | "detail";
 export interface WaveCardProps {
   wave: WaveCardWave;
   onComment?: (waveId: string) => void;
+  onEcho?: (waveId: string) => void;
   onSave?: (waveId: string) => void;
   onShare?: (waveId: string) => void;
   onRequestDuet?: (waveId: string) => void;
@@ -116,6 +127,7 @@ export interface WaveCardProps {
 export function WaveCard({
   wave,
   onComment,
+  onEcho,
   onSave,
   onShare,
   onRequestDuet,
@@ -243,6 +255,32 @@ export function WaveCard({
           ) : null}
 
           <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1">
+              <IconButton
+                label={wave.isEchoed ? tTerms("unecho") : tTerms("echo")}
+                icon={<Waves className="size-5" weight={wave.isEchoed ? "fill" : "regular"} />}
+                size="sm"
+                aria-pressed={wave.isEchoed ?? false}
+                className={cn(wave.isEchoed && "text-ink")}
+                onClick={() => onEcho?.(wave.id)}
+              />
+              {wave.echoCount ? (
+                <>
+                  {/* The glyph is aria-hidden because `formatCount` abbreviates
+                      ("1.2K"); the sr-only span next to it carries the same
+                      count spelled out with its pluralized noun, the way the
+                      metrics row below already reads counts out. Without it the
+                      Echo count was the one count on this card that screen
+                      readers could not reach at all. */}
+                  <span className="type-mono-sm text-ink-muted" aria-hidden="true">
+                    {formatCount(wave.echoCount)}
+                  </span>
+                  <span className="sr-only">
+                    {wave.echoCount} {tCard("echoCount", { count: wave.echoCount })}
+                  </span>
+                </>
+              ) : null}
+            </div>
             <IconButton
               label={tTerms("comment")}
               icon={<MessageSquare className="size-5" />}

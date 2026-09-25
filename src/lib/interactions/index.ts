@@ -12,6 +12,7 @@ export {
   type ContentWavePage,
 } from "./contentLists";
 export { saveReducer, type SaveAction, type SaveState } from "./saveReducer";
+export { echoReducer, type EchoAction, type EchoState } from "./echoReducer";
 export {
   SHARE_CHANNELS,
   buildWaveShareUrl,

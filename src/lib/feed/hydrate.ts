@@ -13,7 +13,7 @@ import type { WaveCardContainerWave } from "@/components/wave";
 import { getAudioAssetById } from "@/lib/db/audioAssets";
 import { getProfilesByIds } from "@/lib/db/profiles";
 import type { Db } from "@/lib/db/types";
-import { listCollaboratorsForWaves, listSavedWaveIds } from "@/lib/db/waves";
+import { listCollaboratorsForWaves, listEchoedWaveIds, listSavedWaveIds } from "@/lib/db/waves";
 import type { Wave } from "@/types/domain";
 
 import { toCardWave } from "./toCardWave";
@@ -30,11 +30,12 @@ export async function hydrateWaveCards(
   const waveIds = waves.map((w) => w.id);
   const creatorIds = [...new Set(waves.map((w) => w.creatorId))];
 
-  const [creators, assets, collaboratorsByWave, savedWaveIds] = await Promise.all([
+  const [creators, assets, collaboratorsByWave, savedWaveIds, echoedWaveIds] = await Promise.all([
     getProfilesByIds(db, creatorIds),
     Promise.all(waves.map((w) => getAudioAssetById(db, w.audioAssetId))),
     listCollaboratorsForWaves(db, waveIds),
     viewerId ? listSavedWaveIds(db, viewerId, waveIds) : Promise.resolve(new Set<string>()),
+    viewerId ? listEchoedWaveIds(db, viewerId, waveIds) : Promise.resolve(new Set<string>()),
   ]);
 
   const creatorById = new Map(creators.map((c) => [c.id, c]));
@@ -61,6 +62,7 @@ export async function hydrateWaveCards(
     cards.push(
       toCardWave(wave, creator, asset, {
         isSaved: savedWaveIds.has(wave.id),
+        isEchoed: echoedWaveIds.has(wave.id),
         collaborators: collaboratorsByWave.get(wave.id),
         collaboratorProfiles: collaboratorProfileById,
       }),

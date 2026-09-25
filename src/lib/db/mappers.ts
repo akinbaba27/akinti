@@ -200,6 +200,7 @@ export function toWave(row: WaveRow): Wave {
       saves: row.save_count,
       shares: row.share_count,
       duets: row.duet_count,
+      echoes: row.echo_count,
     },
     publishedAt: row.published_at,
     updatedAt: row.updated_at,

@@ -271,6 +271,8 @@ export type WaveRow = {
   save_count: number;
   share_count: number;
   duet_count: number;
+  /** Echoes (Wave E) — maintained by `echoes_after_change()`, migration `20260918120100_echoes.sql`. */
+  echo_count: number;
   published_at: string;
   created_at: string;
   updated_at: string;
@@ -458,6 +460,13 @@ export type CommentRow = {
 };
 
 export type SaveRow = {
+  profile_id: string;
+  wave_id: string;
+  created_at: string;
+};
+
+/** Echoes (Wave E) — same shape as `SaveRow`, see `docs/ECHOES.md`. */
+export type EchoRow = {
   profile_id: string;
   wave_id: string;
   created_at: string;
@@ -897,6 +906,12 @@ export interface Database {
         Row: SaveRow;
         Insert: Pick<SaveRow, "profile_id" | "wave_id"> & Partial<Pick<SaveRow, "created_at">>;
         Update: Partial<Pick<SaveRow, "created_at">>;
+        Relationships: Relationships;
+      };
+      echoes: {
+        Row: EchoRow;
+        Insert: Pick<EchoRow, "profile_id" | "wave_id"> & Partial<Pick<EchoRow, "created_at">>;
+        Update: Partial<Pick<EchoRow, "created_at">>;
         Relationships: Relationships;
       };
       shares: {

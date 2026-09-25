@@ -442,6 +442,7 @@
     "metricComments": "yorum",
     "metricSaves": "kaydedilme",
     "metricShares": "paylaşım",
+    "echoCount": "{count, plural, one {yankı} other {yankı}}",
     "metricDuets": "duet"
   },
   "ShareSheet": {
@@ -776,6 +777,7 @@
     "metricComments": "yorum",
     "metricSaves": "kaydedilme",
     "metricShares": "paylaşım",
+    "echoCount": "{count, plural, one {yankı} other {yankı}}",
     "metricDuets": "duet"
   },
   "WaveCreatorCard": {

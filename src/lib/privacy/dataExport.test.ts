@@ -45,7 +45,7 @@ const WAVE: Wave = {
   backingTrackId: null,
   contentOrigin: "original",
   tags: ["idea"],
-  counts: { plays: 12, replays: 2, comments: 1, saves: 3, shares: 0, duets: 0 },
+  counts: { plays: 12, replays: 2, comments: 1, saves: 3, shares: 0, duets: 0, echoes: 0 },
   publishedAt: "2026-02-01T00:00:00.000Z",
   updatedAt: "2026-02-01T00:00:00.000Z",
   hiddenAt: null,

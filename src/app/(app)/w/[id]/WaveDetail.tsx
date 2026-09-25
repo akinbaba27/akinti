@@ -5,14 +5,14 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useReducer, useState, type MouseEvent, type ReactNode } from "react";
 
-import { saveWave, unsaveWave } from "@/app/(app)/w/[id]/interactions";
+import { echoWave, saveWave, unechoWave, unsaveWave } from "@/app/(app)/w/[id]/interactions";
 import { WavePlayer } from "@/components/audio";
 import { useSignedAudio } from "@/components/feed";
 import { Avatar, Badge, IconButton, useToast } from "@/components/ui";
-import { Bookmark, MessageSquare, Share2 } from "@/components/ui/icons";
+import { Bookmark, MessageSquare, Share2, Waves } from "@/components/ui/icons";
 import { routes } from "@/config/routes";
 import { CREATION_TYPES, METRICS, type CreationType, type MetricKey } from "@/config/terminology";
-import { saveReducer } from "@/lib/interactions";
+import { echoReducer, saveReducer } from "@/lib/interactions";
 import { emitAnalyticsEvent, usePlayTracker } from "@/lib/metrics";
 import { cn, formatAbsoluteTime, formatCount } from "@/lib/ui";
 
@@ -54,6 +54,9 @@ export interface WaveDetailWave {
   readonly duration?: number;
   readonly metrics: Readonly<Record<MetricKey, number>>;
   readonly isSaved: boolean;
+  /** Echoes (Wave E, `docs/ECHOES.md`) — a lightweight, visible appreciation count, shown next to its own button, not folded into the metrics row. */
+  readonly echoCount?: number;
+  readonly isEchoed?: boolean;
   readonly canRequestDuet: boolean;
 }
 
@@ -88,6 +91,11 @@ export function WaveDetail({ wave, children }: WaveDetailProps) {
   const [saveState, dispatchSave] = useReducer(saveReducer, {
     isSaved: wave.isSaved,
     saveCount: wave.metrics.saves,
+    status: "idle" as const,
+  });
+  const [echoState, dispatchEcho] = useReducer(echoReducer, {
+    isEchoed: wave.isEchoed ?? false,
+    echoCount: wave.echoCount ?? 0,
     status: "idle" as const,
   });
 
@@ -141,6 +149,20 @@ export function WaveDetail({ wave, children }: WaveDetailProps) {
       });
     });
   }, [saveState.isSaved, t, toast, wave.id]);
+
+  const handleEcho = useCallback(() => {
+    const willEcho = !echoState.isEchoed;
+    dispatchEcho({ type: "toggle" });
+    const action = willEcho ? echoWave(wave.id) : unechoWave(wave.id);
+    void action.then((result) => {
+      if (!result.ok) {
+        dispatchEcho({ type: "rollback" });
+        toast({ title: result.error ?? t("echoUpdateError"), tone: "error" });
+        return;
+      }
+      dispatchEcho({ type: "confirm" });
+    });
+  }, [echoState.isEchoed, t, toast, wave.id]);
 
   const creatorName = wave.creator.displayName ?? wave.creator.username;
   const creationType = CREATION_TYPES[wave.creationType];
@@ -239,6 +261,32 @@ export function WaveDetail({ wave, children }: WaveDetailProps) {
       ) : null}
 
       <div className="akinti-page flex items-center gap-2 pt-6">
+        <div className="flex items-center gap-1">
+          <IconButton
+            label={echoState.isEchoed ? tTerms("unecho") : tTerms("echo")}
+            icon={<Waves className="size-5" weight={echoState.isEchoed ? "fill" : "regular"} />}
+            size="sm"
+            showLabel
+            aria-pressed={echoState.isEchoed}
+            className={cn(echoState.isEchoed && "text-ink")}
+            onClick={handleEcho}
+          />
+          {echoState.echoCount ? (
+            <>
+              {/* `formatCount` abbreviates ("1.2K"), so the glyph is hidden and
+                  the sr-only span carries the exact count with its pluralized
+                  noun — the same way the metrics row below reads its counts.
+                  Without it the Echo count was the one count on this page no
+                  screen reader could reach. */}
+              <span className="type-mono-sm text-ink-muted" aria-hidden="true">
+                {formatCount(echoState.echoCount)}
+              </span>
+              <span className="sr-only">
+                {echoState.echoCount} {t("echoCount", { count: echoState.echoCount })}
+              </span>
+            </>
+          ) : null}
+        </div>
         <IconButton
           label={tTerms("comment")}
           icon={<MessageSquare className="size-5" />}

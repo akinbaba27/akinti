@@ -405,11 +405,16 @@ SDK call failed with.
 
 ## No Likes (spec §3.4) — verified, not assumed
 
-There is no `likes` table, column, enum value, RLS policy, RPC, or
+There is still no `likes` table, column, enum value, RLS policy, RPC, or
 notification type anywhere in `supabase/migrations/`, `src/types/database.ts`,
-or `src/lib/db/**`. If a future change reintroduces a Like-shaped feature, it
-is a deliberate product decision requiring a spec change, not a small
-add-on — flag it to the product owner rather than building it quietly.
+or `src/lib/db/**`, and there never will be — a Like-shaped feature was
+exactly what this section warned about, and it arrived: **Echoes**
+("Yankı"), a deliberate, founder-approved 2026-09-18 spec change, not a
+quiet add-on. It lives in its own `echoes` table with its own
+`echo_count`/notification type, see `docs/ECHOES.md` for the full shape and
+the reasoning. If a future change proposes yet another Like-shaped or
+gamification-adjacent feature beyond Echo, the same rule still applies: flag
+it to the product owner rather than building it quietly.
 
 ## Profiles & privacy (spec §21, §25, §26 — Stage 3)
 

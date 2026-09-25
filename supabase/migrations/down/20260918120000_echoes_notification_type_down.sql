@@ -1,0 +1,11 @@
+-- Rollback for 20260918120000_echoes_notification_type.sql
+--
+-- Postgres has no `ALTER TYPE ... DROP VALUE`. Removing an enum value safely
+-- requires rebuilding the type (rename old, create new without the value,
+-- cast every column across) — not attempted here since
+-- `20260918120100_echoes.sql` depends on the value existing. If this stage
+-- is ever fully rolled back, drop it manually with the standard Postgres
+-- enum-value-removal recipe after downgrading everything that references
+-- 'echo' (see the identical note on
+-- `down/20260905120000_duet_v2_notification_type_down.sql`).
+select 1;

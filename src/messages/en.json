@@ -442,6 +442,7 @@
     "metricComments": "{count, plural, one {comment} other {comments}}",
     "metricSaves": "{count, plural, one {save} other {saves}}",
     "metricShares": "{count, plural, one {share} other {shares}}",
+    "echoCount": "{count, plural, one {echo} other {echoes}}",
     "metricDuets": "{count, plural, one {duet} other {duets}}"
   },
   "ShareSheet": {
@@ -776,6 +777,7 @@
     "metricComments": "{count, plural, one {comment} other {comments}}",
     "metricSaves": "{count, plural, one {save} other {saves}}",
     "metricShares": "{count, plural, one {share} other {shares}}",
+    "echoCount": "{count, plural, one {echo} other {echoes}}",
     "metricDuets": "{count, plural, one {duet} other {duets}}"
   },
   "WaveCreatorCard": {

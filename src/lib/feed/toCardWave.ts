@@ -13,6 +13,8 @@ import type { AudioAsset, Collaborator, Profile, Wave } from "@/types/domain";
 
 export interface ToCardWaveOptions {
   isSaved?: boolean;
+  /** Wave E, `docs/ECHOES.md`. */
+  isEchoed?: boolean;
   /**
    * Optimistically `true` when omitted. The real authorization check
    * (`can_request_duet`, migration 10) runs server-side the moment a Duet is
@@ -67,6 +69,8 @@ export function toCardWave(
       duets: wave.counts.duets,
     },
     isSaved: options.isSaved ?? false,
+    isEchoed: options.isEchoed ?? false,
+    echoCount: wave.counts.echoes,
     canRequestDuet: options.canRequestDuet ?? true,
   };
 }

@@ -34,9 +34,9 @@ import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState, type MouseEvent } from "react";
 import { useRouter } from "next/navigation";
 
-import { saveWave, unsaveWave } from "@/app/(app)/w/[id]/interactions";
+import { echoWave, saveWave, unechoWave, unsaveWave } from "@/app/(app)/w/[id]/interactions";
 import { usePlaybackStore } from "@/lib/audio";
-import { saveReducer } from "@/lib/interactions";
+import { echoReducer, saveReducer } from "@/lib/interactions";
 import { emitAnalyticsEvent, usePlayTracker } from "@/lib/metrics";
 import { routes } from "@/config/routes";
 import { useActionToast } from "@/components/ui";
@@ -68,6 +68,7 @@ export function WaveCardContainer({
   wave,
   unheard = false,
   onComment,
+  onEcho,
   onSave,
   onShare,
   onRequestDuet,
@@ -105,6 +106,11 @@ export function WaveCardContainer({
   const [saveState, dispatchSave] = useReducer(saveReducer, {
     isSaved: wave.isSaved ?? false,
     saveCount: wave.metrics.saves,
+    status: "idle" as const,
+  });
+  const [echoState, dispatchEcho] = useReducer(echoReducer, {
+    isEchoed: wave.isEchoed ?? false,
+    echoCount: wave.echoCount ?? 0,
     status: "idle" as const,
   });
   const [shareOpen, setShareOpen] = useState(false);
@@ -243,6 +249,27 @@ export function WaveCardContainer({
     [onSave, saveState.isSaved, saveState.status, t, toast],
   );
 
+  /** Echo/Un-echo with optimistic UI and rollback on failure — mirrors `handleSave` exactly (Wave E, `docs/ECHOES.md`). */
+  const handleEcho = useCallback(
+    (waveId: string) => {
+      if (echoState.status === "pending") return;
+      onEcho?.(waveId);
+      const willEcho = !echoState.isEchoed;
+      dispatchEcho({ type: "toggle" });
+
+      const action = willEcho ? echoWave(waveId) : unechoWave(waveId);
+      void action.then((result) => {
+        if (!result.ok) {
+          dispatchEcho({ type: "rollback" });
+          toast({ title: result.error ?? t("echoUpdateError"), tone: "error" });
+          return;
+        }
+        dispatchEcho({ type: "confirm" });
+      });
+    },
+    [onEcho, echoState.isEchoed, echoState.status, t, toast],
+  );
+
   const handleShare = useCallback(
     (waveId: string) => {
       onShare?.(waveId);
@@ -268,10 +295,13 @@ export function WaveCardContainer({
           ...wave,
           audioUrl: audioUrl ?? "",
           isSaved: saveState.isSaved,
+          isEchoed: echoState.isEchoed,
+          echoCount: echoState.echoCount,
           unheard,
           metrics: { ...wave.metrics, saves: saveState.saveCount },
         }}
         onComment={handleComment}
+        onEcho={handleEcho}
         onSave={handleSave}
         onShare={handleShare}
         onRequestDuet={handleRequestDuet}

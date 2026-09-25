@@ -277,6 +277,8 @@ export interface WaveCounts {
   saves: number;
   shares: number;
   duets: number;
+  /** Echoes (Wave E, 2026-09-18, `docs/ECHOES.md`) — a lightweight, visible appreciation signal. Distinct from `MetricKey`/`METRICS`: Echo is never folded into the generic plays/replays/... metrics sentence, it gets its own button and its own count (see `WaveCardWave.echoCount`). */
+  echoes: number;
 }
 
 /** One turn of a call-and-response (`atisma`) Duet — see `Wave.duet.segments`. Mirrors `DuetSegment` in `src/lib/duet/ffmpegChain.ts` (structurally identical, declared separately so `types/**` has no dependency on `lib/**`). */

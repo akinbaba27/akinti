@@ -34,6 +34,7 @@ import { isFollowing } from "@/lib/db/follows";
 import { getProfileById, getProfilesByIds } from "@/lib/db/profiles";
 import { createReport } from "@/lib/db/reports";
 import { saveWave as saveWaveDb, unsaveWave as unsaveWaveDb } from "@/lib/db/saves";
+import { echoWave as echoWaveDb, unechoWave as unechoWaveDb } from "@/lib/db/echoes";
 import { shareWave as shareWaveDb } from "@/lib/db/shares";
 import { DatabaseError, ForbiddenError, NotFoundError } from "@/lib/db/types";
 import { getWaveById } from "@/lib/db/waves";
@@ -366,6 +367,56 @@ export async function unsaveWave(waveId: string): Promise<InteractionResult> {
     await unsaveWaveDb(db, user.id, parsed.data);
   } catch (err) {
     return fail(describeError(err, "Could not unsave this Wave. Try again."));
+  }
+
+  revalidatePath(routes.wave(parsed.data));
+  return ok();
+}
+
+/* ------------------------------------------------------------------------ */
+/* Echoes (Wave E, docs/ECHOES.md)                                          */
+/* ------------------------------------------------------------------------ */
+
+/** Echo a Wave — a lightweight, visible appreciation signal. Idempotent, matching the upsert in `echoes.ts`; same shape as `saveWave` above. */
+export async function echoWave(waveId: string): Promise<InteractionResult> {
+  if (!isSupabaseConfigured()) return fail(NOT_CONFIGURED_ERROR);
+
+  const parsed = uuidSchema.safeParse(waveId);
+  if (!parsed.success) return fail(WAVE_NOT_FOUND_ERROR);
+
+  const user = await requireSignedIn();
+  if (!user) return fail(SIGN_IN_ERROR);
+  if (!(await assertNotSuspended(user.id))) return fail(SUSPENDED_ACTION_MESSAGE);
+
+  const db = await createServerSupabaseClient();
+  try {
+    await echoWaveDb(db, user.id, parsed.data);
+  } catch (err) {
+    if (err instanceof DatabaseError && err.code === "42501") {
+      return fail(WAVE_NOT_FOUND_ERROR);
+    }
+    return fail(describeError(err, "Could not echo this Wave. Try again."));
+  }
+
+  revalidatePath(routes.wave(parsed.data));
+  return ok();
+}
+
+export async function unechoWave(waveId: string): Promise<InteractionResult> {
+  if (!isSupabaseConfigured()) return fail(NOT_CONFIGURED_ERROR);
+
+  const parsed = uuidSchema.safeParse(waveId);
+  if (!parsed.success) return fail(WAVE_NOT_FOUND_ERROR);
+
+  const user = await requireSignedIn();
+  if (!user) return fail(SIGN_IN_ERROR);
+  if (!(await assertNotSuspended(user.id))) return fail(SUSPENDED_ACTION_MESSAGE);
+
+  const db = await createServerSupabaseClient();
+  try {
+    await unechoWaveDb(db, user.id, parsed.data);
+  } catch (err) {
+    return fail(describeError(err, "Could not remove your Echo. Try again."));
   }
 
   revalidatePath(routes.wave(parsed.data));

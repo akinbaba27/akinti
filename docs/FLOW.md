@@ -3,7 +3,7 @@
 The founder asked for the app to pull people in and keep them there, "like Reels". Flow is AKINTI's answer: a full-screen, one-Wave-per-screen vertical feed that plays continuously. It becomes the default screen after login (Home keeps the follow-only list as a tab or secondary route).
 
 ## Non-negotiables carried over
-- No Likes. Reactions are Replay, Save, Comment, Share, Duet.
+- Reactions are Replay, Save, Comment, Share, Echo (`docs/ECHOES.md`, added 2026-09-18) and Duet — Echo not yet wired into Flow's own card, see that doc's "Known gaps".
 - First sound needs one gesture (browser rule); after that Flow plays continuously and advances on its own.
 - No fake counts, no confetti, no badges. Retention comes from good next Waves, fast Duet, and honest "new for you" counts.
 - Design: waterline is the visual; colour per COLOR_V2.md; no cards, no gradients, no purple.
