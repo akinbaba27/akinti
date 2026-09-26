@@ -182,15 +182,18 @@ function TrackRow({ track, className }: { track: BackingTrackCard; className?: s
       </div>
 
       <div className="flex min-w-0 flex-col gap-2">
-        {/* Stacked under `sm`, one row from there up. Side by side, the
-            metadata is `shrink-0` and the title takes the whole loss: at 390px
-            minus the play key and the gutters the title had ~120px, so
-            "Monkeys Spinning Monkeys" rendered as "Monkeys ..." and
-            "Sneaky Snitch" as "Sneaky S...". The title is what someone scans
-            for, so on a phone it gets the full width and wraps instead. */}
-        <div className="flex min-w-0 flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
-          <p className="type-subhead text-ink sm:truncate">{track.title}</p>
-          <span className="type-mono-sm text-ink-subtle sm:shrink-0">
+        {/* Title and metadata are stacked at every width, not side by side.
+            Side by side the metadata is `shrink-0` and the title absorbs the
+            entire shortfall, and this row is narrow everywhere it is used: a
+            390px phone row for `/tracks`, and a ~340px card in Explore's lane
+            even on a 1280px desktop. That rendered "Monkeys Spinning Monkeys"
+            as "Monkeys ...", "Sneaky Snitch" as "Sneaky S..." and, in the
+            desktop lane, titles down to "Con..." and "Ma...". `/tracks` on
+            desktop is a different component (`TrackCard`), which already
+            stacks them and is unaffected. */}
+        <div className="flex min-w-0 flex-col gap-0.5">
+          <p className="type-subhead text-ink">{track.title}</p>
+          <span className="type-mono-sm text-ink-subtle">
             {meta.join(" \u00b7 ")}
           </span>
         </div>
