@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 
@@ -51,7 +52,9 @@ export default async function OnboardingPage({ searchParams }: OnboardingPagePro
   }
 
   if (profile.onboardedAt) {
-    redirect(next ?? routes.home());
+    // Flow, not Home — the same post-auth default `signIn` and
+    // `src/lib/supabase/middleware.ts` already use (`docs/FLOW.md`).
+    redirect(next ?? routes.flow());
   }
 
   // Step one's "someone is talking right now" moment (§1.1) needs one real,
@@ -76,12 +79,20 @@ export default async function OnboardingPage({ searchParams }: OnboardingPagePro
     hearItWave = null;
   }
 
+  // The host this deployment is actually served from, so step three's
+  // handle preview shows a URL that resolves rather than a hardcoded
+  // `akinti.app` (a domain the project does not own). Same derivation as
+  // `(auth)/actions.ts`'s `resolveOrigin`, host only.
+  const headerList = await headers();
+  const profileHost = headerList.get("x-forwarded-host") ?? headerList.get("host") ?? "";
+
   return (
     <OnboardingFlow
       initialUsername={profile.username}
       initialDisplayName={profile.displayName}
       hearItWave={hearItWave}
       next={next}
+      profileHost={profileHost}
     />
   );
 }

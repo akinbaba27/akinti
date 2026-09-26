@@ -32,6 +32,14 @@ export interface OnboardingFlowProps {
   hearItWave: HearItWave | null;
   /** Where to land once onboarding finishes — usually the route that redirected here. */
   next?: string;
+  /**
+   * The host this deployment is actually served from, resolved server-side and
+   * passed in so the handle preview is a URL that resolves. It used to read a
+   * hardcoded `akinti.app`, a domain the project does not own
+   * (`docs/HANDOVER.md` §(i) lists it as neither bought nor connected), so the
+   * screen where someone claims their handle promised them a dead address.
+   */
+  profileHost: string;
 }
 
 const STEP_COUNT = 3;
@@ -71,6 +79,7 @@ export function OnboardingFlow({
   initialDisplayName,
   hearItWave,
   next,
+  profileHost,
 }: OnboardingFlowProps) {
   const [step, setStep] = useState(0);
 
@@ -89,6 +98,7 @@ export function OnboardingFlow({
           initialUsername={initialUsername}
           initialDisplayName={initialDisplayName}
           next={next}
+          profileHost={profileHost}
         />
       )}
     </div>
@@ -330,10 +340,12 @@ function StepBeFound({
   initialUsername,
   initialDisplayName,
   next,
+  profileHost,
 }: {
   initialUsername: string;
   initialDisplayName: string | null;
   next?: string;
+  profileHost: string;
 }) {
   const t = useTranslations("OnboardingFlow");
   const { refreshProfile } = useCurrentUser();
@@ -344,12 +356,23 @@ function StepBeFound({
   const [formError, setFormError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
-  const destination = useMemo(() => next ?? routes.home(), [next]);
+  /**
+   * Flow, not Home, when nothing sent the user here with a `next` of its own.
+   * `docs/FLOW.md` makes Flow the post-login default ("Home keeps the
+   * follow-only list as a tab or secondary route"), and both other post-auth
+   * entry points already agree — `signIn` returns `routes.flow()` and
+   * `src/lib/supabase/middleware.ts` redirects there. Onboarding was the one
+   * that still landed on Home, which for a brand-new account is guaranteed to
+   * be empty ("No one you follow has posted yet") — so the button that says
+   * "Start listening" delivered the one screen with nothing to listen to.
+   */
+  const destination = useMemo(() => next ?? routes.flow(), [next]);
 
   // Below the minimum length, or unchanged from the account's current
   // handle, needs no round trip at all — `available` below resolves those
   // cases directly instead of waiting on this effect.
   const needsCheck = username.trim().length >= 3 && username !== initialUsername;
+
 
   useEffect(() => {
     if (!needsCheck) return;
@@ -405,7 +428,10 @@ function StepBeFound({
             error={fieldErrors.username ?? (available === false ? t("handleTaken") : undefined)}
             required
           />
-          <p className="type-caption pl-1 text-ink-subtle">akinti.app/u/{username || t("handlePlaceholder")}</p>
+          <p className="type-caption pl-1 text-ink-subtle">
+            {profileHost}
+            {routes.profile(username || t("handlePlaceholder"))}
+          </p>
         </div>
 
         <Input
