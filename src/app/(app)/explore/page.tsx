@@ -13,14 +13,13 @@ import {
 } from "@/components/feed";
 import { Search } from "@/components/ui/icons";
 import { routes } from "@/config/routes";
-import { resolveWavePeaks } from "@/lib/audio/peaks";
 import { getCurrentUser } from "@/lib/auth/server";
-import { getAudioAssetById } from "@/lib/db/audioAssets";
 import { listBackingTracks } from "@/lib/db/backingTracks";
 import { getFollowEdgesForViewer, getRisingCreators, type FollowEdge } from "@/lib/db/discovery";
 import { listOpenCalls } from "@/lib/db/openCalls";
 import { getWavesByIds, listTrendingWaves } from "@/lib/db/waves";
-import { hydrateWaveCards, nextOffsetCursor } from "@/lib/feed";
+import { hydrateWaveCards, nextOffsetCursor, toBackingTrackCards } from "@/lib/feed";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { createServerSupabaseClient, type SupabaseServerClient } from "@/lib/supabase/server";
 
@@ -206,28 +205,9 @@ async function loadOpenCalls(
 /** The curated instrumental library, with a real trace for each track. */
 async function loadBackingTracks(db: SupabaseServerClient): Promise<BackingTrackCard[]> {
   const page = await listBackingTracks(db, { limit: BACKING_TRACKS });
-  if (page.items.length === 0) return [];
-
-  const assets = await Promise.all(
-    page.items.map((track) => getAudioAssetById(db, track.audioAssetId)),
-  );
-
-  const cards: BackingTrackCard[] = [];
-  page.items.forEach((track, index) => {
-    const asset = assets[index];
-    if (!asset) return;
-    cards.push({
-      id: track.id,
-      title: track.title,
-      artistCredit: track.artistCredit,
-      sourceUrl: track.sourceUrl,
-      audioAssetId: asset.id,
-      peaks: resolveWavePeaks(asset.peaks?.data, asset.id, asset.peaks?.bits),
-      durationSeconds: asset.durationMs ? asset.durationMs / 1000 : undefined,
-      bpm: track.bpm,
-      musicalKey: track.musicalKey,
-      genreTags: track.genreTags,
-    });
-  });
-  return cards;
+  // `listBackingTracks` ran under the caller's RLS, so every track here is one
+  // they may see; `toBackingTrackCards` reads only those assets' peaks and
+  // duration with the admin client. See that module for why the previous
+  // caller-scoped read silently emptied the whole library.
+  return toBackingTrackCards(createAdminClient(), page.items);
 }

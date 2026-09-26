@@ -13,9 +13,9 @@ import { getTranslations } from "next-intl/server";
 import type { BackingTrackCard } from "@/components/feed";
 import type { WaveCardContainerWave } from "@/components/wave";
 import { getCurrentUser } from "@/lib/auth/server";
-import { resolveWavePeaks } from "@/lib/audio/peaks";
-import { getAudioAssetById } from "@/lib/db/audioAssets";
 import { listBackingTracks } from "@/lib/db/backingTracks";
+import { toBackingTrackCards } from "@/lib/feed";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { searchAll } from "@/lib/db/search";
 import { MAX_PAGE_LIMIT } from "@/lib/db/types";
 import { hydrateWaveCards } from "@/lib/feed";
@@ -78,25 +78,7 @@ export async function searchTracks(db: SupabaseServerClient, query: string): Pro
       track.artistCredit.toLowerCase().includes(normalized) ||
       track.genreTags.some((tag) => tag.toLowerCase().includes(normalized)),
   );
-  if (matches.length === 0) return [];
-
-  const assets = await Promise.all(matches.map((track) => getAudioAssetById(db, track.audioAssetId)));
-  const cards: BackingTrackCard[] = [];
-  matches.forEach((track, index) => {
-    const asset = assets[index];
-    if (!asset) return;
-    cards.push({
-      id: track.id,
-      title: track.title,
-      artistCredit: track.artistCredit,
-      sourceUrl: track.sourceUrl,
-      audioAssetId: asset.id,
-      peaks: resolveWavePeaks(asset.peaks?.data, asset.id, asset.peaks?.bits),
-      durationSeconds: asset.durationMs ? asset.durationMs / 1000 : undefined,
-      bpm: track.bpm,
-      musicalKey: track.musicalKey,
-      genreTags: track.genreTags,
-    });
-  });
-  return cards;
+  // `listBackingTracks` ran under the caller's RLS, so every match is a track
+  // they may see; the asset read happens inside `toBackingTrackCards`.
+  return toBackingTrackCards(createAdminClient(), matches);
 }

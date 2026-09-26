@@ -5,9 +5,9 @@ import { type BackingTrackCard } from "@/components/feed";
 import { TracksView } from "@/components/tracks";
 import { routes } from "@/config/routes";
 import { requireOnboarded } from "@/lib/auth/server";
-import { resolveWavePeaks } from "@/lib/audio/peaks";
-import { getAudioAssetById } from "@/lib/db/audioAssets";
 import { listBackingTracks } from "@/lib/db/backingTracks";
+import { toBackingTrackCards } from "@/lib/feed";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { createServerSupabaseClient, type SupabaseServerClient } from "@/lib/supabase/server";
 
@@ -79,28 +79,9 @@ export default async function TracksPage() {
 /** Same shape Explore's teaser lane builds, just for the whole library. */
 async function loadBackingTracks(db: SupabaseServerClient): Promise<BackingTrackCard[]> {
   const page = await listBackingTracks(db, { limit: PAGE_SIZE });
-  if (page.items.length === 0) return [];
-
-  const assets = await Promise.all(
-    page.items.map((track) => getAudioAssetById(db, track.audioAssetId)),
-  );
-
-  const cards: BackingTrackCard[] = [];
-  page.items.forEach((track, index) => {
-    const asset = assets[index];
-    if (!asset) return;
-    cards.push({
-      id: track.id,
-      title: track.title,
-      artistCredit: track.artistCredit,
-      sourceUrl: track.sourceUrl,
-      audioAssetId: asset.id,
-      peaks: resolveWavePeaks(asset.peaks?.data, asset.id, asset.peaks?.bits),
-      durationSeconds: asset.durationMs ? asset.durationMs / 1000 : undefined,
-      bpm: track.bpm,
-      musicalKey: track.musicalKey,
-      genreTags: track.genreTags,
-    });
-  });
-  return cards;
+  // `listBackingTracks` ran under the caller's RLS, so every track here is one
+  // they may see; `toBackingTrackCards` reads only those assets' peaks and
+  // duration with the admin client. See that module for why the previous
+  // caller-scoped read silently emptied the whole library.
+  return toBackingTrackCards(createAdminClient(), page.items);
 }

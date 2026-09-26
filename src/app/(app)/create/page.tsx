@@ -2,9 +2,10 @@ import { getLocale, getTranslations } from "next-intl/server";
 
 import { requireOnboarded } from "@/lib/auth/server";
 import { routes } from "@/config/routes";
-import { getAudioAssetById } from "@/lib/db/audioAssets";
 import { getBackingTrackById } from "@/lib/db/backingTracks";
 import { getChallengeBySlug, localizeChallenge } from "@/lib/db/challenges";
+import { toBackingTrackCards } from "@/lib/feed";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { uuidSchema } from "@/lib/validation/common";
@@ -96,14 +97,21 @@ async function loadBackingTrack(trackId: string): Promise<RecordStageBackingTrac
     const db = await createServerSupabaseClient();
     const track = await getBackingTrackById(db, trackId);
     if (!track || (!track.isCurated && !track.openForVocals)) return null;
-    const asset = await getAudioAssetById(db, track.audioAssetId);
-    if (!asset) return null;
+    // The two lines above ARE the authorization check: the track was read with
+    // the caller's own RLS-scoped client and re-tested for being deliberately
+    // shared. The duration then comes from the admin client, because
+    // `can_view_audio_asset` does not recognise a backing track's instrumental
+    // and a caller-scoped read returns nothing — which used to make this
+    // function return null for every track, so `/create?track=<id>` silently
+    // dropped the instrumental the singer had just chosen. See
+    // `src/lib/feed/backingTrackCards.ts`.
+    const [card] = await toBackingTrackCards(createAdminClient(), [track]);
     return {
       id: track.id,
       title: track.title,
       artistCredit: track.artistCredit,
-      audioAssetId: asset.id,
-      durationMs: asset.durationMs,
+      audioAssetId: track.audioAssetId,
+      durationMs: card?.durationSeconds ? Math.round(card.durationSeconds * 1000) : null,
     };
   } catch {
     // A missing/unreachable track is never a reason to block the whole

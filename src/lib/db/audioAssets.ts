@@ -141,14 +141,52 @@ export async function getAudioAssetsByIds(db: Db, assetIds: string[]): Promise<A
  * caller to hold column-level SELECT on anything. Existence and visibility
  * are deliberately indistinguishable here (see the file-level doc below).
  */
+/**
+ * True when `assetId` is the instrumental of a backing track this caller is
+ * allowed to see.
+ *
+ * `can_view_audio_asset` grants access three ways — you own the asset, it
+ * hangs off a Wave you may see, or it arrived in a conversation you are in. A
+ * backing track is none of those, so every curated instrumental in the library
+ * was unreachable to everyone except the seed account that uploaded it. That
+ * silently emptied the whole feature (see `listBackingTrackCards`).
+ *
+ * The check itself runs through the caller's own RLS-scoped client, so
+ * `backing_tracks_select` (`is_curated OR open_for_vocals OR uploader_id =
+ * auth.uid()`) is what decides the answer — this adds no visibility that the
+ * caller did not already have on the track row. `is_curated OR
+ * open_for_vocals` is then re-asserted here so that merely *owning* an
+ * unshared upload is not what unlocks playback for others: a private
+ * instrumental stays private, exactly as `requireBackingTrack` already
+ * insists.
+ */
+async function canViewBackingTrackAsset(db: Db, assetId: string): Promise<boolean> {
+  const result = await db
+    .from("backing_tracks")
+    .select("id,is_curated,open_for_vocals")
+    .eq("audio_asset_id", assetId)
+    .limit(1)
+    .maybeSingle();
+  if (result.error) {
+    // A read error here must not be mistaken for "authorized".
+    return false;
+  }
+  const row = result.data;
+  return Boolean(row && (row.is_curated || row.open_for_vocals));
+}
+
 async function assertCanViewAudioAsset(db: Db, assetId: string): Promise<void> {
   const result = await db.rpc("can_view_audio_asset", { p_asset_id: assetId });
   if (result.error) {
     throw new DatabaseError("can_view_audio_asset", result.error);
   }
-  if (!result.data) {
-    throw new NotFoundError("audio asset");
+  if (result.data) {
+    return;
   }
+  if (await canViewBackingTrackAsset(db, assetId)) {
+    return;
+  }
+  throw new NotFoundError("audio asset");
 }
 
 /** Privileged read of ONLY the two storage paths, via the service-role client. */
