@@ -51,6 +51,7 @@
     "unreachable": "{brand} isn't reachable from this build.",
     "audioLoadError": "This Wave's audio didn't load.",
     "saveError": "That save didn't stick. Try again.",
+    "echoError": "That Echo didn't stick. Try again.",
     "upNextHeading": "Up next",
     "openForDuetHeading": "Open for Duet",
     "duetHeading": "{duet}",

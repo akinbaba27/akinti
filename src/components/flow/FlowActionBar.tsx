@@ -3,18 +3,21 @@
 import { useTranslations } from "next-intl";
 
 import { Kbd } from "@/components/ui";
-import { Bookmark, Handshake, MessageSquare, RotateCcw, Share2 } from "@/components/ui/icons";
+import { Bookmark, Handshake, MessageSquare, RotateCcw, Share2, Waves } from "@/components/ui/icons";
 import { cn, formatCount } from "@/lib/ui";
 
 export interface FlowActionBarProps {
   isSaved: boolean;
   saveCount: number;
+  isEchoed: boolean;
+  echoCount: number;
   commentCount: number;
   shareCount: number;
   duetCount: number;
   canRequestDuet: boolean;
   openForDuet: boolean;
   onReplay: () => void;
+  onEcho: () => void;
   onSave: () => void;
   onComment: () => void;
   onShare: () => void;
@@ -77,12 +80,15 @@ function ActionKey({
 export function FlowActionBar({
   isSaved,
   saveCount,
+  isEchoed,
+  echoCount,
   commentCount,
   shareCount,
   duetCount,
   canRequestDuet,
   openForDuet,
   onReplay,
+  onEcho,
   onSave,
   onComment,
   onShare,
@@ -95,6 +101,14 @@ export function FlowActionBar({
     <div className="flex flex-wrap items-center justify-between gap-4 pt-6">
       <div className="flex flex-wrap items-center gap-2.5">
         <ActionKey label={tTerms("replay")} icon={<RotateCcw className="size-5" />} onClick={onReplay} />
+        <ActionKey
+          label={isEchoed ? tTerms("unecho") : tTerms("echo")}
+          icon={<Waves className="size-5" weight={isEchoed ? "fill" : "regular"} />}
+          count={echoCount}
+          pressed={isEchoed}
+          onClick={onEcho}
+          toneClassName={isEchoed ? "text-ink" : undefined}
+        />
         <ActionKey
           label={isSaved ? tTerms("saved") : tTerms("save")}
           icon={<Bookmark className="size-5" weight={isSaved ? "fill" : "regular"} />}

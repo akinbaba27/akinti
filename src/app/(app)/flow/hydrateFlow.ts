@@ -11,7 +11,7 @@ import { resolveWavePeaks } from "@/lib/audio/peaks";
 import { getAudioAssetsByIds } from "@/lib/db/audioAssets";
 import { getProfilesByIds } from "@/lib/db/profiles";
 import type { Db } from "@/lib/db/types";
-import { getWavesByIds, listSavedWaveIds } from "@/lib/db/waves";
+import { getWavesByIds, listEchoedWaveIds, listSavedWaveIds } from "@/lib/db/waves";
 import type { FlowWave } from "@/components/flow";
 
 export interface RankedFlowId {
@@ -34,10 +34,11 @@ export async function hydrateFlowWaves(
 
   const creatorIds = [...new Set(waves.map((wave) => wave.creatorId))];
   const assetIds = [...new Set(waves.map((wave) => wave.audioAssetId))];
-  const [creators, assets, savedWaveIds] = await Promise.all([
+  const [creators, assets, savedWaveIds, echoedWaveIds] = await Promise.all([
     getProfilesByIds(db, creatorIds),
     getAudioAssetsByIds(db, assetIds),
     listSavedWaveIds(db, viewerId, waveIds),
+    listEchoedWaveIds(db, viewerId, waveIds),
   ]);
   const creatorById = new Map(creators.map((creator) => [creator.id, creator]));
   const assetById = new Map(assets.map((asset) => [asset.id, asset]));
@@ -89,6 +90,8 @@ export async function hydrateFlowWaves(
         duets: wave.counts.duets,
       },
       isSaved: savedWaveIds.has(wave.id),
+      isEchoed: echoedWaveIds.has(wave.id),
+      echoCount: wave.counts.echoes,
       canRequestDuet: wave.creatorId !== viewerId && wave.duetPermission !== "nobody",
       isInvitation: bucket === 5,
     });

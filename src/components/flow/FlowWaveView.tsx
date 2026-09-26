@@ -26,6 +26,7 @@ export interface FlowWaveViewProps {
   onToggle: () => void;
   onScrub: (ratio: number) => void;
   onReplay: () => void;
+  onEcho: () => void;
   onSave: () => void;
   onComment: () => void;
   onShare: () => void;
@@ -50,6 +51,7 @@ export function FlowWaveView({
   onToggle,
   onScrub,
   onReplay,
+  onEcho,
   onSave,
   onComment,
   onShare,
@@ -109,12 +111,15 @@ export function FlowWaveView({
         <FlowRail
           isSaved={wave.isSaved}
           saveCount={wave.metrics.saves}
+          isEchoed={wave.isEchoed}
+          echoCount={wave.echoCount}
           commentCount={wave.metrics.comments}
           shareCount={wave.metrics.shares}
           duetCount={wave.metrics.duets}
           canRequestDuet={wave.canRequestDuet}
           openForDuet={wave.canRequestDuet}
           onReplay={onReplay}
+          onEcho={onEcho}
           onSave={onSave}
           onComment={onComment}
           onShare={onShare}

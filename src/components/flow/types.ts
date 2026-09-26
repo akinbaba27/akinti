@@ -40,6 +40,14 @@ export interface FlowWave {
   readonly duration?: number;
   readonly metrics: FlowMetrics;
   readonly isSaved: boolean;
+  /**
+   * Echo (`docs/ECHOES.md`). Flow was the one surface the Echo pass left out —
+   * its "Known gaps" called wiring it here "purely a UI wiring task for later"
+   * — which meant the product's single appreciation gesture was missing from
+   * its own default screen.
+   */
+  readonly isEchoed: boolean;
+  readonly echoCount: number;
   /** Optimistic, mirrors `toCardWave`'s own `canRequestDuet` default — the real gate is server-side (`can_request_duet`). */
   readonly canRequestDuet: boolean;
   /** `bucket === 5`: a backing-track/open-call invitation slot (`docs/FLOW.md` "every ~8th slot"). */

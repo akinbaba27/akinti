@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 
 import { loadMoreFlow, sendFlowEvent } from "@/app/(app)/flow/actions";
-import { saveWave, unsaveWave } from "@/app/(app)/w/[id]/interactions";
+import { echoWave, saveWave, unechoWave, unsaveWave } from "@/app/(app)/w/[id]/interactions";
 import { genreHueForTag } from "@/components/feed";
 import { Avatar, useToast } from "@/components/ui";
 import { routes } from "@/config/routes";
@@ -80,6 +80,14 @@ export function FlowScreen({ initialItems, initialCursor, initialError = null }:
   const [savedById, setSavedById] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(initialItems.map((wave) => [wave.id, wave.isSaved])),
   );
+
+  /**
+   * Echo state, mirroring `savedById` exactly (`docs/ECHOES.md`: echoing is
+   * idempotent and reversible, like Save). Optimistic per Wave id, rolled
+   * back if the Server Action rejects.
+   */
+  const [echoedById, setEchoedById] = useState<Record<string, boolean>>({});
+  const [echoDeltaById, setEchoDeltaById] = useState<Record<string, number>>({});
   const [shareTarget, setShareTarget] = useState<FlowWave | null>(null);
   const [commentTarget, setCommentTarget] = useState<FlowWave | null>(null);
 
@@ -286,6 +294,26 @@ export function FlowScreen({ initialItems, initialCursor, initialError = null }:
       });
     });
   }, [activeWave, savedById, tFlow, toast]);
+
+  const handleEcho = useCallback(() => {
+    if (!activeWave) return;
+    const willEcho = !(echoedById[activeWave.id] ?? activeWave.isEchoed);
+    setEchoedById((current) => ({ ...current, [activeWave.id]: willEcho }));
+    setEchoDeltaById((current) => ({
+      ...current,
+      [activeWave.id]: (current[activeWave.id] ?? 0) + (willEcho ? 1 : -1),
+    }));
+    const action = willEcho ? echoWave(activeWave.id) : unechoWave(activeWave.id);
+    void action.then((result) => {
+      if (result.ok) return;
+      setEchoedById((current) => ({ ...current, [activeWave.id]: !willEcho }));
+      setEchoDeltaById((current) => ({
+        ...current,
+        [activeWave.id]: (current[activeWave.id] ?? 0) + (willEcho ? -1 : 1),
+      }));
+      toast({ title: result.error ?? tFlow("echoError"), tone: "error" });
+    });
+  }, [activeWave, echoedById, tFlow, toast]);
 
   const handleDuet = useCallback(() => {
     if (!activeWave || !activeWave.canRequestDuet) return;
@@ -515,12 +543,15 @@ export function FlowScreen({ initialItems, initialCursor, initialError = null }:
             <FlowActionBar
               isSaved={activeSaved}
               saveCount={activeWave.metrics.saves}
+              isEchoed={echoedById[activeWave.id] ?? activeWave.isEchoed}
+              echoCount={Math.max(0, activeWave.echoCount + (echoDeltaById[activeWave.id] ?? 0))}
               commentCount={activeWave.metrics.comments}
               shareCount={activeWave.metrics.shares}
               duetCount={activeWave.metrics.duets}
               canRequestDuet={activeWave.canRequestDuet}
               openForDuet={activeWave.canRequestDuet}
               onReplay={handleReplay}
+              onEcho={handleEcho}
               onSave={handleSave}
               onComment={() => setCommentTarget(activeWave)}
               onShare={() => setShareTarget(activeWave)}
@@ -588,7 +619,12 @@ export function FlowScreen({ initialItems, initialCursor, initialError = null }:
             inert={position !== 0}
           >
             <FlowWaveView
-              wave={{ ...wave, isSaved: savedById[wave.id] ?? wave.isSaved }}
+              wave={{
+                ...wave,
+                isSaved: savedById[wave.id] ?? wave.isSaved,
+                isEchoed: echoedById[wave.id] ?? wave.isEchoed,
+                echoCount: Math.max(0, wave.echoCount + (echoDeltaById[wave.id] ?? 0)),
+              }}
               isActive={position === 0}
               hasStarted={hasStarted}
               isPlaying={playback.isPlaying}
@@ -599,6 +635,7 @@ export function FlowScreen({ initialItems, initialCursor, initialError = null }:
               onToggle={handleToggle}
               onScrub={handleScrub}
               onReplay={handleReplay}
+              onEcho={handleEcho}
               onSave={handleSave}
               onComment={() => setCommentTarget(wave)}
               onShare={() => setShareTarget(wave)}

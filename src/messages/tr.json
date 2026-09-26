@@ -51,6 +51,7 @@
     "unreachable": "{brand} bu derlemeden ulaşılamıyor.",
     "audioLoadError": "Bu Wave'in sesi yüklenemedi.",
     "saveError": "Kaydetme işlemi tutmadı. Tekrar dene.",
+    "echoError": "Yankı kaydedilemedi. Tekrar dene.",
     "upNextHeading": "Sırada",
     "openForDuetHeading": "Duet'e açık",
     "duetHeading": "{duet}",
