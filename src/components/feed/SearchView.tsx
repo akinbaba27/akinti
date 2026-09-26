@@ -237,7 +237,7 @@ export function SearchView({
             <button
               type="button"
               onClick={() => search(trimmedQuery)}
-              className="akinti-press inline-flex h-10 items-center rounded-key border border-hairline-strong px-4 type-subhead text-ink transition-colors hover:bg-paper-sunk focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide"
+              className="akinti-press inline-flex h-11 items-center rounded-key border border-hairline-strong px-4 type-subhead text-ink transition-colors hover:bg-paper-sunk focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide"
             >
               {t("tryAgain")}
             </button>
@@ -251,7 +251,7 @@ export function SearchView({
             <p className="type-body measure text-ink">{t("noMatch", { query: trimmedQuery })}</p>
             <Link
               href={routes.explore()}
-              className="akinti-press inline-flex h-10 items-center rounded-key border border-hairline-strong px-4 type-subhead text-ink transition-colors hover:bg-paper-sunk focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide"
+              className="akinti-press inline-flex h-11 items-center rounded-key border border-hairline-strong px-4 type-subhead text-ink transition-colors hover:bg-paper-sunk focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide"
             >
               {t("browseExplore", { explore: tTerms("explore") })}
             </Link>
@@ -379,7 +379,7 @@ export function SearchView({
           <button
             type="button"
             onClick={() => search(trimmedQuery)}
-            className="akinti-press inline-flex h-10 items-center rounded-key border border-hairline-strong px-4 type-subhead text-ink transition-colors hover:bg-paper-sunk focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide"
+            className="akinti-press inline-flex h-11 items-center rounded-key border border-hairline-strong px-4 type-subhead text-ink transition-colors hover:bg-paper-sunk focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide"
           >
             {t("tryAgain")}
           </button>
@@ -393,7 +393,7 @@ export function SearchView({
           <p className="type-body measure text-ink">{t("noMatch", { query: trimmedQuery })}</p>
           <Link
             href={routes.explore()}
-            className="akinti-press inline-flex h-10 items-center rounded-key border border-hairline-strong px-4 type-subhead text-ink transition-colors hover:bg-paper-sunk focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide"
+            className="akinti-press inline-flex h-11 items-center rounded-key border border-hairline-strong px-4 type-subhead text-ink transition-colors hover:bg-paper-sunk focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide"
           >
             {t("browseExplore", { explore: tTerms("explore") })}
           </Link>

@@ -34,7 +34,8 @@ export function Chip({
       type={type}
       aria-pressed={selected}
       className={cn(
-        "akinti-press inline-flex h-10 shrink-0 items-center gap-1.5 px-3",
+        // 44px, not 40: the touch baseline (WCAG 2.5.5, iOS 44pt, Android 48dp).
+        "akinti-press inline-flex h-11 min-w-11 shrink-0 items-center justify-center gap-1.5 px-3",
         "type-caption whitespace-nowrap transition-colors duration-[--dur-micro]",
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide",
         "disabled:cursor-not-allowed disabled:opacity-55",

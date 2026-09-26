@@ -353,7 +353,7 @@ async function UnavailableState() {
         <p className="type-body measure text-ink">{t("removedDescription", { wave: tTerms("wave") })}</p>
         <Link
           href={routes.home()}
-          className="akinti-press inline-flex h-10 items-center rounded-key border border-hairline-strong px-4 type-subhead text-ink transition-colors hover:bg-paper-sunk focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+          className="akinti-press inline-flex h-11 items-center rounded-key border border-hairline-strong px-4 type-subhead text-ink transition-colors hover:bg-paper-sunk focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
         >
           {t("backToHome", { home: tTerms("home") })}
         </Link>

@@ -223,7 +223,7 @@ export function CommandPalette() {
           setOpen(true);
         }}
         className={cn(
-          "akinti-press flex h-9 w-full max-w-xs items-center gap-2 rounded-key border border-hairline",
+          "akinti-press flex h-11 w-full max-w-xs items-center gap-2 rounded-key border border-hairline",
           "bg-elevation-2 px-3 text-left type-body-sm text-ink-subtle transition-colors hover:text-ink",
           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide",
         )}

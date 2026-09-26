@@ -139,7 +139,7 @@ function SidebarLink({
       aria-current={active ? "page" : undefined}
       title={collapsed ? label : undefined}
       className={cn(
-        "akinti-press group flex h-10 items-center gap-3 rounded-key px-3 transition-colors duration-100",
+        "akinti-press group flex h-11 items-center gap-3 rounded-key px-3 transition-colors duration-100",
         "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-tide",
         active
           ? "bg-elevation-2 text-ink"
@@ -258,7 +258,7 @@ export function DesktopSideNav({ badges, className }: DesktopSideNavProps) {
           aria-label={`${t("newWave")}`}
           title={collapsed ? t("newWave") : undefined}
           className={cn(
-            "akinti-press inline-flex h-10 items-center justify-center gap-2 rounded-key bg-tide",
+            "akinti-press inline-flex h-11 items-center justify-center gap-2 rounded-key bg-tide",
             "type-body-sm font-medium text-on-ink transition-colors duration-100 hover:bg-tide-2",
             "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide",
           )}
@@ -297,7 +297,7 @@ export function DesktopSideNav({ badges, className }: DesktopSideNavProps) {
           title={collapsed ? t("pro") : undefined}
           aria-current={proActive ? "page" : undefined}
           className={cn(
-            "akinti-press flex h-10 items-center gap-3 rounded-key px-3 transition-colors",
+            "akinti-press flex h-11 items-center gap-3 rounded-key px-3 transition-colors",
             "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-tide",
             proActive ? "text-sand" : "text-ink-subtle hover:bg-elevation-2 hover:text-ink",
             collapsed && "justify-center px-0",
@@ -312,7 +312,7 @@ export function DesktopSideNav({ badges, className }: DesktopSideNavProps) {
           title={collapsed ? t("settings") : undefined}
           aria-current={settingsActive ? "page" : undefined}
           className={cn(
-            "akinti-press flex h-10 items-center gap-3 rounded-key px-3 transition-colors",
+            "akinti-press flex h-11 items-center gap-3 rounded-key px-3 transition-colors",
             "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-tide",
             settingsActive ? "text-ink" : "text-ink-subtle hover:bg-elevation-2 hover:text-ink",
             collapsed && "justify-center px-0",

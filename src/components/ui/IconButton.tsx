@@ -46,15 +46,28 @@ const VARIANTS: Record<IconButtonVariant, string> = {
   danger: "text-danger",
 };
 
-/** 36 / 44 / 56px, so a transport control is always at least 44px (§12.10). */
+/**
+ * 44 / 44 / 56px. `sm` was 36px (`size-9`), which put every control using it
+ * under the 44x44 touch baseline (WCAG 2.5.5, iOS 44pt, Android 48dp) —
+ * measured across 16 routes by `scripts/qa/mobile-quality-2026-09-26.mjs`,
+ * which found it on a Wave card's Echo/Comment/Save row and, worse, on a
+ * "Play this Wave" transport control, where DESIGN.md §12.10 additionally
+ * requires the largest target on the screen.
+ *
+ * Raised rather than overlaid with an expanded hit area on purpose: these
+ * controls sit in rows a couple of `gap` steps apart, so 44px invisible hit
+ * areas would overlap and the later-painted one would swallow its
+ * neighbour's taps. `sm` keeps the same 20px glyph, so only the padding
+ * grows; it now differs from `md` in its label typography, not its box.
+ */
 const SIZES: Record<IconButtonSize, string> = {
-  sm: "size-9",
+  sm: "size-11",
   md: "size-11",
   lg: "size-14",
 };
 
 const LABELLED_SIZES: Record<IconButtonSize, string> = {
-  sm: "h-9 w-auto px-3 type-caption",
+  sm: "h-11 w-auto px-3 type-caption",
   md: "h-11 w-auto px-4 type-subhead",
   lg: "h-14 w-auto px-5 type-subhead",
 };

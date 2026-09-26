@@ -118,7 +118,14 @@ export function Tabs({
               "border-b-2 transition-colors duration-[--dur-micro]",
               "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide",
               "disabled:cursor-not-allowed disabled:opacity-55",
-              isSegmented ? "h-8 type-caption" : "h-10 type-subhead",
+              // 44px in both variants, the touch baseline (WCAG 2.5.5, iOS
+              // 44pt, Android 48dp). They were 32px segmented and 40px
+              // underlined; the type scale still distinguishes them, the
+              // box no longer has to.
+              // `min-w-11` as well as `h-11`: WCAG 2.5.5 is 44x44, and a short
+              // label like "New" or "Sent" cleared the height and not the width.
+              "min-w-11 justify-center",
+              isSegmented ? "h-11 type-caption" : "h-11 type-subhead",
               // Active underline is the current; the label stays ink
               // (COLOR_V2 "Tabs and nav": "active underline current, icons
               // ink").

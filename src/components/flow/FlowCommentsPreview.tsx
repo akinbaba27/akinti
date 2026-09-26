@@ -68,7 +68,7 @@ export function FlowCommentsPreview({ waveId, commentCount, onOpenAll }: FlowCom
         <button
           type="button"
           onClick={onOpenAll}
-          className="akinti-press flex h-10 items-center rounded-key border border-hairline-strong px-3 type-body-sm text-ink-muted transition-colors hover:bg-elevation-2 hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide"
+          className="akinti-press flex h-11 items-center rounded-key border border-hairline-strong px-3 type-body-sm text-ink-muted transition-colors hover:bg-elevation-2 hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide"
         >
           {t("beFirstToComment")}
         </button>

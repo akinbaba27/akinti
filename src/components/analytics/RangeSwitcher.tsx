@@ -42,7 +42,8 @@ export async function RangeSwitcher({ current, section, className }: RangeSwitch
               type="submit"
               aria-current={selected || undefined}
               className={cn(
-                "type-body-sm h-8 border-b-2 font-medium transition-colors duration-150",
+                // 44px, the touch baseline (WCAG 2.5.5); was h-8.
+                "type-body-sm h-11 min-w-11 border-b-2 font-medium transition-colors duration-150",
                 "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink",
                 // Desktop swaps the mobile underbar for a filled segmented
                 // control (this pass's brief: "range switcher as segmented

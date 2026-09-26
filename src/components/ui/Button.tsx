@@ -68,19 +68,23 @@ const VARIANTS: Record<ButtonVariant, string> = {
     "hover:decoration-danger",
 };
 
+/**
+ * `min-w-11` alongside each height: WCAG 2.5.5 is 44x44, and a short label
+ * ("Got it") cleared the height while staying 37px wide.
+ */
 const SIZES: Record<ButtonSize, string> = {
-  lg: "h-13 px-6",
-  md: "h-11 px-5",
-  sm: "h-10 px-4",
-  xs: "h-8 px-3 type-caption",
+  lg: "h-13 min-w-13 px-6",
+  md: "h-11 min-w-11 px-5",
+  sm: "h-11 min-w-11 px-4",
+  xs: "h-8 px-3 type-caption akinti-tap",
 };
 
 /** Text keys are a sentence, not a field: they carry no side padding. */
 const TEXT_KEY_SIZES: Record<ButtonSize, string> = {
-  lg: "h-13 px-0",
-  md: "h-11 px-0",
-  sm: "h-10 px-0",
-  xs: "h-8 px-0 type-caption",
+  lg: "h-13 min-w-13 px-0",
+  md: "h-11 min-w-11 px-0",
+  sm: "h-11 min-w-11 px-0",
+  xs: "h-8 px-0 type-caption akinti-tap",
 };
 
 export function Button({

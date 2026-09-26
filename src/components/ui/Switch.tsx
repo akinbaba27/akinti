@@ -60,7 +60,12 @@ export function Switch({
         disabled={disabled}
         onClick={() => onCheckedChange(!checked)}
         className={cn(
-          "akinti-press relative inline-flex h-8 w-13 shrink-0 items-center rounded-field border",
+          // `akinti-tap`: the 32px track is the design; the touch baseline
+          // (WCAG 2.5.5) is met with an expanded hit area instead. Switches
+          // stack in rows with a description between them, so it cannot
+          // overlap the next control. Already correctly named via
+          // `aria-labelledby`, which is why axe never flagged these.
+          "akinti-press akinti-tap relative inline-flex h-8 w-13 shrink-0 items-center rounded-field border",
           "transition-colors duration-[--dur-micro]",
           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide",
           "disabled:cursor-not-allowed disabled:opacity-55",

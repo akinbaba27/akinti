@@ -1002,6 +1002,29 @@
     );
   }
 
+  /* A control that is deliberately smaller than the 44x44 touch baseline
+     (WCAG 2.5.5, iOS 44pt, Android 48dp) keeps its visual size and gains a
+     centred, invisible hit area that reaches 44px in both directions.
+
+     Only for controls that stand alone. A row of tightly-spaced keys must be
+     made genuinely larger instead (as `IconButton`'s `sm` now is): two 44px
+     hit areas closer than 44px apart overlap, and the later-painted one
+     swallows its neighbour's taps, which is worse than the small target was. */
+  .akinti-tap {
+    position: relative;
+  }
+  .akinti-tap::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    height: 100%;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
   /* Press is physical: scale, plus a 1px inset hairline so a key reads
      as depressed rather than dimmed (§7.2). */
   .akinti-press {

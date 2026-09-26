@@ -77,7 +77,7 @@ export function HorizontalScroller({ scrollRef, children, className }: Horizonta
           type="button"
           aria-label={t("scrollPrevious")}
           onClick={() => scrollBy(-1)}
-          className="akinti-press absolute top-1/2 -left-3 hidden size-9 -translate-y-1/2 items-center justify-center rounded-full border border-hairline-strong bg-elevation-2 text-ink opacity-0 shadow-lift transition-opacity duration-150 group-hover/scroller:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide lg:flex"
+          className="akinti-press absolute top-1/2 -left-3 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full border border-hairline-strong bg-elevation-2 text-ink opacity-0 shadow-lift transition-opacity duration-150 group-hover/scroller:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide lg:flex"
         >
           <ChevronLeft className="size-4" />
         </button>
@@ -87,7 +87,7 @@ export function HorizontalScroller({ scrollRef, children, className }: Horizonta
           type="button"
           aria-label={t("scrollNext")}
           onClick={() => scrollBy(1)}
-          className="akinti-press absolute top-1/2 -right-3 hidden size-9 -translate-y-1/2 items-center justify-center rounded-full border border-hairline-strong bg-elevation-2 text-ink opacity-0 shadow-lift transition-opacity duration-150 group-hover/scroller:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide lg:flex"
+          className="akinti-press absolute top-1/2 -right-3 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full border border-hairline-strong bg-elevation-2 text-ink opacity-0 shadow-lift transition-opacity duration-150 group-hover/scroller:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide lg:flex"
         >
           <ChevronRight className="size-4" />
         </button>

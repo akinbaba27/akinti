@@ -60,7 +60,10 @@ export function TopBar({
     >
       <Link
         href={routes.home()}
-        className="inline-flex min-w-0 flex-1 items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide"
+        // `akinti-tap`: the wordmark is a 25px-tall logo, and stretching the
+        // glyph to 44px would be a brand change. It stands alone in the top
+        // bar, so an expanded hit area cannot overlap a neighbour.
+        className="akinti-tap inline-flex min-w-0 flex-1 items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide"
       >
         <span className="type-wordmark truncate text-ink">{BRAND}</span>
       </Link>

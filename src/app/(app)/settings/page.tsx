@@ -134,7 +134,7 @@ export default async function SettingsPage() {
           <form action={handleSignOut}>
             <button
               type="submit"
-              className="akinti-press type-body inline-flex items-center gap-2 text-ink underline decoration-hairline-strong decoration-1 underline-offset-[3px] hover:decoration-ink"
+              className="akinti-press akinti-tap type-body inline-flex items-center gap-2 text-ink underline decoration-hairline-strong decoration-1 underline-offset-[3px] hover:decoration-ink"
             >
               <LogOut className="size-4" aria-hidden="true" />
               {t("logOut")}

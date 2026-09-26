@@ -114,13 +114,41 @@ for (const [viewportName, viewport, isMobile] of [
         }
 
         const small = [];
+        const inlineText = [];
         for (const el of Array.from(document.querySelectorAll("button, a[href], [role=button], input[type=checkbox], input[type=radio]"))) {
           const r = el.getBoundingClientRect();
           if (r.width === 0 || r.height === 0) continue;
           const cs = getComputedStyle(el);
           if (cs.visibility === "hidden" || cs.display === "none") continue;
           if (r.width >= minTap && r.height >= minTap) continue;
+
           const name = (el.innerText || el.getAttribute("aria-label") || el.tagName).replace(/\s+/g, " ").trim().slice(0, 32);
+
+          // `.akinti-tap` keeps a control's visual size and expands its hit
+          // area to 44px with a pseudo-element, which `getBoundingClientRect`
+          // cannot see. Those controls meet the baseline; counting them as
+          // failures would make this number impossible to clear.
+          if (el.classList.contains("akinti-tap")) continue;
+
+          // WCAG 2.5.5 exempts a target that is "in a sentence or block of
+          // text". The test is whether the element is exactly its own text and
+          // nothing more: its height is one line box and it has no padding or
+          // border of its own. That catches a notification row's title link, a
+          // @handle, a Wave title in a list — content that happens to be a
+          // link — regardless of whether it computes to `inline` or `block`,
+          // which the first version of this check got wrong and so counted
+          // running text as failing controls. Recorded separately, never
+          // silently dropped.
+          const lh = parseFloat(cs.lineHeight) || 0;
+          const boxExtra =
+            parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom) +
+            parseFloat(cs.borderTopWidth) + parseFloat(cs.borderBottomWidth);
+          const isInlineText = lh > 0 && boxExtra < 2 && r.height <= lh * 2 + 2;
+          if (isInlineText) {
+            inlineText.push({ name, w: Math.round(r.width), h: Math.round(r.height) });
+            continue;
+          }
+
           small.push({ name, w: Math.round(r.width), h: Math.round(r.height) });
         }
 
@@ -135,8 +163,10 @@ for (const [viewportName, viewport, isMobile] of [
         return {
           overflow,
           culprit,
-          small: small.slice(0, 6),
+          small: small.slice(0, 8),
           smallCount: small.length,
+          inlineTextExempt: inlineText.slice(0, 8),
+          inlineTextExemptCount: inlineText.length,
           currentMarked: current,
           text: (document.body.innerText || "").replace(/\s+/g, " ").slice(0, 1500),
         };

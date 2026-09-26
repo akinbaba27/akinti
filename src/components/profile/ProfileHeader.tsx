@@ -18,7 +18,8 @@ import { ShareProfileButton } from "./ShareProfileButton";
  *  Key radius, hairline border, no fill: the same ink-line "key" look as everywhere else
  *  (§8.7) — never a pill (§12.4). */
 const SECONDARY_LINK_BUTTON =
-  "akinti-press inline-flex h-9 items-center gap-1.5 rounded-key border border-hairline-strong px-3 " +
+  // 44px, the touch baseline (WCAG 2.5.5, iOS 44pt, Android 48dp); was h-9.
+  "akinti-press inline-flex h-11 items-center gap-1.5 rounded-key border border-hairline-strong px-3 " +
   "type-caption font-medium text-ink transition-colors hover:bg-paper-sunk " +
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide";
 

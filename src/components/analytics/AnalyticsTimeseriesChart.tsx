@@ -82,7 +82,7 @@ export function AnalyticsTimeseriesChart({ days, className }: AnalyticsTimeserie
             type="button"
             onClick={() => setShowTable((value) => !value)}
             aria-pressed={showTable}
-            className="akinti-press type-caption h-10 shrink-0 text-ink-muted underline decoration-hairline-strong decoration-1 underline-offset-[3px] hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+            className="akinti-press akinti-tap type-caption h-10 shrink-0 text-ink-muted underline decoration-hairline-strong decoration-1 underline-offset-[3px] hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
           >
             {showTable ? t("showChart") : t("showTable")}
           </button>

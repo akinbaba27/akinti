@@ -230,9 +230,14 @@ function TrackRow({ track, className }: { track: BackingTrackCard; className?: s
               track.artistCredit
             )}
           </p>
+          {/* `akinti-tap`: this is the row's call to action, so it needs a real
+              44px target (WCAG 2.5.5), but it reads as a text link under the
+              credit line and turning it into a key would change the row's
+              whole register. It stands alone at the bottom of the row, so the
+              expanded hit area cannot overlap another control. */}
           <Link
             href={`${routes.create()}?track=${encodeURIComponent(track.id)}`}
-            className="type-caption text-ink underline decoration-hairline-strong underline-offset-[3px] hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide"
+            className="akinti-tap type-caption self-start text-ink underline decoration-hairline-strong underline-offset-[3px] hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide"
           >
             {t("singOverThis")}
           </Link>
