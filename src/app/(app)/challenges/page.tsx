@@ -100,11 +100,22 @@ export default async function ChallengesPage() {
               <div className="flex flex-col items-start gap-1.5 pb-8">
                 <p className="type-body text-ink">{tPage("noneLiveTitle")}</p>
                 <p className="type-body-sm measure text-ink-muted">{tPage("noneLiveDescription")}</p>
-                <div className="flex flex-wrap gap-4 pt-2">
-                  <Link href={routes.create()} className="type-body-sm text-ink underline">
+                {/* Same key treatment `FlowEmptyState` uses for its own
+                    actions: a real h-13 target rather than a 20px-tall inline
+                    link, since these are the primary actions on a first-run
+                    destination. Measured at 390px by
+                    `scripts/qa/mobile-quality-2026-09-26.mjs`. */}
+                <div className="flex flex-col items-stretch gap-2.5 pt-3 sm:flex-row sm:items-center">
+                  <Link
+                    href={routes.create()}
+                    className="akinti-press flex h-13 items-center justify-start rounded-key bg-ink px-5 type-subhead text-on-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                  >
                     {t("record")}
                   </Link>
-                  <Link href={routes.tracks()} className="type-body-sm text-ink underline">
+                  <Link
+                    href={routes.tracks()}
+                    className="akinti-press flex h-13 items-center justify-start rounded-key border border-hairline-strong px-5 type-subhead text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tide"
+                  >
                     {tPage("browseTracks")}
                   </Link>
                 </div>
