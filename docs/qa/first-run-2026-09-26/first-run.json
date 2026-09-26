@@ -1,0 +1,4767 @@
+{
+  "base": "http://localhost:3633",
+  "generatedAt": "2026-09-26T12:09:47.592Z",
+  "email": "e2e+firstrun-1790424525977@akinti.test",
+  "username": "firstrun4525977",
+  "steps": [
+    {
+      "label": "01 anonymous landing",
+      "url": "/login?next=%2F",
+      "h1": "Log in",
+      "text": "AKINTI\n\nWhere voices become connections.\n\nLog in\n\nSign in with your email and password.\n\nEmail*\nPassword*\nLog in\nForgot password?\nCreate an account",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Log in",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Forgot password?",
+          "href": "/forgot-password",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Create an account",
+          "href": "/signup",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "02 signup form",
+      "url": "/signup",
+      "h1": "Sign up",
+      "text": "AKINTI\n\nWhere voices become connections.\n\nSign up\n\nCreate an account and claim your username.\n\nUsername*\n\nLowercase letters, numbers and underscores. 3–30 characters.\n\nEmail*\nPassword*\n\nAt least 8 characters.\n\nSign up\n\nAlready have an account? Log in",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Sign up",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Log in",
+          "href": "/login",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "03 first screen after first sign-in",
+      "url": "/onboarding",
+      "h1": "AKINTI is just\ngetting started.",
+      "text": "AKINTI is just\ngetting started.\nNothing to play yet\n\nYou could be the first voice.\n\nContinue\nI'll look around",
+      "actions": [
+        {
+          "tag": "button",
+          "label": "Nothing to play yet",
+          "href": null,
+          "disabled": true
+        },
+        {
+          "tag": "button",
+          "label": "Continue",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "I'll look around",
+          "href": null,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "04 onboarding step 1",
+      "url": "/onboarding",
+      "h1": "AKINTI is just\ngetting started.",
+      "text": "AKINTI is just\ngetting started.\nNothing to play yet\n\nYou could be the first voice.\n\nContinue\nI'll look around",
+      "actions": [
+        {
+          "tag": "button",
+          "label": "Nothing to play yet",
+          "href": null,
+          "disabled": true
+        },
+        {
+          "tag": "button",
+          "label": "Continue",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "I'll look around",
+          "href": null,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "04 onboarding step 2",
+      "url": "/onboarding",
+      "h1": "Your turn.\nNothing is\nposted yet.",
+      "text": "Your turn.\nNothing is\nposted yet.\n\nHold to try it. We keep nothing until you choose to publish.\n\nContinue\nSet up my mic later",
+      "actions": [
+        {
+          "tag": "button",
+          "label": "Hold to try recording",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Continue",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Set up my mic later",
+          "href": null,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "04 onboarding step 3",
+      "url": "/onboarding",
+      "h1": "Pick a handle.",
+      "text": "Pick a handle.\nHandle*\n@\n\nlocalhost:3633/u/firstrun4525977\n\nName (optional)\nStart listening",
+      "actions": [
+        {
+          "tag": "button",
+          "label": "Start listening",
+          "href": null,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "05 flow (empty)",
+      "url": "/flow",
+      "h1": "Nothing new to play yet",
+      "text": "Skip to content\nNothing new to play yet\n\nFollow a few creators, or record something of your own to get the current moving.\n\nRecord a Wave\nBrowse challenges\nFind people to follow",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Collapse sidebar",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "New Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Saved",
+          "href": "/settings/content/saved",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Duets",
+          "href": "/duets",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Drafts",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Back",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Forward",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Search or jump to⌘K",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Notifications",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record a Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Browse challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Find people to follow",
+          "href": "/explore",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "06 home (empty)",
+      "url": "/",
+      "h1": "Home",
+      "text": "Skip to content\nAKINTI\nFI\nfirstrun4525977\nHome\n\nNo one you follow has posted yet.\n\nHere is what people are listening to right now.\n\nFind people to follow\nRecord your first Wave\nFlow\nHome\nExplore\nMessages\nProfile",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Collapse sidebar",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "New Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Saved",
+          "href": "/settings/content/saved",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Duets",
+          "href": "/duets",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Drafts",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FI firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Back",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Forward",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Search or jump to⌘K",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Notifications",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Find people to follow",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record your first Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record a Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "07 explore (empty)",
+      "url": "/explore",
+      "h1": "Explore",
+      "text": "Skip to content\nAKINTI\nFI\nfirstrun4525977\nExplore\nTracks to sing over\nAll\nquirky\nfunk\ngroove\nambient\ncarnival\ncinematic\ncomedy\nelectronic\nhiphop\njazz\npiano\npop\nspy\nPlay Constance\n\nConstance\n\n83 bpm · E minor · 2:20\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Marty Gots a Plan\n\nMarty Gots a Plan\n\n144 bpm · F minor · 2:48\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Sneaky Snitch\n\nSneaky Snitch\n\n86 bpm · A# major · 2:16\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Monkeys Spinning Monkeys\n\nMonkeys Spinning Monkeys\n\n144 bpm · F major · 2:05\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Hustle\n\nHustle\n\n117 bpm · G# minor · 2:00\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Merry Go\n\nMerry Go\n\n129 bpm · C major · 2:00\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nTrending\nNew\nRising\nOriginal\nVoices\nCompositions\nOpen for Duet\n\nNothing is trending yet. Trending needs a few hours of listening behind it.\n\nHear what is new\nFlow\nHome\nExplore\nMessages\nProfile",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Collapse sidebar",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "New Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Saved",
+          "href": "/settings/content/saved",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Duets",
+          "href": "/duets",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Drafts",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FI firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Back",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Forward",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Search or jump to⌘K",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Notifications",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "All",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "quirky",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "funk",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "groove",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "ambient",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "carnival",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "cinematic",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "comedy",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "electronic",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "hiphop",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "jazz",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "piano",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "pop",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "spy",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Constance",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Constance.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=419ca388-9a77-4a88-b872-21dc225e74e9",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Marty Gots a Plan",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Marty%20Gots%20a%20Plan.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=388dd919-9e0e-4229-be19-a761f217d9e8",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Sneaky Snitch",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sneaky%20Snitch.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=16e0ad3a-3754-4c89-b583-604dfb37e839",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Monkeys Spinning Monkeys",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Monkeys%20Spinning%20Monkeys.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=773d7b91-f85e-4df6-971a-a2c2b86240df",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Hustle",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Hustle.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=a6779976-1d2b-4065-951c-43a28a959cdf",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Merry Go",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Merry%20Go.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=29e69472-933c-45af-9818-e56c9f5990d9",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Trending",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "New",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Rising",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Original",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Voices",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Compositions",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Open for Duet",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Hear what is new",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record a Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "08 search (idle)",
+      "url": "/search",
+      "h1": "Search",
+      "text": "Skip to content\nAKINTI\nFI\nfirstrun4525977\nSearch\nSearch\n\nLook for a person by name or handle, or for a Wave by its title.\n\nFlow\nHome\nExplore\nMessages\nProfile",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Collapse sidebar",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "New Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Saved",
+          "href": "/settings/content/saved",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Duets",
+          "href": "/duets",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Drafts",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FI firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Back",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Forward",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Search or jump to⌘K",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Notifications",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record a Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "09 create",
+      "url": "/create",
+      "h1": "Create a Wave",
+      "text": "Skip to content\nAKINTI\nFI\nfirstrun4525977\nCreate a Wave\n\n0:00 / 5:00\n\nHold to record · Tap to arm.\n\nWe need your mic to record. Nothing is uploaded until you publish.\n\nSing over a track\nI'm in a noisy room\nCleans up what you hear while you record. Your recording keeps the original sound.\nHear yourself\nUse headphones, or the speakers will feed back into the take.\nCount me in\nThree beats before recording starts.\n\nBest with headphones. Speakers leak into the microphone.\n\nGot it\nUpload a file instead\nFlow\nHome\nExplore\nMessages\nProfile",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Collapse sidebar",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "New Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Saved",
+          "href": "/settings/content/saved",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Duets",
+          "href": "/duets",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Drafts",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FI firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Back",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Forward",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Search or jump to⌘K",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Notifications",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Arm the microphone",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Sing over a track",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Got it",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Upload a file instead",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record a Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "10 tracks",
+      "url": "/tracks",
+      "h1": "Tracks",
+      "text": "Skip to content\nAKINTI\nFI\nfirstrun4525977\nTracks\nTracks to sing over\nAll\nquirky\nfunk\ngroove\nambient\ncinematic\ncomedy\njazz\npop\nacoustic\ncarnival\ndramatic\nelectronic\nhappy\nhiphop\nmystery\npiano\nspy\nsuspense\nupbeat\nPlay Constance\n\nConstance\n\n83 bpm · E minor · 2:20\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Marty Gots a Plan\n\nMarty Gots a Plan\n\n144 bpm · F minor · 2:48\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Sneaky Snitch\n\nSneaky Snitch\n\n86 bpm · A# major · 2:16\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Monkeys Spinning Monkeys\n\nMonkeys Spinning Monkeys\n\n144 bpm · F major · 2:05\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Hustle\n\nHustle\n\n117 bpm · G# minor · 2:00\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Merry Go\n\nMerry Go\n\n129 bpm · C major · 2:00\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Rollin at 5\n\nRollin at 5\n\n103 bpm · B minor · 2:10\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Investigations\n\nInvestigations\n\n96 bpm · C major · 1:33\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Comfortable Mystery 4\n\nComfortable Mystery 4\n\n129 bpm · D# major · 1:15\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Impact Moderato\n\nImpact Moderato\n\n99 bpm · A# minor · 1:15\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Cheery Monday\n\nCheery Monday\n\n103 bpm · C major · 1:20\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nPlay Fluffing a Duck\n\nFluffing a Duck\n\n81 bpm · A# major · 1:07\n\nKevin MacLeod (incompetech.com)\n\nSing over this\nFlow\nHome\nExplore\nMessages\nProfile",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Collapse sidebar",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "New Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Saved",
+          "href": "/settings/content/saved",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Duets",
+          "href": "/duets",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Drafts",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FI firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Back",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Forward",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Search or jump to⌘K",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Notifications",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "All",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "quirky",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "funk",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "groove",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "ambient",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "cinematic",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "comedy",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "jazz",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "pop",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "acoustic",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "carnival",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "dramatic",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "electronic",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "happy",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "hiphop",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "mystery",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "piano",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "spy",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "suspense",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "upbeat",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Constance",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Constance.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=419ca388-9a77-4a88-b872-21dc225e74e9",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Marty Gots a Plan",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Marty%20Gots%20a%20Plan.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=388dd919-9e0e-4229-be19-a761f217d9e8",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Sneaky Snitch",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sneaky%20Snitch.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=16e0ad3a-3754-4c89-b583-604dfb37e839",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Monkeys Spinning Monkeys",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Monkeys%20Spinning%20Monkeys.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=773d7b91-f85e-4df6-971a-a2c2b86240df",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Hustle",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Hustle.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=a6779976-1d2b-4065-951c-43a28a959cdf",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Merry Go",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Merry%20Go.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=29e69472-933c-45af-9818-e56c9f5990d9",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Rollin at 5",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Rollin%20at%205.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=c6c232a0-4299-4145-9b3c-02fc1bf78093",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Investigations",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Investigations.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=7d829a68-3b51-4398-8f86-77da0bbc491f",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Comfortable Mystery 4",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Comfortable%20Mystery%204.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=3bdede0a-a20b-4205-ba4f-22bb610f7eed",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Impact Moderato",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Impact%20Moderato.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=cc8fec3f-8800-499b-b41a-7e33caa9017e",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Cheery Monday",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Cheery%20Monday.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=6792a22e-4bbb-4a2b-b719-a9cbe926bd82",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Play Fluffing a Duck",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Kevin MacLeod (incompetech.com)",
+          "href": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Fluffing%20a%20Duck.mp3",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Sing over this",
+          "href": "/create?track=4058e800-0d17-4a35-8c38-5d2a02a4ab1b",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record a Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "11 challenges (none live)",
+      "url": "/challenges",
+      "h1": "Challenges",
+      "text": "Skip to content\nAKINTI\nFI\nfirstrun4525977\nChallenges\n\nNothing is running right now\n\nThe next theme will show up here. In the meantime you can record anything you like, or sing over a track.\n\nRecord\nBrowse tracks\nAtışma call\n#atismacall · Ended\nOpening week\n#openingweek · Ended\nFlow\nHome\nExplore\nMessages\nProfile",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Collapse sidebar",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "New Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Saved",
+          "href": "/settings/content/saved",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Duets",
+          "href": "/duets",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Drafts",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FI firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Back",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Forward",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Search or jump to⌘K",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Notifications",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Browse tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Atışma call #atismacall · Ended",
+          "href": "/challenges/atisma-call",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Opening week #openingweek · Ended",
+          "href": "/challenges/opening-week",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Atışma call#atismacall · Ended",
+          "href": "/challenges/atisma-call",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Opening week#openingweek · Ended",
+          "href": "/challenges/opening-week",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record a Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "12 duets (empty)",
+      "url": "/duets",
+      "h1": "Duet Requests",
+      "text": "Skip to content\nAKINTI\nFI\nfirstrun4525977\nDuet Requests\nReceived\nSent\nNo received duet requests\n\nWhen someone asks to Duet on one of your Waves, it shows up here.\n\nFlow\nHome\nExplore\nMessages\nProfile",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Collapse sidebar",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "New Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Saved",
+          "href": "/settings/content/saved",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Duets",
+          "href": "/duets",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Drafts",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FI firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Back",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Forward",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Search or jump to⌘K",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Notifications",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Received",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Sent",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record a Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "13 notifications (empty)",
+      "url": "/notifications",
+      "h1": "Notifications",
+      "text": "Skip to content\nAKINTI\nFI\nfirstrun4525977\nNotifications\nNo notifications yet\n\nWhen someone follows you, comments, Echoes, saves or shares one of your Waves, or asks you for a Duet, you will hear about it here.\n\nFlow\nHome\nExplore\nMessages\nProfile",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Collapse sidebar",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "New Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Saved",
+          "href": "/settings/content/saved",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Duets",
+          "href": "/duets",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Drafts",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FI firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Back",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Forward",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Search or jump to⌘K",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Notifications",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record a Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "14 messages (empty)",
+      "url": "/messages",
+      "h1": "Messages",
+      "text": "Skip to content\nAKINTI\nFI\nfirstrun4525977\nMessages\nNo conversations yet\n\nAudio messages are private. They are never Waves, and they never appear in a feed or in Explore.\n\nFlow\nHome\nExplore\nMessages\nProfile",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Collapse sidebar",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "New Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Saved",
+          "href": "/settings/content/saved",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Duets",
+          "href": "/duets",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Drafts",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FI firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Back",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Forward",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Search or jump to⌘K",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Notifications",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record a Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "15 own profile (empty)",
+      "url": "/u/firstrun4525977",
+      "h1": "firstrun4525977",
+      "text": "Skip to content\nAKINTI\nFI\nfirstrun4525977\nFI\nfirstrun4525977\nEdit profile\nAnalytics\nfirstrun4525977\n\n@firstrun4525977\n\nYour signature appears once you publish.\n\n0\nFollowers\n0\nFollowing\n0\nWaves\nWaves\n0\nDuets\n0\nYou haven't published a Wave yet\n\nRecord or upload your first Wave to get started.\n\nRecord\nFlow\nHome\nExplore\nMessages\nProfile",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Collapse sidebar",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "New Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Saved",
+          "href": "/settings/content/saved",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Duets",
+          "href": "/duets",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Drafts",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FI firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Back",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Forward",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Search or jump to⌘K",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Notifications",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Edit profile",
+          "href": "/settings/account",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Analytics",
+          "href": "/analytics",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "0 Followers",
+          "href": "/u/firstrun4525977/followers",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "0 Following",
+          "href": "/u/firstrun4525977/following",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Waves 0",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Duets 0",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Record",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record a Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "16 analytics (no data)",
+      "url": "/analytics",
+      "h1": "Analytics",
+      "text": "Skip to content\nAKINTI\nFI\nfirstrun4525977\nAnalytics\n7 days\n30 days\n90 days\nNo Waves yet\n\nPublish your first Wave to start seeing Plays, listeners and more here.\n\nRecord your first Wave\nFlow\nHome\nExplore\nMessages\nProfile",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Collapse sidebar",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "New Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Saved",
+          "href": "/settings/content/saved",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Duets",
+          "href": "/duets",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Drafts",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FI firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Back",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Forward",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Search or jump to⌘K",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Notifications",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "7 days",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "30 days",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "90 days",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record your first Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record a Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "17 settings hub",
+      "url": "/settings",
+      "h1": "Settings",
+      "text": "Skip to content\nAKINTI\nFI\nfirstrun4525977\nSettings\nFI\nfirstrun4525977\nfirstrun4525977\n@firstrun4525977\nAccount\nPrivacy\nSafety\nAudio\nNotifications\nAppearance\nContent\nAnalytics\nAKINTI Pro\nLanguage\nEnglish\nLog out\nDelete account\n\nAKINTI · 2026\n\nFlow\nHome\nExplore\nMessages\nProfile",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Collapse sidebar",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "New Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Saved",
+          "href": "/settings/content/saved",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Duets",
+          "href": "/duets",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Drafts",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FI firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Back",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Forward",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Search or jump to⌘K",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Notifications",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "FI firstrun4525977 firstrun4525977 @firstrun4525977",
+          "href": "/settings/account",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Account",
+          "href": "/settings/account",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Privacy",
+          "href": "/settings/privacy",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Safety",
+          "href": "/settings/safety",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Audio",
+          "href": "/settings/audio",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/settings/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Appearance",
+          "href": "/settings/appearance",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Content",
+          "href": "/settings/content",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Analytics",
+          "href": "/analytics",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Language English",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Log out",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Delete account",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record a Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "18 settings pro (no plans)",
+      "url": "/settings/pro",
+      "h1": "AKINTI Pro",
+      "text": "Skip to content\nAKINTI\nFI\nfirstrun4525977\nAKINTI Pro\nPitch snap and self-harmony sounds\nStems for every Wave you publish\nUnlimited saves\nAd-free, always\nOne featured Duet slot a month\nThe Pro mark next to your handle\n\n$4.99\n/month\n\nPro checkout isn't live yet. Payment setup for your region is still in progress.\n\nFlow\nHome\nExplore\nMessages\nProfile",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Collapse sidebar",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "New Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Saved",
+          "href": "/settings/content/saved",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Duets",
+          "href": "/duets",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Drafts",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FI firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Back",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Forward",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Search or jump to⌘K",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Notifications",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record a Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "19 saved (empty)",
+      "url": "/settings/content/saved",
+      "h1": "Saved",
+      "text": "Skip to content\nAKINTI\nFI\nfirstrun4525977\nSaved\nNothing saved yet\n\nTap Save on any Wave to collect it here.\n\nFlow\nHome\nExplore\nMessages\nProfile",
+      "actions": [
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Collapse sidebar",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/search",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Challenges",
+          "href": "/challenges",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Tracks",
+          "href": "/tracks",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "New Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Saved",
+          "href": "/settings/content/saved",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Duets",
+          "href": "/duets",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Drafts",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Pro",
+          "href": "/settings/pro",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Settings",
+          "href": "/settings",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "AKINTI",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Search",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Notifications",
+          "href": "/notifications",
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FI firstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Back",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Forward",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Search or jump to⌘K",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "Notifications",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "label": "FIfirstrun4525977",
+          "href": null,
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Flow",
+          "href": "/flow",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Home",
+          "href": "/",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Explore",
+          "href": "/explore",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Record a Wave",
+          "href": "/create",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Messages",
+          "href": "/messages",
+          "disabled": false
+        },
+        {
+          "tag": "a",
+          "label": "Profile",
+          "href": "/u/firstrun4525977",
+          "disabled": false
+        }
+      ]
+    }
+  ],
+  "consoleErrors": []
+}

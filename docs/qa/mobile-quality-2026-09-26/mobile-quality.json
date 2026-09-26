@@ -1,0 +1,1290 @@
+{
+  "base": "http://localhost:3638",
+  "generatedAt": "2026-09-26T14:24:38.120Z",
+  "minTap": 44,
+  "rows": [
+    {
+      "viewport": "mobile",
+      "label": "flow",
+      "url": "/flow",
+      "overflow": 0,
+      "culprit": null,
+      "small": [],
+      "smallCount": 0,
+      "currentMarked": 1,
+      "text": "Skip to content Nothing new to play yet Follow a few creators, or record something of your own to get the current moving. Record a Wave Browse challenges Find people to follow",
+      "leak": null,
+      "problems": []
+    },
+    {
+      "viewport": "mobile",
+      "label": "home",
+      "url": "/",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 202,
+          "h": 25
+        },
+        {
+          "name": "Record your first Wave",
+          "w": 139,
+          "h": 20
+        }
+      ],
+      "smallCount": 2,
+      "currentMarked": 3,
+      "text": "Skip to content AKINTI 4 4 unread notifications AK akın Home No one you follow has posted yet. Here is what people are listening to right now. Find people to follow Record your first Wave Flow Home Explore 1 1 unread Messages Messages Profile",
+      "leak": null,
+      "problems": [
+        "2 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "label": "explore",
+      "url": "/explore",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 202,
+          "h": 25
+        },
+        {
+          "name": "All",
+          "w": 39,
+          "h": 40
+        },
+        {
+          "name": "quirky",
+          "w": 62,
+          "h": 40
+        },
+        {
+          "name": "funk",
+          "w": 52,
+          "h": 40
+        },
+        {
+          "name": "groove",
+          "w": 67,
+          "h": 40
+        },
+        {
+          "name": "ambient",
+          "w": 74,
+          "h": 40
+        }
+      ],
+      "smallCount": 35,
+      "currentMarked": 4,
+      "text": "Skip to content AKINTI 4 4 unread notifications AK akın Explore Tracks to sing over All quirky funk groove ambient carnival cinematic comedy electronic hiphop jazz piano pop spy Play Constance Constance 83 bpm · E minor · 2:20 Kevin MacLeod (incompetech.com) Sing over this Play Marty Gots a Plan Marty Gots a Plan 144 bpm · F minor · 2:48 Kevin MacLeod (incompetech.com) Sing over this Play Sneaky Snitch Sneaky Snitch 86 bpm · A# major · 2:16 Kevin MacLeod (incompetech.com) Sing over this Play Monkeys Spinning Monkeys Monkeys Spinning Monkeys 144 bpm · F major · 2:05 Kevin MacLeod (incompetech.com) Sing over this Play Hustle Hustle 117 bpm · G# minor · 2:00 Kevin MacLeod (incompetech.com) Sing over this Play Merry Go Merry Go 129 bpm · C major · 2:00 Kevin MacLeod (incompetech.com) Sing over this Trending New Rising Original Voices Compositions Open for Duet Nothing is trending yet. Trending needs a few hours of listening behind it. Hear what is new Flow Home Explore 1 1 unread Messages Messages Profile",
+      "leak": null,
+      "problems": [
+        "35 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "label": "tracks",
+      "url": "/tracks",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 202,
+          "h": 25
+        },
+        {
+          "name": "All",
+          "w": 39,
+          "h": 40
+        },
+        {
+          "name": "quirky",
+          "w": 62,
+          "h": 40
+        },
+        {
+          "name": "funk",
+          "w": 52,
+          "h": 40
+        },
+        {
+          "name": "groove",
+          "w": 67,
+          "h": 40
+        },
+        {
+          "name": "ambient",
+          "w": 74,
+          "h": 40
+        }
+      ],
+      "smallCount": 45,
+      "currentMarked": 1,
+      "text": "Skip to content AKINTI 4 4 unread notifications AK akın Tracks Tracks to sing over All quirky funk groove ambient cinematic comedy jazz pop acoustic carnival dramatic electronic happy hiphop mystery piano spy suspense upbeat Play Constance Constance 83 bpm · E minor · 2:20 Kevin MacLeod (incompetech.com) Sing over this Play Marty Gots a Plan Marty Gots a Plan 144 bpm · F minor · 2:48 Kevin MacLeod (incompetech.com) Sing over this Play Sneaky Snitch Sneaky Snitch 86 bpm · A# major · 2:16 Kevin MacLeod (incompetech.com) Sing over this Play Monkeys Spinning Monkeys Monkeys Spinning Monkeys 144 bpm · F major · 2:05 Kevin MacLeod (incompetech.com) Sing over this Play Hustle Hustle 117 bpm · G# minor · 2:00 Kevin MacLeod (incompetech.com) Sing over this Play Merry Go Merry Go 129 bpm · C major · 2:00 Kevin MacLeod (incompetech.com) Sing over this Play Rollin at 5 Rollin at 5 103 bpm · B minor · 2:10 Kevin MacLeod (incompetech.com) Sing over this Play Investigations Investigations 96 bpm · C major · 1:33 Kevin MacLeod (incompetech.com) Sing over this Play Comfortable Mystery 4 Comfortable Mystery 4 129 bpm · D# major · 1:15 Kevin MacLeod (incompetech.com) Sing over this Play Impact Moderato Impact Moderato 99 bpm · A# minor · 1:15 Kevin MacLeod (incompetech.com) Sing over this Play Cheery Monday Cheery Monday 103 bpm · C major · 1:20 Kevin MacLeod (incompetech.com) Sing over this Play Fluffing a Duck Fluffing a Duck 81 bpm · A# major · 1:07 Kevin MacLeod (incompetech.com) Sing over ",
+      "leak": null,
+      "problems": [
+        "45 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "label": "search",
+      "url": "/search",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 202,
+          "h": 25
+        }
+      ],
+      "smallCount": 1,
+      "currentMarked": 1,
+      "text": "Skip to content AKINTI 4 4 unread notifications AK akın Search Search Look for a person by name or handle, or for a Wave by its title. Flow Home Explore 1 1 unread Messages Messages Profile",
+      "leak": null,
+      "problems": [
+        "1 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "label": "create",
+      "url": "/create",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 202,
+          "h": 25
+        },
+        {
+          "name": "Sing over a track",
+          "w": 350,
+          "h": 20
+        },
+        {
+          "name": "BUTTON",
+          "w": 52,
+          "h": 32
+        },
+        {
+          "name": "BUTTON",
+          "w": 52,
+          "h": 32
+        },
+        {
+          "name": "BUTTON",
+          "w": 52,
+          "h": 32
+        },
+        {
+          "name": "Got it",
+          "w": 37,
+          "h": 40
+        }
+      ],
+      "smallCount": 7,
+      "currentMarked": 2,
+      "text": "Skip to content AKINTI 4 4 unread notifications AK akın Create a Wave 0:00 / 5:00 Hold to record · Tap to arm. We need your mic to record. Nothing is uploaded until you publish. Sing over a track I'm in a noisy room Cleans up what you hear while you record. Your recording keeps the original sound. Hear yourself Use headphones, or the speakers will feed back into the take. Count me in Three beats before recording starts. Best with headphones. Speakers leak into the microphone. Got it Upload a file instead Flow Home Explore 1 1 unread Messages Messages Profile",
+      "leak": null,
+      "problems": [
+        "7 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "label": "challenges",
+      "url": "/challenges",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 202,
+          "h": 25
+        }
+      ],
+      "smallCount": 1,
+      "currentMarked": 1,
+      "text": "Skip to content AKINTI 4 4 unread notifications AK akın Challenges Nothing is running right now The next theme will show up here. In the meantime you can record anything you like, or sing over a track. Record Browse tracks Atışma call #atismacall · Ended Opening week #openingweek · Ended Flow Home Explore 1 1 unread Messages Messages Profile",
+      "leak": null,
+      "problems": [
+        "1 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "label": "duets",
+      "url": "/duets",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 202,
+          "h": 25
+        },
+        {
+          "name": "Received",
+          "w": 56,
+          "h": 32
+        },
+        {
+          "name": "Sent",
+          "w": 28,
+          "h": 32
+        },
+        {
+          "name": "aaaaaa",
+          "w": 50,
+          "h": 16
+        },
+        {
+          "name": "akıntı deneme",
+          "w": 95,
+          "h": 16
+        },
+        {
+          "name": "Accept",
+          "w": 105,
+          "h": 40
+        }
+      ],
+      "smallCount": 13,
+      "currentMarked": 2,
+      "text": "Skip to content AKINTI 4 4 unread notifications AK akın Duet Requests Received Sent AA aaaaaa aaaaaa wants to duet on akıntı deneme 1w Pending “wsww” Accept Decline AC AKINTI Curated AKINTI Curated wants to duet on QA test wave 3w Accepted AC AKINTI Curated AKINTI Curated wants to duet on QA audit wave 3w Accepted AC AKINTI Curated AKINTI Curated wants to duet on QA test wave 3w Accepted Flow Home Explore 1 1 unread Messages Messages Profile",
+      "leak": null,
+      "problems": [
+        "13 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "label": "notifications",
+      "url": "/notifications",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 202,
+          "h": 25
+        },
+        {
+          "name": "Mark all as read",
+          "w": 105,
+          "h": 40
+        },
+        {
+          "name": "@aaaaaa sent you a message",
+          "w": 310,
+          "h": 19
+        },
+        {
+          "name": "@aaaaaa requested a Duet with yo",
+          "w": 310,
+          "h": 19
+        },
+        {
+          "name": "Play this Wave",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "@aaaaaa started following you",
+          "w": 310,
+          "h": 19
+        }
+      ],
+      "smallCount": 20,
+      "currentMarked": 2,
+      "text": "Skip to content AKINTI 4 4 unread notifications AK akın Notifications 4 unread Mark all as read @aaaaaa sent you a message Sent you a message. 1w @aaaaaa requested a Duet with your Wave Wants to create a Duet using your Wave. 1w Play this Wave @aaaaaa started following you Now following you. 1w @aaaaaa saved your Wave Added your Wave to their saves. 1w Play this Wave AKINTI Curated accepted your Duet Request Your Duet Request was accepted. 2w Play this Wave AKINTI Curated requested a Duet with your Wave Wants to create a Duet using your Wave. 2w Play this Wave AKINTI Curated requested a Duet with your Wave Wants to create a Duet using your Wave. 2w Play this Wave AKINTI Curated requested a Duet with your Wave Wants to create a Duet using your Wave. 2w Play this Wave AKINTI Curated and 1 other published a Duet using your Wave A new Duet of your Wave is live. 2w Play this Wave AKINTI Curated published a Duet using your Wave A new Duet of your Wave is live. 2w Play this Wave You're all caught up. Flow Home Explore 1 1 unread Messages Messages Profile",
+      "leak": null,
+      "problems": [
+        "20 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "label": "messages",
+      "url": "/messages",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 202,
+          "h": 25
+        }
+      ],
+      "smallCount": 1,
+      "currentMarked": 3,
+      "text": "Skip to content AKINTI 4 4 unread notifications AK akın Messages Search conversations AA @aaaaaa @aaaaaa 1w 1 unread Duet Request AK akın akın 2w No messages yet You've reached the start of your inbox. Flow Home Explore 1 1 unread Messages Messages Profile",
+      "leak": null,
+      "problems": [
+        "1 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "label": "profile",
+      "url": "/u/akin",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 202,
+          "h": 25
+        },
+        {
+          "name": "Edit profile",
+          "w": 111,
+          "h": 36
+        },
+        {
+          "name": "Analytics",
+          "w": 103,
+          "h": 36
+        },
+        {
+          "name": "1 Followers",
+          "w": 74,
+          "h": 20
+        },
+        {
+          "name": "0 Following",
+          "w": 73,
+          "h": 20
+        },
+        {
+          "name": "Waves 8",
+          "w": 60,
+          "h": 40
+        }
+      ],
+      "smallCount": 55,
+      "currentMarked": 3,
+      "text": "Skip to content AKINTI 4 4 unread notifications AK akın AK akın Edit profile Analytics akın @akin Your signature, from your last 12 Waves. 1 Followers 0 Following 8 Waves Waves 8 Duets 1 AK akın akın @akin 2w Recorded awdaw Play awdaw 0:00 0:06 dawd Echo Comment Save Share AK akın akın @akin 2w Uploaded i18n QA wave 1788662231029 Play i18n QA wave 1788662231029 0:00 0:03 Echo Comment Save Share 1 play AK akın akın @akin 3w Recorded Wave D demo — vocal over backing track Play Wave D demo — vocal over backing track 0:00 0:03 Collaborators @akinti_curated Echo Comment Save Share AK akın akın @akin 3w Duet Wave D demo — cypher verse 2 Play Wave D demo — cypher verse 2 0:00 0:08 Echo Comment Save Share AK akın akın @akin 3w Uploaded QA audit wave Play QA audit wave 0:00 0:03 Echo Comment Save Share 1 save · 1 duet AK akın akın @akin 3w Uploaded QA test wave Play QA test wave 0:00 0:03 Echo Comment Save Share 2 plays · 1 comment · 1 save · 1 share · 3 duets AK akın akın @akin 3w Recorded SWad Play SWad 0:00 0:03 Echo Comment Save Share 3 comments · 1 save AK akın akın @akin 3w Recorded akıntı deneme Play akıntı deneme 0:00 0:07 Echo Comment Save Share 2 comments · 1 save · 2 shares Flow Home Explore 1 1 unread Messages Messages Profile",
+      "leak": null,
+      "problems": [
+        "55 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "label": "analytics",
+      "url": "/analytics",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 202,
+          "h": 25
+        },
+        {
+          "name": "7 days",
+          "w": 40,
+          "h": 32
+        },
+        {
+          "name": "30 days",
+          "w": 49,
+          "h": 32
+        },
+        {
+          "name": "90 days",
+          "w": 49,
+          "h": 32
+        },
+        {
+          "name": "Show table",
+          "w": 65,
+          "h": 40
+        }
+      ],
+      "smallCount": 5,
+      "currentMarked": 0,
+      "text": "Skip to content AKINTI 4 4 unread notifications AK akın Analytics 7 days 30 days 90 days 3 Plays Daily Plays Aug 28 – Sep 26 Chart metric Plays Unique listeners Replays Saves Comments Shares New followers Show table 4 Saves 3 Shares 3 Duets Unique listeners 3 0:01 avg. listen time 0.0% completion rate Wave performance QA test wave Uploaded 1 comments · 1 saves · 1 shares 2 i18n QA wave 1788662231029 Uploaded 1 awdaw Recorded 0 Wave D demo — vocal over backing track Recorded 0 Wave D demo — cypher verse 2 Duet 0 QA audit wave Uploaded 1 saves 0 SWad Recorded 3 comments · 1 saves 0 akıntı deneme Recorded 2 comments · 1 saves · 2 shares 0 Flow Home Explore 1 1 unread Messages Messages Profile",
+      "leak": null,
+      "problems": [
+        "5 tap target(s) < 44px",
+        "no nav item marked current"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "label": "settings",
+      "url": "/settings",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 202,
+          "h": 25
+        },
+        {
+          "name": "Log out",
+          "w": 77,
+          "h": 25
+        },
+        {
+          "name": "Delete account",
+          "w": 107,
+          "h": 25
+        }
+      ],
+      "smallCount": 3,
+      "currentMarked": 0,
+      "text": "Skip to content AKINTI 4 4 unread notifications AK akın Settings AK akın akın @akin Account Privacy Safety Audio Notifications Appearance Content Analytics AKINTI Pro Language English Log out Delete account AKINTI · 2026 Flow Home Explore 1 1 unread Messages Messages Profile",
+      "leak": null,
+      "problems": [
+        "3 tap target(s) < 44px",
+        "no nav item marked current"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "label": "settings-pro",
+      "url": "/settings/pro",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 202,
+          "h": 25
+        }
+      ],
+      "smallCount": 1,
+      "currentMarked": 0,
+      "text": "Skip to content AKINTI 4 4 unread notifications AK akın AKINTI Pro Pitch snap and self-harmony sounds Stems for every Wave you publish Unlimited saves Ad-free, always One featured Duet slot a month The Pro mark next to your handle $4.99 /month Pro checkout isn't live yet. Payment setup for your region is still in progress. Flow Home Explore 1 1 unread Messages Messages Profile",
+      "leak": null,
+      "problems": [
+        "1 tap target(s) < 44px",
+        "no nav item marked current"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "label": "settings-account",
+      "url": "/settings/account",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 202,
+          "h": 25
+        },
+        {
+          "name": "Change photo",
+          "w": 278,
+          "h": 40
+        }
+      ],
+      "smallCount": 2,
+      "currentMarked": 0,
+      "text": "Skip to content AKINTI 4 4 unread notifications AK akın Account Profile Your photo, display name, username and bio, visible on @akin. AK akın Change photo PNG, JPEG, WebP or AVIF. Resized to 512px automatically. Display name Username* Lowercase letters, numbers and underscores only. Bio Save changes Email cullukgamer@gmail.com Password Choose a new password for your account. New password* At least 8 characters. Confirm new password* Update password Session Sign out of AKINTI on this device. Log out Flow Home Explore 1 1 unread Messages Messages Profile",
+      "leak": null,
+      "problems": [
+        "2 tap target(s) < 44px",
+        "no nav item marked current"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "label": "saved",
+      "url": "/settings/content/saved",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 202,
+          "h": 25
+        },
+        {
+          "name": "akın",
+          "w": 29,
+          "h": 20
+        },
+        {
+          "name": "QA audit wave",
+          "w": 121,
+          "h": 21
+        },
+        {
+          "name": "Echo",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Comment",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Unsave",
+          "w": 36,
+          "h": 36
+        }
+      ],
+      "smallCount": 25,
+      "currentMarked": 1,
+      "text": "Skip to content AKINTI 4 4 unread notifications AK akın Saved AK akın akın @akin 3w Uploaded QA audit wave Play QA audit wave 0:00 0:03 Echo Comment Unsave Share 1 save · 1 duet AK akın akın @akin 3w Uploaded QA test wave Play QA test wave 0:00 0:03 Echo Comment Unsave Share 2 plays · 1 comment · 1 save · 1 share · 3 duets AK akın akın @akin 3w Recorded SWad Play SWad 0:00 0:03 Echo Comment Unsave Share 3 comments · 1 save AK akın akın @akin 3w Recorded akıntı deneme Play akıntı deneme 0:00 0:07 Echo Comment Unsave Share 2 comments · 1 save · 2 shares Flow Home Explore 1 1 unread Messages Messages Profile",
+      "leak": null,
+      "problems": [
+        "25 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "flow",
+      "url": "/flow",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 20,
+      "currentMarked": 1,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın Nothing new to play yet Follow a few creators, or record something of your own to get the current moving. Record a Wave Browse challenges Find people to follow",
+      "leak": null,
+      "problems": [
+        "20 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "home",
+      "url": "/",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 21,
+      "currentMarked": 3,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın Home No one you follow has posted yet. Here is what people are listening to right now. Find people to follow Record your first Wave",
+      "leak": null,
+      "problems": [
+        "21 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "explore",
+      "url": "/explore",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 55,
+      "currentMarked": 4,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın Explore Tracks to sing over All quirky funk groove ambient carnival cinematic comedy electronic hiphop jazz piano pop spy Play Constance Constance 83 bpm · E minor · 2:20 Kevin MacLeod (incompetech.com) Sing over this Play Marty Gots a Plan Marty Gots a Plan 144 bpm · F minor · 2:48 Kevin MacLeod (incompetech.com) Sing over this Play Sneaky Snitch Sneaky Snitch 86 bpm · A# major · 2:16 Kevin MacLeod (incompetech.com) Sing over this Play Monkeys Spinning Monkeys Monkeys Spinning Monkeys 144 bpm · F major · 2:05 Kevin MacLeod (incompetech.com) Sing over this Play Hustle Hustle 117 bpm · G# minor · 2:00 Kevin MacLeod (incompetech.com) Sing over this Play Merry Go Merry Go 129 bpm · C major · 2:00 Kevin MacLeod (incompetech.com) Sing over this Trending New Rising Original Voices Compositions Open for Duet Nothing is trending yet. Trending needs a few hours of listening behind it. Hear what is new",
+      "leak": null,
+      "problems": [
+        "55 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "tracks",
+      "url": "/tracks",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 67,
+      "currentMarked": 1,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın Tracks All genres acoustic ambient carnival cinematic comedy dramatic electronic funk groove happy hiphop jazz mystery piano pop quirky spy suspense upbeat All tempos Under 90 bpm 90–119 bpm 120–139 bpm 140+ bpm All keys A# major A# minor B minor C major D# major E minor F major F minor G# minor Constance Kevin MacLeod (incompetech.com) ambient 83 bpm · E minor · 2:20 Sing over this Marty Gots a Plan Kevin MacLeod (incompetech.com) funk 144 bpm · F minor · 2:48 Sing over this Sneaky Snitch Kevin MacLeod (incompetech.com) jazz 86 bpm · A# major · 2:16 Sing over this Monkeys Spinning Monkeys Kevin MacLeod (incompetech.com) comedy 144 bpm · F major · 2:05 Sing over this Hustle Kevin MacLeod (incompetech.com) funk 117 bpm · G# minor · 2:00 Sing over this Merry Go Kevin MacLeod (incompetech.com) pop 129 bpm · C major · 2:00 Sing over this Rollin at 5 Kevin MacLeod (incompetech.com) funk 103 bpm · B minor · 2:10 Sing over this Investigations Kevin MacLeod (incompetech.com) jazz 96 bpm · C major · 1:33 Sing over this Comfortable Mystery 4 Kevin MacLeod (incompetech.com) ambient 129 bpm · D# major · 1:15 Sing over this Impact Moderato Kevin MacLeod (incompetech.com) cinematic 99 bpm · A# minor ·",
+      "leak": null,
+      "problems": [
+        "67 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "search",
+      "url": "/search",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 20,
+      "currentMarked": 1,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın Search Search Look for a person by name or handle, or for a Wave by its title.",
+      "leak": null,
+      "problems": [
+        "20 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "create",
+      "url": "/create",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 26,
+      "currentMarked": 2,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın Create a Wave 0:00 / 5:00 Hold to record · Tap to arm. We need your mic to record. Nothing is uploaded until you publish. Space to arm the microphone Sing over a track I'm in a noisy room Cleans up what you hear while you record. Your recording keeps the original sound. Hear yourself Use headphones, or the speakers will feed back into the take. Count me in Three beats before recording starts. Best with headphones. Speakers leak into the microphone. Got it Upload a file instead",
+      "leak": null,
+      "problems": [
+        "26 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "challenges",
+      "url": "/challenges",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 20,
+      "currentMarked": 1,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın Challenges Nothing is running right now The next theme will show up here. In the meantime you can record anything you like, or sing over a track. Record Browse tracks Atışma call #atismacall · Ended Opening week #openingweek · Ended",
+      "leak": null,
+      "problems": [
+        "20 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "duets",
+      "url": "/duets",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 26,
+      "currentMarked": 2,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın Duet Requests Received Sent AA aaaaaa aaaaaa akıntı deneme 1w Pending AC AKINTI Curated AKINTI Curated QA test wave 3w Accepted AC AKINTI Curated AKINTI Curated QA audit wave 3w Accepted AC AKINTI Curated AKINTI Curated QA test wave 3w Accepted AA aaaaaa aaaaaa 1w Pending wants to duet on akıntı deneme “wsww” Accept Decline Duet chain AK akın akıntı deneme @akin · 3w · you are here",
+      "leak": null,
+      "problems": [
+        "26 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "notifications",
+      "url": "/notifications",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 39,
+      "currentMarked": 2,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın Notifications 4 unread Mark all as read @aaaaaa sent you a message Sent you a message. 1w @aaaaaa requested a Duet with your Wave Wants to create a Duet using your Wave. 1w Play this Wave @aaaaaa started following you Now following you. 1w @aaaaaa saved your Wave Added your Wave to their saves. 1w Play this Wave AKINTI Curated accepted your Duet Request Your Duet Request was accepted. 2w Play this Wave AKINTI Curated requested a Duet with your Wave Wants to create a Duet using your Wave. 2w Play this Wave AKINTI Curated requested a Duet with your Wave Wants to create a Duet using your Wave. 2w Play this Wave AKINTI Curated requested a Duet with your Wave Wants to create a Duet using your Wave. 2w Play this Wave AKINTI Curated and 1 other published a Duet using your Wave A new Duet of your Wave is live. 2w Play this Wave AKINTI Curated published a Duet using your Wave A new Duet of your Wave is live. 2w Play this Wave You're all caught up.",
+      "leak": null,
+      "problems": [
+        "39 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "messages",
+      "url": "/messages",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 21,
+      "currentMarked": 3,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın Messages Search conversations AA @aaaaaa @aaaaaa 1w 1 unread Duet Request AK akın akın 2w No messages yet You've reached the start of your inbox. Select a conversation Choose a thread from the list, or find someone new to message from their profile. Find people to message",
+      "leak": null,
+      "problems": [
+        "21 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "profile",
+      "url": "/u/akin",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 74,
+      "currentMarked": 3,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın AK akın Edit profile Analytics akın @akin Your signature, from your last 12 Waves. 1 Followers 0 Following 8 Waves Waves 8 Duets 1 AK akın akın @akin Recorded awdaw 2w AK akın akın @akin Uploaded i18n QA wave 1788662231029 2w 1 play AK akın akın @akin Recorded Wave D demo — vocal over backing track 3w AK akın akın @akin Duet Wave D demo — cypher verse 2 3w AK akın akın @akin Uploaded QA audit wave 3w 1 save · 1 duet AK akın akın @akin Uploaded QA test wave 3w 2 plays · 1 comment AK akın akın @akin Recorded SWad 3w 3 comments · 1 save AK akın akın @akin Recorded akıntı deneme 3w 2 comments · 1 save",
+      "leak": null,
+      "problems": [
+        "74 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "analytics",
+      "url": "/analytics",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 24,
+      "currentMarked": 0,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın Analytics 7 days 30 days 90 days 3 Plays 3 Unique listeners 4 Saves 3 Shares 3 Duets 0:01 avg. listen time Daily Plays Aug 28 – Sep 26 Chart metric Plays Unique listeners Replays Saves Comments Shares New followers Show table Wave performance QA test wave Uploaded 1 comments · 1 saves · 1 shares 2 i18n QA wave 1788662231029 Uploaded 1 awdaw Recorded 0 Wave D demo — vocal over backing track Recorded 0 Wave D demo — cypher verse 2 Duet 0 QA audit wave Uploaded 1 saves 0 SWad Recorded 3 comments · 1 saves 0 akıntı deneme Recorded 2 comments · 1 saves · 2 shares 0",
+      "leak": null,
+      "problems": [
+        "24 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "settings",
+      "url": "/settings",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 30,
+      "currentMarked": 0,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın Settings Account Privacy Safety Audio Notifications Appearance Content Analytics AK akın akın @akin Language English Log out Delete account AKINTI · 2026",
+      "leak": null,
+      "problems": [
+        "30 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "settings-pro",
+      "url": "/settings/pro",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 28,
+      "currentMarked": 0,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın Settings Account Privacy Safety Audio Notifications Appearance Content Analytics AKINTI Pro Pitch snap and self-harmony sounds Stems for every Wave you publish Unlimited saves Ad-free, always One featured Duet slot a month The Pro mark next to your handle $4.99 /month Pro checkout isn't live yet. Payment setup for your region is still in progress.",
+      "leak": null,
+      "problems": [
+        "28 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "settings-account",
+      "url": "/settings/account",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 29,
+      "currentMarked": 1,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın Settings Account Privacy Safety Audio Notifications Appearance Content Analytics Account Profile Your photo, display name, username and bio, visible on @akin. AK akın Change photo PNG, JPEG, WebP or AVIF. Resized to 512px automatically. Display name Username* Lowercase letters, numbers and underscores only. Bio Save changes Email cullukgamer@gmail.com Password Choose a new password for your account. New password* At least 8 characters. Confirm new password* Update password Session Sign out of AKINTI on this device. Log out",
+      "leak": null,
+      "problems": [
+        "29 tap target(s) < 44px"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "label": "saved",
+      "url": "/settings/content/saved",
+      "overflow": 0,
+      "culprit": null,
+      "small": [
+        {
+          "name": "AKINTI",
+          "w": 82,
+          "h": 36
+        },
+        {
+          "name": "Collapse sidebar",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "name": "Flow",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Home",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Explore",
+          "w": 215,
+          "h": 40
+        },
+        {
+          "name": "Search",
+          "w": 215,
+          "h": 40
+        }
+      ],
+      "smallCount": 52,
+      "currentMarked": 2,
+      "text": "Skip to content AKINTI Collapse sidebar Flow Home Explore Search Challenges Tracks 1 1 unread Messages Messages 4 4 unread notifications Notifications New Wave Library Saved Duets Drafts Pro Settings AK akın akın Back Forward Search or jump to ⌘K Notifications 4 4 unread notifications AK akın Settings Account Privacy Safety Audio Notifications Appearance Content Analytics Saved AK akın akın @akin 3w Uploaded QA audit wave Play QA audit wave 0:00 0:03 Echo Comment Unsave Share 1 save · 1 duet AK akın akın @akin 3w Uploaded QA test wave Play QA test wave 0:00 0:03 Echo Comment Unsave Share 2 plays · 1 comment · 1 save · 1 share · 3 duets AK akın akın @akin 3w Recorded SWad Play SWad 0:00 0:03 Echo Comment Unsave Share 3 comments · 1 save AK akın akın @akin 3w Recorded akıntı deneme Play akıntı deneme 0:00 0:07 Echo Comment Unsave Share 2 comments · 1 save · 2 shares",
+      "leak": null,
+      "problems": [
+        "52 tap target(s) < 44px"
+      ]
+    }
+  ]
+}

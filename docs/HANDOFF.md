@@ -345,3 +345,96 @@ P2'deki 344KB aşımı **çözülmüş**) hepsi yeşil. Tarayıcı: 73 rota ziya
 **Doğrulanamayan iki şey, hedge edilmeden**: onboarding akışı (QA hesabı zaten
 onboarded, doğrulamak için tek kullanımlık hesap gerekiyor — sandbox canlı
 yazmayı engelledi) ve Pro checkout (§5). Raporda da böyle yazıldı.
+
+## Dördüncü oturum (2026-09-26) — denetimi yayına alma + platform sağlamlaştırma
+
+Tam rapor: `docs/PLATFORM_HARDENING_2026-09-26.md`. İki faz: 2026-09-25
+denetiminin açık maddelerini kapatıp canlıya almak, sonra ürünü yeni bir
+kullanıcının gördüğü gibi baştan sona okuyup tutmayan yerleri düzeltmek.
+Güvenlik sertleştirmesi bu turun kapsamı dışındaydı (founder ayrı ele alacak);
+Faz 1'in tek migration'ı dışında hiçbir RLS politikası/yetki fonksiyonu
+değiştirilmedi.
+
+**Faz 1 — kapanış**
+- **Güvenlik migration'ı uygulandı ve doğrulandı**
+  (`20260925120000_lock_down_ungated_tables`). Anon anahtarla yeniden
+  denendi: `schema_migrations` SELECT artık **401**, `rate_limit_actions`
+  üzerinde UPDATE/DELETE/INSERT hepsi **401** (DoS vektörü kapandı), SELECT
+  hâlâ 200 (kasıtlı). DB tarafında grant'lar ALL → **sadece SELECT**,
+  `schema_migrations`'ta RLS açık. Yazma denemeleri başarılı olsa bile zarar
+  vermeyecek şekilde yazıldı (kendine eşitleyen UPDATE, var olmayan satır).
+- **QA şifresi rotasyonu tamam.** Yeni rastgele şifre admin API ile atandı;
+  yenisi giriş yapıyor (200), **eskisi reddediliyor (400)**. Sadece
+  `.env.local`'de (gitignore'lu), rapora/chat'e/commit'e yazılmadı. Rotasyon
+  script'leri kullanılamaz bırakacaktı (`node` `.env.local` yüklemiyor) → 12
+  script artık `scripts/qa/_env.mjs`'i paylaşıyor.
+- **Deploy canlı ve doğrulandı**, ama **`git push` sandbox tarafından
+  engellendi** (iki kez, farklı gerekçeyle). Yani **production yeni kodu
+  çalıştırıyor, GitHub 29 commit geride**. Deploy'lar
+  `vercel deploy --prod --scope akinbaba27` ile yerel dosyalardan gitti.
+  `git push` için Bash izin kuralı eklenirse tek komut. Not: `--scope
+  akinbaba27` olmadan Vercel CLI "Not authorized" veriyor.
+
+**Faz 2 — 7 commit, hepsi tek tek doğrulanıp deploy edildi**
+1. **En büyük bulgu: altyapı kütüphanesinin tamamı görünmezdi** (`63fa711`).
+   `/tracks` "No tracks are open for vocals yet" diyordu ama 12 CC-BY parça
+   duruyordu; Explore şeridi, Search'ün Tracks sekmesi ve `?track=` hepsi
+   boştu. Sebep: `can_view_audio_asset` yalnızca (a) sahibi, (b) görülebilir
+   bir Wave'e bağlı, (c) bir konuşmada gönderilmiş asset'lere izin veriyor —
+   backing track hiçbiri değil, kütüphane de `akinti_curated`'a ait. Canlıda
+   doğrulandı: **12 parça görünür, 0 asset okunabilir**; dört çağrı yeri de
+   `if (!asset) return;` ile hepsini atıyordu. PRODUCT_V2 §4'te P0 olan bir
+   özellik sessizce ölüydü. **Hiçbir politika/yetki fonksiyonuna dokunmadan**
+   düzeltildi: yetki kontrolü yerinde kaldı (parçalar zaten çağıranın RLS'i
+   ile okundu), sadece asset okuması admin client'a taşındı
+   (`src/lib/feed/backingTrackCards.ts`, CLAUDE.md'nin izin verdiği desen).
+   Playback için `assertCanViewAudioAsset`'e aynı kapsamda ikinci yol eklendi;
+   `is_curated OR open_for_vocals` yeniden doğrulanıyor, özel yükleme özel
+   kalıyor. `/api/audio/<id>/url` artık **200** (önce 404).
+2. **Onboarding ilk kez doğrulandı** (tek kullanımlık hesap açıp yürüyerek).
+   İki gerçek hata: "Start listening" **Home'a** düşüyordu (yeni hesap için
+   garantili boş ekran) → artık Flow; ve handle önizlemesi sabit
+   `akinti.app/u/...` gösteriyordu — **satın alınmamış bir domain** → artık
+   sunucudan gerçek host. Not: `e2e+...@akinti.test` ile form üzerinden kayıt
+   **Supabase'in** adres doğrulaması yüzünden reddediliyor, uygulama hatası
+   değil (`signUpSchema` kabul ediyor).
+3. **Challenges terk edilmiş gibi duruyordu** (`d0b7b4b`, `0a43c45`): boş
+   durum yalnızca hiç satır yokken çalışıyordu, iki "Ended" satırla
+   açıklamasız bir liste kalıyordu — ve Flow'un boş durumu oraya yönlendiriyor.
+   Artık dürüst bir not + iki gerçek buton (`h-13`, FlowEmptyState deseni).
+4. **AKINTI Pro telefonda ulaşılamıyordu** (`d0b7b4b`): `/settings/pro` sadece
+   `DesktopSideNav` ve ⌘K'dan linkliydi, ikisi de masaüstü. 390px tasarım
+   hedefinde para kazanma yüzeyinin hiç girişi yoktu.
+5. **Echo tamamlandı** (`a815b1e`, `c067c74`): ECHOES.md'nin "Known gaps"
+   maddelerinin ikisi de kapandı — Flow (girişten sonraki varsayılan ekran) ve
+   profil içerik listeleri. Flow'da gözle doğrulanamıyor (tüm Wave'ler gizli),
+   bu yüzden `FlowEchoControls.test.tsx` ile 10 assertion.
+6. **Parça başlıkları kırpılıyordu** (`c26713d`, `6efef4c`): "Monkeys Spinning
+   Monkeys" → "Monkeys …". İlk düzeltme `sm:` kullandığı için sadece telefonu
+   çözdü; kısıt viewport değil **konteyner** (Explore şeridi 1280px'te bile
+   ~340px kart) → koşulsuz alt alta.
+7. **Bildirim boş durumu Echo'yu saymıyordu** (`d0b7b4b`).
+
+**İyi olan ve dokunulmayan**: 16 rotanın ikisinde de **yatay taşma sıfır**;
+`aria-current` tüm sekme rotalarında doğru; boş durum metinleri Challenges
+dışında zaten mükemmeldi; `/settings/pro` boş `plans` ile dürüst davranıyor;
+profildeki `0 Following` kural ihlali **değil** (DESIGN §12.6 altı değerli
+Wave metrik satırını kastediyor, o da sıfırları gizliyor — doğrulandı).
+
+**Kapılar**: typecheck / lint (0 hata, 57 uyarı hepsi vendored; 1540 anahtar
+eşit) / test (**921/921**, 90 dosya) / build / perf (5 rota da 340KB altında)
+hepsi yeşil. Canlı doğrulama: Faz 1 için 7/7, Faz 2 için 9/9, sıfır konsol
+hatası.
+
+**Canlı**: <https://akinti.vercel.app> — commit `6efef4c`, deployment
+`akinti-5xep4xj28-akinbaba27`.
+
+**SIRADA (founder):** (1) `git push` izni — GitHub 29 commit geride, en acil;
+(2) `npm run seed:plans` + gerçek sandbox anahtarları; (3) canlı bir challenge
+aç; (4) feed içeriği (11 Wave hâlâ gizli — ama artık yeni kullanıcı tamamen
+boş bir ürünle karşılaşmıyor, Explore/tracks'te 12 gerçek altyapı var);
+(5) `can_view_audio_asset` migration'ı ile app-katmanı yedeğini kaldır
+(güvenlik turu); (6) 44px altı dokunma hedefleri (tasarım sistemi kararı,
+ölçümler `docs/qa/mobile-quality-2026-09-26/`); (7) `interactions.ts`
+İngilizce hata metinleri; (8) push'ta "siz" / arayüzde "sen" tutarsızlığı;
+(9) hukuk.
