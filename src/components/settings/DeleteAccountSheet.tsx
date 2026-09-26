@@ -69,7 +69,7 @@ export function DeleteAccountSheet({ username }: DeleteAccountSheetProps) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="akinti-press type-body inline-flex items-center text-ink underline decoration-hairline-strong decoration-1 underline-offset-[3px] hover:decoration-ink"
+        className="akinti-press akinti-tap type-body inline-flex items-center text-ink underline decoration-hairline-strong decoration-1 underline-offset-[3px] hover:decoration-ink"
       >
         {t("deleteAccount")}
       </button>
