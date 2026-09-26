@@ -66,8 +66,8 @@ app's real login form with the rotated value and reports 22/22 routes clean.
 ### 1.3 Deploy: live and verified — but GitHub is still behind
 
 **Live**: <https://akinti.vercel.app>
-**Serving**: deployment `akinti-5xep4xj28-akinbaba27`, Ready, production
-**Commit**: `6efef4c1654a9dcc243600dce2767b0dd2ba45da` (`6efef4c`)
+**Serving**: deployment `akinti-ncy7mtw9i-akinbaba27`, Ready, production
+**Commit**: `a5d1200` (the last code commit; the two after it are this report and the handoff note)
 
 Verified in a real browser against the live domain, not just "the push
 succeeded" — 7/7 on the Phase 1 fixes and 9/9 on the Phase 2 fixes, zero
@@ -81,7 +81,7 @@ offer Echo.
 (`origin` → `github.com/akinbaba27/akinti.git`) and `master` tracks it, but
 the sandbox refused the push twice with different reasons ("Data
 Exfiltration", then "Out-of-Place Publication"). So **production runs this
-code while GitHub is 29 commits behind** — the 16 audit commits plus the 13
+code while GitHub is 31 commits behind** — the 16 audit commits plus the 15
 from this pass. Deploys went out through `vercel deploy --prod --scope
 akinbaba27` from local files instead, which is why the live site is current
 regardless.
@@ -309,7 +309,7 @@ Worth recording, because it is the part not to touch.
 
 ## 4. Needs a founder decision — not fixed
 
-1. **`git push` permission** (§1.3). GitHub is 29 commits behind production.
+1. **`git push` permission** (§1.3). GitHub is 31 commits behind production.
    The single highest-value thing to unblock.
 2. **Seed `plans`, then test checkout.** `npm run seed:plans` plus real
    iyzico/Paddle sandbox keys. Until then Pro is display-only and no checkout
@@ -385,7 +385,7 @@ Two screens were also read as images rather than only measured
 ## 6. Seeing it yourself
 
 The live site is **<https://akinti.vercel.app>**, currently serving commit
-`6efef4c` (deployment `akinti-5xep4xj28-akinbaba27`). Everything in this
+`a5d1200` (deployment `akinti-ncy7mtw9i-akinbaba27`). Everything in this
 report is already deployed and verified there — there is nothing pending.
 
 To watch a future deploy: `npx vercel ls akinti --scope akinbaba27` lists
