@@ -30,8 +30,25 @@ const BASE = baseArg >= 0 ? args[baseArg + 1] : "http://localhost:3599";
 const OUT = path.join(process.cwd(), "docs", "qa", "waveF");
 const TONE_WAV = path.join(process.cwd(), "e2e", "fixtures", "tone.wav");
 
-const EMAIL = process.env.QA_EMAIL ?? "cullukgamer@gmail.com";
-const PASSWORD = process.env.QA_PASSWORD ?? "Akinti-Test-2026";
+/**
+ * Credentials come from the environment only. The shared QA account's password
+ * used to be a literal fallback in every script in this folder, which put a
+ * real, working credential in the repo (and in git history). Fail fast with an
+ * instruction instead, so a missing variable is an obvious setup error rather
+ * than a silent fall back to a committed secret.
+ */
+function requireEnv(name) {
+  const value = process.env[name];
+  if (!value) {
+    process.stderr.write(`${name} is required. Set QA_EMAIL and QA_PASSWORD for the shared QA account before running this script.
+`);
+    process.exit(1);
+  }
+  return value;
+}
+
+const EMAIL = requireEnv("QA_EMAIL");
+const PASSWORD = requireEnv("QA_PASSWORD");
 
 const VIEWPORTS = [
   { name: "mobile", width: 390, height: 844 },
