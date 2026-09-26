@@ -12,6 +12,7 @@
 
 import { getAudioAssetById } from "@/lib/db/audioAssets";
 import { getProfilesByIds } from "@/lib/db/profiles";
+import { getEchoedWaveIds } from "@/lib/db/echoes";
 import { getSavedWaveIds } from "@/lib/db/saves";
 import type { Db } from "@/lib/db/types";
 import { listWaveCollaboratorProfiles } from "@/lib/db/waves";
@@ -44,6 +45,15 @@ export interface ContentWaveCard {
     duets: number;
   };
   readonly isSaved: boolean;
+  /**
+   * Echo (`docs/ECHOES.md`). These lists render a full `WaveCardContainer`,
+   * which already carries the Echo control — but without these two fields it
+   * rendered un-echoed with no count on every row, so a Wave the viewer had
+   * echoed looked un-echoed here. The other half of the gap
+   * `docs/ECHOES.md`'s "Known gaps" recorded, alongside Flow.
+   */
+  readonly isEchoed: boolean;
+  readonly echoCount: number;
   readonly canRequestDuet: boolean;
 }
 
@@ -68,9 +78,10 @@ export async function hydrateContentWaveCards(
   const creatorIds = [...new Set(waves.map((w) => w.creatorId))];
   const waveIds = waves.map((w) => w.id);
 
-  const [creators, savedIds, collaboratorsPerWave, assets, duetFlags] = await Promise.all([
+  const [creators, savedIds, echoedIds, collaboratorsPerWave, assets, duetFlags] = await Promise.all([
     getProfilesByIds(db, creatorIds),
     getSavedWaveIds(db, viewerId, waveIds),
+    getEchoedWaveIds(db, viewerId, waveIds),
     Promise.all(waves.map((w) => listWaveCollaboratorProfiles(db, w.id).catch(() => []))),
     Promise.all(waves.map((w) => getAudioAssetById(db, w.audioAssetId).catch(() => null))),
     Promise.all(
@@ -115,6 +126,8 @@ export async function hydrateContentWaveCards(
         duets: wave.counts.duets,
       },
       isSaved: savedIds.has(wave.id),
+      isEchoed: echoedIds.has(wave.id),
+      echoCount: wave.counts.echoes,
       canRequestDuet: duetFlags[index] ?? false,
     };
   });
