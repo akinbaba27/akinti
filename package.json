@@ -7,6 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
+    "prebuild": "tsx --env-file-if-exists=.env.local scripts/check-env.ts --groups",
     "build": "next build && serwist build serwist.config.mjs",
     "start": "next start",
     "lint": "eslint && tsx scripts/i18n-check.ts",
