@@ -65,7 +65,16 @@ interface SeedChallenge {
   startOffsetDays: number;
   endOffsetDays: number;
   useBackingTrack: boolean;
-  duetMode: "atisma" | null;
+  /**
+   * Preferred `backing_tracks.genre_tags` entry when `useBackingTrack` is
+   * true. Without it a challenge takes whichever curated track comes back
+   * first, which is fine for a genre-agnostic prompt like "Opening week" but
+   * wrong for a Cypher, where the beat is the point. Falls back to the
+   * first curated track when nothing carries the tag, so a thinner library
+   * never blocks seeding.
+   */
+  backingTrackTag?: string;
+  duetMode: "atisma" | "cypher" | null;
 }
 
 /**
@@ -103,6 +112,37 @@ const SEED_CHALLENGES: SeedChallenge[] = [
     endOffsetDays: 14,
     useBackingTrack: false,
     duetMode: "atisma",
+  },
+  /*
+   * The third weekly theme, added 2026-09-26 so `/challenges` is not a list
+   * of two expired rows for every visitor: both seeded challenges had ended
+   * (2026-09-11 and 2026-09-18) and nothing replaced them.
+   *
+   * Cypher rather than a new invention: PRODUCT_V2 §4 lists it beside Atışma
+   * as one of the two Turkish-native Duet modes already built
+   * (`duet_mode = 'cypher'`, sequential verses, up to four people), and the
+   * market research's own go-to-market plan names "Cypher Haftası" in the
+   * same breath as the two themes that have already run. It also gives the
+   * existing pair a natural third beat: a track prompt, a call-and-response
+   * prompt, and now a chain prompt.
+   *
+   * Paired with a hiphop-tagged beat via `backingTrackTag` — "Hustle",
+   * 117 bpm, the one curated track carrying that tag.
+   */
+  {
+    slug: "cypher-week",
+    title: "Cypher week",
+    brief:
+      "Four voices, one beat, in order. Record a verse over this week's beat, then pass it on and let someone add the next one. A Cypher holds up to four people, so leave room for whoever comes after you.",
+    titleTr: "Cypher haftası",
+    briefTr:
+      "Dört ses, tek bir beat, sırayla. Bu haftanın beat'i üzerine bir verse kaydet, sonra sırayı devret ve bir sonrakini başkası eklesin. Bir Cypher en fazla dört kişi taşır, arkandan gelene yer bırak.",
+    hashtag: "cypherweek",
+    startOffsetDays: 0,
+    endOffsetDays: 7,
+    useBackingTrack: true,
+    backingTrackTag: "hiphop",
+    duetMode: "cypher",
   },
 ];
 
@@ -160,6 +200,26 @@ async function main(): Promise<void> {
       continue;
     }
 
+    // A tag-preferred beat where the challenge asks for one, falling back to
+    // whichever curated track `curatedTrack` already resolved.
+    let trackId = curatedTrack?.id ?? null;
+    if (challenge.useBackingTrack && challenge.backingTrackTag) {
+      const { data: tagged } = await admin
+        .from("backing_tracks")
+        .select("id")
+        .eq("is_curated", true)
+        .contains("genre_tags", [challenge.backingTrackTag])
+        .limit(1)
+        .maybeSingle();
+      if (tagged) {
+        trackId = tagged.id;
+      } else {
+        console.log(
+          `[seed] no curated "${challenge.backingTrackTag}" track for "${challenge.title}" — using the first curated track instead.`,
+        );
+      }
+    }
+
     const startsAt = new Date(Date.now() + challenge.startOffsetDays * 24 * 60 * 60 * 1000);
     const endsAt = new Date(Date.now() + challenge.endOffsetDays * 24 * 60 * 60 * 1000);
 
@@ -174,7 +234,7 @@ async function main(): Promise<void> {
         hashtag: challenge.hashtag,
         starts_at: startsAt.toISOString(),
         ends_at: endsAt.toISOString(),
-        backing_track_id: challenge.useBackingTrack ? (curatedTrack?.id ?? null) : null,
+        backing_track_id: challenge.useBackingTrack ? trackId : null,
         duet_mode: challenge.duetMode,
         status: "live",
         created_by: null,
