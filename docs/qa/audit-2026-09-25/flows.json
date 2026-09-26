@@ -1,0 +1,92 @@
+{
+  "base": "http://localhost:3621",
+  "generatedAt": "2026-09-25T19:45:53.091Z",
+  "findings": [
+    {
+      "label": "sign-out control is reachable on desktop",
+      "ok": true,
+      "detail": "1 match(es)"
+    },
+    {
+      "label": "sign-out lands on a signed-out page",
+      "ok": true,
+      "detail": "-> /login"
+    },
+    {
+      "label": "session really cleared (protected route bounces to /login)",
+      "ok": true,
+      "detail": "-> /login?next=%2Fsettings%2Faccount"
+    },
+    {
+      "label": "explore exposes secondary tabs",
+      "ok": true,
+      "detail": "5 tab(s)"
+    },
+    {
+      "label": "explore tab \"Challenges\" renders",
+      "ok": true,
+      "detail": "len=274 leaked=false newErrors=0"
+    },
+    {
+      "label": "explore tab \"Tracks\" renders",
+      "ok": true,
+      "detail": "len=274 leaked=false newErrors=0"
+    },
+    {
+      "label": "explore tab \"Duets\" renders",
+      "ok": true,
+      "detail": "len=274 leaked=false newErrors=0"
+    },
+    {
+      "label": "explore tab \"New\" renders",
+      "ok": true,
+      "detail": "len=181 leaked=false newErrors=0"
+    },
+    {
+      "label": "explore tab \"Rising\" renders",
+      "ok": true,
+      "detail": "len=264 leaked=false newErrors=0"
+    },
+    {
+      "label": "mic-denied names the problem",
+      "ok": true,
+      "detail": "Skip to content AKINTI 4 4 unread notifications AK akın Create a Wave 0:00 / 5:00 Hold to record · Tap to arm. We need your mic to record. Nothing is uploaded u"
+    },
+    {
+      "label": "mic-denied offers a route forward (not a dead end)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "Echo button present on Wave detail",
+      "ok": true,
+      "detail": "wave=/w/947f0e76-7325-4a65-b1df-9a5ec9a74c22"
+    },
+    {
+      "label": "Echo toggles aria-pressed",
+      "ok": true,
+      "detail": "false -> true"
+    },
+    {
+      "label": "Echo survives a reload",
+      "ok": true,
+      "detail": "after reload: true"
+    },
+    {
+      "label": "Echo can be removed again (restored original state)",
+      "ok": true,
+      "detail": "false"
+    },
+    {
+      "label": "Pro page renders without crashing on empty plans",
+      "ok": true,
+      "detail": "len=379"
+    },
+    {
+      "label": "Pro page is honest about payments not being configured",
+      "ok": false,
+      "detail": "Skip to content AKINTI 4 4 unread notifications AK akın AKINTI Pro Pitch snap and self-harmony sounds Stems for every Wave you publish Unlimited saves Ad-free, always One featured Duet slot a month The Pro mark next to y"
+    }
+  ],
+  "consoleErrors": []
+}

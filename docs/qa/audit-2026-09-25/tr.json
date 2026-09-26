@@ -1,0 +1,188 @@
+{
+  "base": "http://localhost:3626",
+  "generatedAt": "2026-09-26T00:07:09.332Z",
+  "findings": [
+    {
+      "label": "flow",
+      "url": "/flow",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç Henüz oynatılacak yeni bir şey yok Birkaç yaratıcıyı takip et, ya da akıntıyı hareketlendirmek için kendinden bir şey kaydet. Bir Wave kaydet Meydan okumalara göz at Takip edilecek kişiler bul"
+    },
+    {
+      "label": "home",
+      "url": "/",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Ana sayfa Takip ettiklerin henüz bir şey paylaşmadı. İşte şu anda insanların dinlediği şeyler. Takip edilecek kişiler bul İlk Wave'ini kaydet Akış Ana sayfa Keşfet 1 1"
+    },
+    {
+      "label": "explore",
+      "url": "/explore",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Keşfet Trending New Rising Original Voices Compositions Open for Duet Henüz gündemde bir şey yok. Gündem oluşması birkaç saatlik dinlenme gerektiriyor. Yeni olanları d"
+    },
+    {
+      "label": "search",
+      "url": "/search",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Ara Ara Bir kişiyi adına ya da kullanıcı adına göre ara, ya da bir Wave başlığına göre. Akış Ana sayfa Keşfet 1 1 okunmamış Mesajlar Mesajlar Profil"
+    },
+    {
+      "label": "create",
+      "url": "/create",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın bir Wave oluştur 0:00 / 5:00 Kaydetmek için basılı tut · Hazırlamak için dokun. Kaydetmek için mikrofonuna ihtiyacımız var. Sen yayınlayana kadar hiçbir şey yüklenmez."
+    },
+    {
+      "label": "tracks",
+      "url": "/tracks",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Parçalar Henüz vokale açık bir parça yok. Yine de birini kullanmadan kaydı başlat yapabilir, ya da Oluştur üzerinden kendi enstrümantalini yükleyebilirsin. Akış Ana sa"
+    },
+    {
+      "label": "challenges",
+      "url": "/challenges",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Meydan okumalar Atışma daveti #atismacall · Sona erdi Açılış haftası #openingweek · Sona erdi Akış Ana sayfa Keşfet 1 1 okunmamış Mesajlar Mesajlar Profil"
+    },
+    {
+      "label": "duets",
+      "url": "/duets",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Duet istekleri Gelen Giden AA aaaaaa aaaaaa şununla duet yapmak istiyor: akıntı deneme 1w Bekliyor “wsww” Kabul et Reddet AC AKINTI Curated AKINTI Curated şununla duet"
+    },
+    {
+      "label": "notifications",
+      "url": "/notifications",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Bildirimler 4 okunmadı Tümünü okundu işaretle @aaaaaa sana mesaj gönderdi Sana mesaj gönderdi. 1w @aaaaaa Wave'in için Duet istedi Wave'ini kullanarak bir Duet oluştur"
+    },
+    {
+      "label": "messages",
+      "url": "/messages",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Mesajlar Konuşmalarda ara AA @aaaaaa @aaaaaa 1w 1 okunmadı Duet isteği AK akın akın 2w Henüz mesaj yok Gelen kutunun başına ulaştın. Akış Ana sayfa Keşfet 1 1 okunmamı"
+    },
+    {
+      "label": "analytics",
+      "url": "/analytics",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Analitik 7 gün 30 gün 90 gün 3 Oynanma Günlük Oynanma 28 Ağu – 26 Eyl Grafik metriği Oynanma Tekil dinleyici Tekrarlar Kaydedilme Yorumlar Paylaşımlar Yeni takipçi Tab"
+    },
+    {
+      "label": "profile",
+      "url": "/u/akin",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın AK akın Profili düzenle Analitik akın @akin İmzan, son 12 Wave'inden oluşuyor. 1 Takipçiler 0 Takip edilenler 8 Wave'ler Wave'ler 8 Duet'ler 1 AK akın akın @akin 2w Ka"
+    },
+    {
+      "label": "settings",
+      "url": "/settings",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Ayarlar AK akın akın @akin Hesap Gizlilik Güvenlik Ses Bildirimler Görünüm İçerik Analiz Dil Türkçe Çıkış yap Hesabı sil AKINTI · 2026 Akış Ana sayfa Keşfet 1 1 okunma"
+    },
+    {
+      "label": "settings-account",
+      "url": "/settings/account",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Hesap Profil Fotoğrafın, görünen adın, kullanıcı adın ve biyografin, @akin üzerinde görünür. AK akın Fotoğrafı değiştir PNG, JPEG, WebP ya da AVIF. Otomatik olarak 512"
+    },
+    {
+      "label": "settings-privacy",
+      "url": "/settings/privacy",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Gizlilik Gizli hesap Wave'lerini ve takipçi listeni yalnızca kabul ettiğin takipçiler görebilir. Gizliye geçmek seni zaten takip edenleri etkilemez. Sana kimler ulaşab"
+    },
+    {
+      "label": "settings-appearance",
+      "url": "/settings/appearance",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Görünüm Tema Sistem Açık Koyu İmza tonu Profil imza izini ve Wave kartlarını renklendirir. Otomatik Akıntı Kamış yeşili Derin su mavisi Kum Akış Ana sayfa Keşfet 1 1 o"
+    },
+    {
+      "label": "settings-notifications",
+      "url": "/settings/notifications",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Bildirimler Mesajlar Sana gönderilen yeni mesajlar. Duet'ler Duet istekleri, kabul edilen veya reddedilen Duet'ler, Wave'lerinden yayımlanan Duet'ler ve katılımcı dave"
+    },
+    {
+      "label": "settings-audio",
+      "url": "/settings/audio",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Ses Sıradaki Wave'i otomatik oynat Bir Wave bittiğinde, bir kuyruk varsa (örneğin bir akış), sıradakini otomatik olarak başlat. Tercih edilen kalite Otomatik (en iyi k"
+    },
+    {
+      "label": "settings-safety",
+      "url": "/settings/safety",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın Güvenlik Engellenen hesaplar Engellenen hesap yok Engellediğin hesaplar profilini göremez, sana mesaj atamaz ya da Duet isteği gönderemez. Raporların Bildirdiğin bir r"
+    },
+    {
+      "label": "settings-content",
+      "url": "/settings/content",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın İçerik Kaydedilenler Sonra izlemek için kaydettiğin Wave'ler. Yorum yapılanlar Yorum bıraktığın Wave'ler. Wave'ler Yayınladığın her Wave. Duet'ler Yayınladığın her Due"
+    },
+    {
+      "label": "settings-pro",
+      "url": "/settings/pro",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 0,
+      "sample": "İçeriğe geç AKINTI 4 4 okunmamış bildirimler AK akın AKINTI Pro Pitch snap ve self-harmony sesleri Yayınladığın her Wave için stemler Sınırsız kaydetme Her zaman reklamsız Ayda bir öne çıkan Duet yeri Adının yanında Pro "
+    },
+    {
+      "label": "notfound",
+      "url": "/definitely-not-a-route-xyz-tr",
+      "english": [],
+      "leaks": [],
+      "newConsoleErrors": 1,
+      "sample": "Sayfa bulunamadı Bu sayfa mevcut değil ya da taşınmış olabilir. AKINTI uygulama içindeki bağlantılarda yaşar. Bunun yerine Ana sayfa veya Keşfet'i deneyin. Ana sayfaya git Keşfet'e göz at"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "label": "tr",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ]
+}

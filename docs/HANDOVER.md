@@ -682,6 +682,32 @@ ayarlıysa gerçek bir OS push bildirimi gelsin.
 
 ## (j) Açık işler ve öncelik sırası
 
+> **BU BÖLÜM ESKİDİ — 2026-09-25 tam denetimi bunu yeniden doğruladı.**
+> Güncel açık iş listesi artık **`docs/AUDIT_2026-09-25.md`** §3 (eksikler),
+> §4 (yetersizler) ve §6 (founder kararları). Aşağıdaki P1 listesinin
+> **tamamı çözülmüş** durumda ve bu bölümdeki birkaç iddia yanlış:
+>
+> - "Vercel'e gerçek deploy hiç yapılmamış görünüyor" → **yapılmış**,
+>   `akinti.vercel.app` 2026-09-18'den beri canlı (HTTP 200). Ama 8 gün eski:
+>   denetimde düzeltilen 16 hatanın hepsi hâlâ yayında.
+> - "İki yetim e2e test hesabı kalmış olabilir" → **kalmamış**; canlıda 4
+>   profil var, hepsi meşru.
+> - P2'deki "Wave rotası 344KB, bütçe 340KB aşımı" → **çözülmüş**, şu an
+>   302.8KB (`tsx scripts/perf-budget.ts`, 5 rotanın hepsi bütçe içinde).
+> - Denetimin brief'inde "daha önce kırık bulundu, bir daha doğrulanmadı"
+>   diye listelenen altı madde (masaüstü sign-out, Explore alt sekmeleri,
+>   mikrofon reddi, login hydration, bildirim rozeti HEAD hatası,
+>   `/settings/appearance`) **hiçbiri artık gerçek değil** — hepsi tarayıcıda
+>   tek tek doğrulandı, bkz. rapor §5.
+>
+> Denetimin bulduğu ve bu bölümde hiç geçmeyen en kritik iki şey:
+> canlı projede **anon anahtarla yazılabilen iki tablo**
+> (`schema_migrations`, `rate_limit_actions` — migration yazıldı ama
+> **canlıya uygulanmadı**, rapor §6.1) ve **404/error sayfalarının
+> kullanıcıya ham mesaj anahtarı basması** (düzeltildi).
+>
+> Tarihsel kayıt olarak aşağısı olduğu gibi bırakıldı.
+
 En son bağımsız QA turu: `docs/qa/full2/REPORT.md` (7/10, 2026-09-06). Önceki
 tur: `docs/qa/review3/REVIEW.md` (kod/güvenlik incelemesi, 5/10) — o turun
 5 P0'ı `fixR3` ajanı tarafından düzeltildi (`docs/HANDOFF.md`'de commit

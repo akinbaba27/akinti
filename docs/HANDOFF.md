@@ -255,3 +255,93 @@ kullanıcının kendisinin işleyeceği somut bir checklist'e çevir.
   13:31 oluşturulmuş — tbt2 oturumundan önceki bir debug denemesinden
   kalma, HANDOVER.md §(j)'nin zaten "temizle" dediği türden). Silindi.
   tbt3'ün kendi hesabı script sonunda zaten temizlenmişti.
+
+## Üçüncü oturum (2026-09-25/26) — tam denetim (`docs/AUDIT_2026-09-25.md`)
+
+Kullanıcının brief'i: uygulamayı baştan sona "satılabilir, premium, hatasız"
+çıtasına karşı denetle; yapılanı, eksiği ve "çalışıyor ama yetmez"i ayır;
+güvenli olanı doğrudan düzelt. Tek ajan, alt ajan yok. Tam rapor
+`docs/AUDIT_2026-09-25.md` (bulguların tamamı, kanıtlar, commit'ler).
+
+**Sonuç: 23 bulgu, 16'sı düzeltilip commit'lendi, 7'si founder'a bırakıldı.**
+
+- **Dokümanlar yine eskiydi** (brief bunu tahmin etmişti, haklıydı).
+  `docs/HANDOVER.md` §(j)'deki bütün P1'ler ve "hiç doğrulanmadı" maddeleri
+  aslında çözülmüştü. Brief'in "daha önce kırık bulundu, bir daha
+  doğrulanmadı" dediği **altı** madde de artık gerçek değil: masaüstü
+  sign-out, Explore alt sekmeleri (5'i de temiz), mikrofon reddi (çıkmaz
+  sokak yok), login hydration uyarısı, bildirim rozeti HEAD hatası,
+  `/settings/appearance`. Hepsi tarayıcıda tek tek doğrulandı.
+- **En önemli iki bulgu kimsenin listesinde yoktu**:
+  1. `schema_migrations` ve `rate_limit_actions` tablolarında ne RLS ne de
+     kısıtlı grant vardı → anon anahtarla PostgREST üzerinden yazma yetkisi
+     açıktı. `rate_limit_events.action` FK'si `on update cascade` olduğu için
+     anon bir satırı yeniden adlandırıp **herkes için** rate limiting'i
+     bozabiliyordu (upload, yorum, takip, mesaj, duet isteği, şikâyet,
+     challenge girişi, checkout, flow event). Migration yazıldı
+     (`20260925120000_lock_down_ungated_tables`) ama **canlıya UYGULANMADI** —
+     sandbox `npm run db:migrate`'i "production deploy" diye engelledi.
+     **Founder'ın yapması gereken ilk iş bu.**
+  2. 404 ve error boundary'leri kullanıcıya **ham mesaj anahtarı** basıyordu
+     ("NotFoundPage.title NotFoundPage.description …"). Sebep:
+     `ROOT_MESSAGE_NAMESPACES` listesinde `NotFoundPage`/`ErrorPage` yoktu;
+     beş segment kendi layout'unda tanımladığı için bu maskelenmişti.
+- **Echo (Yankı) commit'lendi.** Önceki oturumda yazılmış ama tamamı
+  commit'siz duruyordu (22 değişmiş + 8 yeni dosya). İki migration canlıya
+  uygulandı; şema, 3 policy, enum değeri, kolon, trigger ve iki guard
+  fonksiyonunun `echo_count` içerdiği canlıda doğrulandı. Sayaç kayması sıfır.
+  Tarayıcıda uçtan uca test edildi (tap → sayaç → reload → untap) ve **canlıda
+  hiç iz bırakmadı**. İki şey düzeltilerek girdi: upsert'i idempotent değildi
+  (aşağı bkz.) ve Echo sayısı ekran okuyucuya tamamen kapalıydı.
+- **Save / Block / Echo idempotent değildi.** `.upsert()` `ignoreDuplicates`
+  olmadan `ON CONFLICT DO UPDATE` üretiyor, bu da UPDATE policy'si gerektiriyor;
+  bu üç tabloda yok. Canlıda `authenticated` rolüyle yeniden oynatılarak
+  kanıtlandı: `42501 new row violates row-level security policy`. Çift tık,
+  ikinci sekme veya eskimiş sunucu durumu yetiyordu. `src/lib/db` içindeki
+  diğer bütün upsert'ler denetlendi, onların UPDATE policy'si var, dokunulmadı.
+- **Türkçe birinci sınıf değildi** — 4 ayrı sızıntı bulundu ve düzeltildi:
+  bildirim tercih kategorileri, 4 sayfa başlığı (`<h1>`), **bildirim
+  listesinin tamamı** ve mesajlaşma formatlayıcısı (ayrıca
+  `toLocaleDateString("en")` sabitlenmişti → Türk kullanıcı "Monday" ve
+  "2:45 PM" görüyordu). Türkçe tarama 18/22 → **22/22 temiz**.
+  `i18n-check.ts` bunların hiçbirini göremiyordu: kopya modül seviyesindeki
+  `Record` map'lerinde duruyor, tarayıcı ise JSX metnine bakıyor.
+- **Masaüstü koyu tema 11 açık tema token'ı taşıyordu.** Desktop v3 bloğu
+  ≥1024px'te zemini/mürekkebi koyu yapıyor ama
+  `@media (prefers-color-scheme: dark)` bloğunun dışında olduğu için hue'ları
+  almıyordu. Görünen sonucu: Ayarlar'daki "Log out" `text-danger` koyu zeminde
+  **2.4:1** (axe serious). İlk taramadaki tek axe bulgusu buydu.
+- Ayrıca: iki high-severity npm advisory `overrides` ile kapatıldı (6→3, kalan
+  3'ü `iyzipay→postman-request→uuid`, kod yolu erişilemez — `uuid.v4()` hiç
+  `buf` argümanı almıyor); `scripts/qa/` içindeki **12** script'te QA
+  hesabının gerçek şifresi literal olarak duruyordu (commit güvenlik
+  incelemesi yakaladı, hepsi `requireEnv`'e çevrildi — **şifre git
+  geçmişinde kaldı, rotasyon gerekiyor**); eski `.git/index.lock` temizlendi;
+  `vercel link`'in `.gitignore`'a eklediği `.env*` geri alındı.
+
+**Kapılar (son durum)**: typecheck / lint (0 hata, 57 uyarı hepsi vendored
+`rnnoise-worklet.js`; i18n-check 1535 anahtar eşit) / test (911/911, 89 dosya) /
+build / perf-budget (5 rota da 340KB altında, Wave 302.8KB — HANDOVER §(j)
+P2'deki 344KB aşımı **çözülmüş**) hepsi yeşil. Tarayıcı: 73 rota ziyareti,
+**0 axe serious/critical, 0 console hatası, 0 başarısız istek** (tek istisna
+`/kit` 404, bilinçli).
+
+**SIRADA — founder'ın kendisinin yapması gerekenler** (detay raporun §6'sında):
+1. `npm run db:migrate` — güvenlik migration'ını canlıya uygula (en acil).
+2. QA hesabının şifresini değiştir (git geçmişinde).
+3. Deploy — canlı sürüm 8 gün eski, düzeltilen 16 hatanın hepsi hâlâ orada.
+   `master`'da 13 commit push'lanmamış; git remote tanımlı değil.
+4. Feed içeriği + yeni bir canlı challenge (11 Wave'in hepsi `hidden_at`,
+   iki challenge'ın ikisi de bitmiş → Explore/Flow herkes için boş,
+   Challenges yüzeyi ölü). Founder kararı, dokunulmadı.
+5. `npm run seed:plans` + gerçek sandbox anahtarları — `plans` tablosu **boş**,
+   o yüzden Pro checkout hiç açılamıyor (brief'in istediği sandbox testi bu
+   yüzden yapılamadı; ekran dürüst davranıyor, sahte fiyat basmıyor).
+6. Vercel'deki `NEXT_PUBLIC_PADDLE_*` değerlerini elle doğrula — 36
+   değişkenin hepsi "Hidden/Secret", CLI ile geri okunamıyor, o yüzden boş
+   Secret hata sınıfı dışarıdan elenemedi.
+7. Hukuk (KVKK/VERBİS, 5651, MESAM/MSG/MÜYAP/MÜYORBİR) — iş kararı.
+
+**Doğrulanamayan iki şey, hedge edilmeden**: onboarding akışı (QA hesabı zaten
+onboarded, doğrulamak için tek kullanımlık hesap gerekiyor — sandbox canlı
+yazmayı engelledi) ve Pro checkout (§5). Raporda da böyle yazıldı.
