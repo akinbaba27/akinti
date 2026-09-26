@@ -56,7 +56,8 @@ type SettingsSectionMessageKey =
   | "content"
   | "analytics"
   | "audio"
-  | "safety";
+  | "safety"
+  | "pro";
 
 async function handleSignOut(): Promise<void> {
   "use server";

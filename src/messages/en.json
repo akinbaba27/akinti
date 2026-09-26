@@ -767,7 +767,7 @@
   },
   "NotificationsView": {
     "emptyTitle": "No notifications yet",
-    "emptyDescription": "When someone follows you, comments, saves or shares one of your Waves, or asks you for a Duet, you will hear about it here.",
+    "emptyDescription": "When someone follows you, comments, Echoes, saves or shares one of your Waves, or asks you for a Duet, you will hear about it here.",
     "unreadCount": "{count} unread",
     "allCaughtUp": "All caught up",
     "markAllAsRead": "Mark all as read",
@@ -1178,6 +1178,9 @@
     "loadError": "Couldn't load challenges. Try again in a moment.",
     "emptyTitle": "No challenges yet",
     "emptyDescription": "This week's theme will show up here once one is live.",
+    "noneLiveTitle": "Nothing is running right now",
+    "noneLiveDescription": "The next theme will show up here. In the meantime you can record anything you like, or sing over a track.",
+    "browseTracks": "Browse tracks",
     "startsSoon": "Starts soon",
     "ended": "Ended",
     "liveNow": "Live now"
@@ -1878,6 +1881,7 @@
     "content": "Content",
     "analytics": "Analytics",
     "audio": "Audio",
-    "safety": "Safety"
+    "safety": "Safety",
+    "pro": "AKINTI Pro"
   }
 }

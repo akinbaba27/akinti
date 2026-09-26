@@ -69,6 +69,18 @@ export default async function ChallengesPage() {
 
   const liveChallenges = challenges.filter((challenge) => deriveChallengePhase(challenge) === "active");
   const restChallenges = challenges.filter((challenge) => deriveChallengePhase(challenge) !== "active");
+  /**
+   * Challenges exist, but none is live or on its way — the state this screen
+   * sits in between themes, and the one it used to handle worst. The
+   * `challenges.length === 0` empty state below never fired (there ARE rows),
+   * so the page rendered a bare list of "Ended" items with no explanation,
+   * which reads as abandoned rather than between. Flow's own empty state sends
+   * people here with "Browse challenges", so it is a first-run destination too.
+   */
+  const noneUpcoming =
+    !loadError &&
+    challenges.length > 0 &&
+    !challenges.some((challenge) => deriveChallengePhase(challenge) !== "ended");
   const heroCards = loadError ? [] : await Promise.all(liveChallenges.map((challenge) => loadHeroCardData(db, challenge)));
 
   return (
@@ -84,6 +96,21 @@ export default async function ChallengesPage() {
           />
         ) : (
           <>
+            {noneUpcoming ? (
+              <div className="flex flex-col items-start gap-1.5 pb-8">
+                <p className="type-body text-ink">{tPage("noneLiveTitle")}</p>
+                <p className="type-body-sm measure text-ink-muted">{tPage("noneLiveDescription")}</p>
+                <div className="flex flex-wrap gap-4 pt-2">
+                  <Link href={routes.create()} className="type-body-sm text-ink underline">
+                    {t("record")}
+                  </Link>
+                  <Link href={routes.tracks()} className="type-body-sm text-ink underline">
+                    {tPage("browseTracks")}
+                  </Link>
+                </div>
+              </div>
+            ) : null}
+
             {/* Mobile keeps the exact original plain-list shape, every
                 phase in one list (this pass's brief: "mobile unchanged"). */}
             <ChallengeList challenges={challenges} locale={locale} tPage={tPage} className="lg:hidden" />

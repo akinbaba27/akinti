@@ -218,6 +218,21 @@ export const SETTINGS_SECTIONS: readonly SettingsSection[] = [
     description: "Blocked users, reports, security.",
     href: routes.settingsSafety(),
   },
+  {
+    /**
+     * Listed here so the mobile Settings hub reaches it. `/settings/pro`
+     * already existed and was linked from `DesktopSideNav` and the ⌘K command
+     * palette — both desktop-only — so on a phone, which is this product's
+     * design target, AKINTI Pro had no entry point at all. `settings/page.tsx`
+     * renders any section outside its own `GROUPS` as a final cluster, so this
+     * needs no change there; `SettingsNavPane` keeps its own `GROUPS` list and
+     * so the desktop rail still, deliberately, does not repeat it.
+     */
+    key: "pro",
+    label: "AKINTI Pro",
+    description: "Subscription, Pro sounds, stems, billing.",
+    href: routes.settingsPro(),
+  },
 ];
 
 /**

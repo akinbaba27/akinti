@@ -767,7 +767,7 @@
   },
   "NotificationsView": {
     "emptyTitle": "Henüz bildirim yok",
-    "emptyDescription": "Biri seni takip ettiğinde, yorum yaptığında, Wave'lerinden birini kaydettiğinde ya da paylaştığında, ya da senden bir Duet istediğinde burada haberin olur.",
+    "emptyDescription": "Biri seni takip ettiğinde, yorum yaptığında, Wave'lerinden birini yankıladığında, kaydettiğinde ya da paylaştığında, ya da senden bir Duet istediğinde burada haberin olur.",
     "unreadCount": "{count} okunmadı",
     "allCaughtUp": "Hepsi okundu",
     "markAllAsRead": "Tümünü okundu işaretle",
@@ -1178,6 +1178,9 @@
     "loadError": "Meydan okumalar yüklenemedi. Birazdan yeniden dene.",
     "emptyTitle": "Henüz meydan okuma yok",
     "emptyDescription": "Bu haftanın teması, canlıya alındığında burada görünecek.",
+    "noneLiveTitle": "Şu anda aktif bir tema yok",
+    "noneLiveDescription": "Sıradaki tema burada görünecek. O zamana kadar canın ne isterse kaydedebilir ya da bir altyapının üzerine söyleyebilirsin.",
+    "browseTracks": "Altyapılara göz at",
     "startsSoon": "Yakında başlıyor",
     "ended": "Sona erdi",
     "liveNow": "Şu anda canlı"
@@ -1878,6 +1881,7 @@
     "content": "İçerik",
     "analytics": "Analiz",
     "audio": "Ses",
-    "safety": "Güvenlik"
+    "safety": "Güvenlik",
+    "pro": "AKINTI Pro"
   }
 }
