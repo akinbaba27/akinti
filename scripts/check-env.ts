@@ -72,10 +72,31 @@ export function checkEnv(context: EnvContext): EnvCheckResult {
  * local fallback).
  */
 export const ENV_GROUPS = [
-  { name: "iyzico billing", vars: ["IYZICO_API_KEY", "IYZICO_SECRET_KEY", "IYZICO_MERCHANT_ID"] },
+  /*
+   * Each billing group includes its provider's MONTHLY plan/price id, because
+   * credentials without a plan id is a silently broken checkout in exactly the
+   * way this whole check exists to catch: `startCheckout` has everything it
+   * needs to talk to the provider and nothing to charge for, and
+   * `scripts/seed-plans.ts` refuses to insert a `plans` row without a real id
+   * (it will not fabricate one — spec §44 rule 9), so `plans` stays empty and
+   * the Pro screen offers no checkout at all.
+   *
+   * The YEARLY ids are deliberately NOT here. `docs/BILLING.md` is explicit
+   * that the annual discount is undecided, so monthly-only is a legitimate
+   * steady state and flagging it would be a false alarm.
+   */
+  {
+    name: "iyzico billing",
+    vars: ["IYZICO_API_KEY", "IYZICO_SECRET_KEY", "IYZICO_MERCHANT_ID", "IYZICO_PLAN_MONTHLY_TRY"],
+  },
   {
     name: "paddle billing",
-    vars: ["PADDLE_API_KEY", "PADDLE_WEBHOOK_SECRET", "NEXT_PUBLIC_PADDLE_CLIENT_TOKEN"],
+    vars: [
+      "PADDLE_API_KEY",
+      "PADDLE_WEBHOOK_SECRET",
+      "NEXT_PUBLIC_PADDLE_CLIENT_TOKEN",
+      "PADDLE_PRICE_MONTHLY_USD",
+    ],
   },
   { name: "web push (VAPID)", vars: ["NEXT_PUBLIC_VAPID_PUBLIC_KEY", "VAPID_PRIVATE_KEY", "VAPID_SUBJECT"] },
   { name: "sidecar (separately-hosted worker)", vars: ["SIDECAR_URL", "SIDECAR_TIMEOUT_MS", "SIDECAR_RETRIES"] },
