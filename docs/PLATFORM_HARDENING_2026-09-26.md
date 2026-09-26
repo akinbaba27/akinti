@@ -309,6 +309,14 @@ Worth recording, because it is the part not to touch.
 
 ## 4. Needs a founder decision — not fixed
 
+> **Updated later the same day — see §7.** Items 1, 3 and 6 are now closed
+> (`git push` unblocked and GitHub current; Cypher week live; every tap target
+> at 44x44). Item 2 is confirmed blocked at the provider, not in the code.
+> §7.5 adds one new closed finding (empty VAPID variables, which had made web
+> push silently dead) and one new open one (the two Paddle `NEXT_PUBLIC_*`
+> variables being typed Secret).
+
+
 1. **`git push` permission** (§1.3). GitHub is 31 commits behind production.
    The single highest-value thing to unblock.
 2. **Seed `plans`, then test checkout.** `npm run seed:plans` plus real
@@ -396,3 +404,188 @@ without it the CLI reports "Not authorized".
 Worth opening first, on a phone: `/tracks` and Explore, which went from an
 empty shelf to 12 playable instrumentals, and `/challenges`, which went from
 two dead rows to something that explains itself.
+
+---
+
+## 7. Follow-up round, same day — the open items from §4
+
+Worked through §4's list in order once a `git push` permission rule was
+added. Five commits, `1f1c5e8`..`74fd8e7`.
+
+### 7.1 `git push` — unblocked, and GitHub is current
+
+```
+5d7d1c6..2d9fc7e  master -> master
+```
+
+`master` and `origin/master` now agree, and every subsequent commit in this
+round was pushed as it landed. **§4 item 1 is closed** — GitHub is no longer
+behind production, and the repo is a real backup of what is deployed again.
+
+### 7.2 `plans` — still blocked, and blocked by design at three layers
+
+Could not be seeded, and not for want of pricing. The prices are already
+decided and already in code: `MONTHLY_TRY_AMOUNT = 7999` and
+`MONTHLY_USD_AMOUNT = 499` in `scripts/seed-plans.ts` (₺79.99 / $4.99,
+PRODUCT_V2 §5/§6), which sit inside the $3–5/mo band
+`docs/research/2026-09-market-research.md` recommends as the first
+monetization test. **They should still be treated as placeholders pending the
+founder's sign-off** — nothing in this pass validated them against a market,
+and the annual discount remains undecided (`docs/BILLING.md`).
+
+The blocker is the provider price id, and three separate layers refuse to
+fake one:
+
+1. `plans.provider_price_id` is **NOT NULL** in the schema, so a row without
+   one cannot be inserted at all.
+2. `scripts/seed-plans.ts` skips any plan whose price-id env var is unset and
+   says so, explicitly refusing to invent an id.
+3. Its header cites spec §44 rule 9: a fabricated id produces a checkout that
+   reaches the provider and dies there, which is worse than no checkout.
+
+That last point is why this was left alone rather than worked around. A
+placeholder id would look like progress and then detonate precisely when the
+founder adds real provider keys and expects checkout to work.
+
+Confirmed empty in production too, by the new build-time check (§7.5): both
+billing groups report uniformly unset, so there are no credentials and no
+plan ids. `/settings/pro` degrades honestly in the meantime — "Pro checkout
+isn't live yet", no dead CTA.
+
+**To unblock:** create the monthly price in the iyzico Merchant Panel and in
+Paddle → Catalog → Prices, set `IYZICO_PLAN_MONTHLY_TRY` and
+`PADDLE_PRICE_MONTHLY_USD`, then run
+`npx tsx --env-file-if-exists=.env.local scripts/seed-plans.ts`. It is
+idempotent.
+
+### 7.3 A live Challenge — Cypher week · `d3d2716`
+
+`/challenges` had shown two expired rows to every visitor since 2026-09-18.
+**Cypher week** now runs 26 Sep to 3 Oct.
+
+Chosen rather than invented: PRODUCT_V2 §4 lists Cypher beside Atışma as one
+of the two Turkish-native Duet modes already built (`duet_mode = 'cypher'`,
+sequential verses, up to four people), and the market research's
+go-to-market plan names "Cypher Haftası" alongside the two themes that
+already ran. It completes the set they started — a track prompt, a
+call-and-response prompt, and now a chain prompt — and is paired with
+"Hustle" (117 bpm), the one curated track tagged `hiphop`.
+
+`backingTrackTag` was added to the seed shape for that: `useBackingTrack`
+previously took whichever curated track came back first, fine for a
+genre-agnostic prompt and wrong for a Cypher, where the beat is the point.
+
+Verified on production in both locales and both widths, 15/15, zero console
+errors: "Cypher week · Live now" / "Cypher haftası · Şu anda canlı", both
+detail pages render, and §2.3's "Nothing is running right now" note
+correctly stands down now that a theme is live.
+
+### 7.4 Tap targets — 162 to 0 · `ea3911a`
+
+Every control now meets 44x44 (WCAG 2.5.5, iOS 44pt, Android 48dp).
+`mobile-quality.json` went from **162 sub-44px controls to 0**, across 16
+routes at both viewports, with horizontal overflow still 0 and copy leaks
+still 0.
+
+Fixed at the shared primitives, so one change covered every call site:
+`IconButton` `sm` 36 to 44 (it carried a Wave card's Echo/Comment/Save row
+and a "Play this Wave" transport control, which DESIGN.md §12.10
+additionally wants to be the largest target on screen), `Button` `sm` 40 to
+44 plus a minimum width (a short "Got it" cleared the height at 37px wide),
+`Tabs` 32/40 to 44 and `Chip` 40 to 44 both with `min-w-11` (a "Sent" tab
+cleared height, not width), the desktop rail and Settings nav rows, the
+command-palette trigger, the scroller arrows, `RangeSwitcher`, and every
+`h-10` key-shaped link button.
+
+Added `.akinti-tap` for the cases where resizing would be a design change —
+the wordmark, the `Switch` track, "Log out" / "Delete account", the
+analytics table toggle, the lane's "Sing over this". It keeps the visual
+size and expands the hit area with a pseudo-element, and its doc comment
+states the limit: only for controls that stand alone, never a tight row,
+because two 44px hit areas closer than 44px apart overlap and the
+later-painted one swallows its neighbour's taps, which is worse than the
+small target was. That is also why the icon rows were genuinely resized
+rather than overlaid.
+
+Two corrections to the measurement, without which 0 was unreachable
+honestly: `.akinti-tap` controls are no longer counted (a pseudo-element's
+hit area is invisible to `getBoundingClientRect`), and WCAG 2.5.5's
+exemption for a target "in a sentence or block of text" is now applied by
+the standard's own test — one or two line boxes tall, no padding or border
+of its own — with the 191 links it covers reported separately rather than
+silently dropped. The first version keyed off `display: inline` and so
+counted block-level running text as failing controls.
+
+One thing deliberately not "fixed": the `Switch` toggles look unnamed to a
+naive probe but are labelled via `aria-labelledby`, which is why axe has
+always reported 0 violations on those routes. Checked before changing
+anything.
+
+The four remaining flags in the sweep are all "no nav item marked current"
+on mobile Settings and Analytics, which are not among the five tabs and
+carry a `PageHeader` title instead. Expected, not a defect.
+
+### 7.5 Vercel env vars — a real instance of the bug, found and fixed
+
+**Found**: `VAPID_PRIVATE_KEY` and `VAPID_SUBJECT` both existed in
+production as Secret variables and were **empty**.
+`NEXT_PUBLIC_VAPID_PUBLIC_KEY` was populated.
+
+That is the same class as the `SUPABASE_SERVICE_ROLE_KEY` outage, and it
+made **web push silently dead in production**. `PushToggle` gates only on
+the public key, which was present: a user turned push on, granted the
+browser permission, got a subscription row and a "Push notifications turned
+on" toast — while `isPushConfigured()` returned false server-side and
+`sendPushToUser` bailed on every send. Confirmation with no delivery,
+forever, and no error anywhere. Textbook fake success.
+
+**Fixed.** Production's public key is byte-identical to the local one
+(sha256 `fa24b7c86c7a`), so the local private key and subject are that same
+keypair's other halves — verified with `webpush.setVapidDetails`, which
+accepted them. Both empty variables were replaced with the matching values,
+so no existing push subscription was invalidated. The build now reports
+`optional feature groups: none half-set`, where before it named the VAPID
+group. Web push is functional in production for the first time.
+
+**Made permanent** (`1f1c5e8`, `ead7852`): `scripts/check-env.ts --groups`
+has flagged half-set optional groups since Wave F but was wired into
+nothing, so it only ran when someone remembered. It is now a `prebuild`
+script, which means every Vercel deploy prints the verdict in its own build
+log with production's real environment loaded. Non-strict, so it reports
+without failing the deploy — the reasoning the script's own comment gives.
+Each provider's **monthly plan id** was folded into its billing group too,
+since credentials with no plan id is a silently broken checkout; the yearly
+ids are deliberately excluded because the annual discount is undecided and
+monthly-only is a legitimate state.
+
+This is also the only way to see these values at all: **32 of the 36 Vercel
+variables are stored as Secret and cannot be read back** — `vercel env pull`
+writes `[SENSITIVE]` placeholders — so the build's own view is the only view.
+
+**Still open, and needing the founder:** `NEXT_PUBLIC_PADDLE_CLIENT_TOKEN`
+and `NEXT_PUBLIC_PADDLE_ENVIRONMENT` are typed **Secret**, while the other
+four `NEXT_PUBLIC_*` variables are plain **Config**. `NEXT_PUBLIC_*` is
+inlined into the bundle at build time, so it is public by definition:
+marking it Secret buys nothing and costs the ability to verify it, which is
+exactly how this bug class stays invisible. Re-typing them means removing and
+re-adding, which needs the values, and they cannot be read. Both Paddle
+groups currently report uniformly unset, so nothing is half-set today.
+
+### 7.6 Verification
+
+```
+npm run typecheck   PASS
+npm run lint        PASS   eslint 0 errors, 57 warnings (all vendored)
+npm run test        PASS   921/921 in 90 files
+npm run build       PASS   prebuild env-group check runs first
+mobile-quality      32 route/viewport combinations: 0 sub-44px targets,
+                    0 horizontal overflow, 0 copy leaks, 191 inline-text
+                    links exempt
+live (challenges)   15/15 both locales, both widths, 0 console errors
+live (phase 2)      7/9 — the 2 "failures" are a stale assertion that
+                    /challenges shows the between-themes note, which
+                    correctly stood down when Cypher week opened
+```
+
+Live: <https://akinti.vercel.app>, deployment `akinti-iu0u6kq3o-akinbaba27`,
+commit `74fd8e7`.
