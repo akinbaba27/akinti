@@ -182,9 +182,15 @@ function TrackRow({ track, className }: { track: BackingTrackCard; className?: s
       </div>
 
       <div className="flex min-w-0 flex-col gap-2">
-        <div className="flex min-w-0 items-baseline justify-between gap-3">
-          <p className="type-subhead truncate text-ink">{track.title}</p>
-          <span className="type-mono-sm shrink-0 text-ink-subtle">
+        {/* Stacked under `sm`, one row from there up. Side by side, the
+            metadata is `shrink-0` and the title takes the whole loss: at 390px
+            minus the play key and the gutters the title had ~120px, so
+            "Monkeys Spinning Monkeys" rendered as "Monkeys ..." and
+            "Sneaky Snitch" as "Sneaky S...". The title is what someone scans
+            for, so on a phone it gets the full width and wraps instead. */}
+        <div className="flex min-w-0 flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
+          <p className="type-subhead text-ink sm:truncate">{track.title}</p>
+          <span className="type-mono-sm text-ink-subtle sm:shrink-0">
             {meta.join(" \u00b7 ")}
           </span>
         </div>
